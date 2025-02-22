@@ -1,4 +1,4 @@
-# Kim 
+# KIM - nice to meet you 🌟
 
 [![IMG-20250130-155753-Original.jpg](https://i.postimg.cc/d1Y5ZYs4/IMG-20250130-155753-Original.jpg)](https://postimg.cc/qt1sWWC3)
 
@@ -64,18 +64,18 @@ financial reporting.
 
 ### Advanced Park (Part of Teammate, ADAS)
 
-- **Description:** Simplifying the parking process in vehcles, TOYOTA’S ADVANCED PARK is designed to assist the driver with hands-free parking when parallel parking or backing into a parking space, making parking easier for drivers.
+- **Background:** Simplifying the parking process in vehcles, TOYOTA’S ADVANCED PARK is designed to assist the driver with hands-free parking when parallel parking or backing into a parking space, making parking easier for drivers.
 - **Technologies Used:** Qualitative and qualitative research, 2D design, 3D modeling.
 - **Link:** [Toyota Advanced Park](https://www.toyota.com/content/dam/toyota/brochures/pdf/2022/Toyota_Advanced_Park_Overview.pdf)
 
 ### Rakuten Cloud
 
-- **Description:** One click deployment for Rakuten Native Apps. Rakuten Cloud allows you to run, store, and orchestrate edge-level data across thousands of sites—be they retail stores, bank branches, manufacturing facilities, cellular network sites or other. All with the ability to access data in real-time so your cloud can scale with your business.
+- **Background:** One click deployment for Rakuten Native Apps. Rakuten Cloud allows you to run, store, and orchestrate edge-level data across thousands of sites—be they retail stores, bank branches, manufacturing facilities, cellular network sites or other. All with the ability to access data in real-time so your cloud can scale with your business.
 - **Technologies Used:** Kubernetes, Docker, Jenkins, 
 - **Link:** [Rakuten Cloud](https://cloud.rakuten.com/)
 
 ## Dickies Website Japan <Design, marketing, social media presence>
-- **Description:** ​Dickies, established in 1922 in Fort Worth, Texas, began by producing durable bib overalls made from indigo denim and hickory stripe fabrics. Over the years, the brand expanded its workwear line to include coveralls, designed to protect everyday clothing during labor-intensive tasks. Today, Dickies is recognized globally for its commitment to quality and functionality in workwear apparel.
+- **Background:** ​Dickies, established in 1922 in Fort Worth, Texas, began by producing durable bib overalls made from indigo denim and hickory stripe fabrics. Over the years, the brand expanded its workwear line to include coveralls, designed to protect everyday clothing during labor-intensive tasks. Today, Dickies is recognized globally for its commitment to quality and functionality in workwear apparel.
 - **Technologies Used:** Wordpress, Google ads, Google Analytics, bitly, Line, Facebook, Twitter
 - **Link:** [Dickie's Japan](https://www.dickies.jp/)
 
@@ -90,9 +90,9 @@ financial reporting.
 ## Honors & Extracurriculars
 
 - **Extracurricular Activity:**
-  Lead singer in my own home.
-  Best chef in my own kitchen.
-  Best dressed in my own room.
+  LOUDEST voice in my shower. :sparkling_heart:
+  BEST cook in my kitchen. :stew: 
+  BEST dressed in my room. :v:
 
 ## Footer
 
