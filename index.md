@@ -19,9 +19,9 @@ title: "KIM - nice to meet you 🌟"
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
 ## About Me
-​Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused digital solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and singing in my own home.
+Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused digital solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and singing at home.
 
-Aspiring to transition into a remote IT Product Manager role, I am eager to leverage my diverse background and collaborative spirit to drive innovation. Let's connect and explore how we can create impactful products together.
+I'm eager to leverage my diverse background and collaborative spirit to drive innovation to help make the world a better place. Let's connect and explore how we can create impactful products together.
 
 ## Education
 
