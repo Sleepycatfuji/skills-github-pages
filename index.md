@@ -31,19 +31,27 @@ Aspiring to transition into a remote IT Product Manager role, I am eager to leve
 
 ### UX Project Manager at [Woven by Toyota](https://woven.toyota/en/)
 
-- **Duration:** Start Date – End Date
+- **Duration:** July 2024 – Present
 - **Responsibilities:**
-  - Responsibility 1
-  - Responsibility 2
-  - Responsibility 3
+  - Led UX research and design strategy for an Advanced Parking Assistance feature, aligning with product roadmap.
+  - Assisted in user research and translated insights into intuitive product design proposals.
+  - Worked closely with UX Designers, Researchers, and Engineers to define and execute feature rollouts.
 
-### Another Job Title at Another Company
+### Technical Project Manager, [Rakuten Group](https://global.rakuten.com/corp/), Cloud Containers Group
 
-- **Duration:** Start Date – End Date
+- **Duration:** March 2023 – June 2024
 - **Responsibilities:**
-  - Responsibility 1
-  - Responsibility 2
-  - Responsibility 3
+  - Defined and managed the product lifecycle for cloud infrastructure solutions, optimizing workflows.
+  - Led cross-functional collaboration, resulting in an 85% reduction in cloud cluster deployment time (from 3 months to 2 weeks).
+  - Conducted risk assessments and customer satisfaction initiatives, improving retention.
+ 
+### Technical Project Manager, [Rakuten Group](https://global.rakuten.com/corp/), Cloud Containers Group
+
+- **Duration:** March 2023 – June 2024
+- **Responsibilities:**
+  - Defined and managed the product lifecycle for cloud infrastructure solutions, optimizing workflows.
+  - Led cross-functional collaboration, resulting in an 85% reduction in cloud cluster deployment time (from 3 months to 2 weeks).
+  - Conducted risk assessments and customer satisfaction initiatives, improving retention.
 
 ## Projects
 
