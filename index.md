@@ -90,9 +90,9 @@ financial reporting.
 ## Honors & Extracurriculars
 
 - **Extracurricular Activity:**
-  LOUDEST voice in my shower. :sparkling_heart:
-  BEST cook in my kitchen. :stew: 
-  BEST dressed in my room. :v:
+  LOUDEST voice in my shower. 💖
+  BEST cook in my kitchen. 🍜
+  BEST dressed in my room. ✌️
 
 ## Footer
 
