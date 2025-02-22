@@ -25,7 +25,7 @@ Aspiring to transition into a remote IT Product Manager role, I am eager to leve
 - **Degree:** Bachelor of Arts
 - **Institution:** Thammasat University
 - **Year:** 2011
-- **Details:** Survey of English Literature, American Literature, Literary Theory and Criticism, Cultural Studies.
+- **Details:** English Literature, American Literature, Literary Theory and Criticism, Cultural Studies.
 
 - **Degree:** Web Development
 - **Institution:** LeWagon
