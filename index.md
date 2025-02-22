@@ -41,7 +41,7 @@ Aspiring to transition into a remote IT Product Manager role, I am eager to leve
 
 - **Duration:** July 2024 – Present
 - **Responsibilities:**
-  - Led UX research and design strategy for an Advanced Parking Assistance feature, aligning with product roadmap.
+  - Led UX research and design strategy for an Advanced Parking Assistance feature.
   - Assisted in user research and translated insights into intuitive product design proposals.
   - Worked closely with UX Designers, Researchers, and Engineers to define and execute feature rollouts.
   - Managed vendor contracts, ensuring timely payments by collaborating with finance and legal teams.
@@ -77,7 +77,7 @@ financial reporting.
 - **Technologies Used:** Kubernetes, Docker, Jenkins, 
 - **Link:** [Rakuten Cloud](https://cloud.rakuten.com/)
 
-## Dickies Website Japan <Design, marketing, social media presence>
+## Dickies Website Japan
 - **Background:** ​Dickies, established in 1922 in Fort Worth, Texas, began by producing durable bib overalls made from indigo denim and hickory stripe fabrics. Over the years, the brand expanded its workwear line to include coveralls, designed to protect everyday clothing during labor-intensive tasks. Today, Dickies is recognized globally for its commitment to quality and functionality in workwear apparel.
 - **Technologies Used:** Wordpress, Google ads, Google Analytics, bitly, Line, Facebook, Twitter
 - **Link:** [Dickie's Japan](https://www.dickies.jp/)
