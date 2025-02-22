@@ -1,6 +1,14 @@
 # Kim 
 
-![Your Photo](path/to/your/photo.jpg)
+[![IMG-20250130-155753-Original.jpg](https://i.postimg.cc/d1Y5ZYs4/IMG-20250130-155753-Original.jpg)](https://postimg.cc/qt1sWWC3)
+
+[![IMG-20250130-155757-Original.jpg](https://i.postimg.cc/htXyHsZb/IMG-20250130-155757-Original.jpg)](https://postimg.cc/75ynz3kf)
+
+[url=https://postimg.cc/R3S1svqm][img]https://i.postimg.cc/R3S1svqm/IMG-20250130-155759-Original.jpg[/img][/url]
+
+[url=https://postimg.cc/PCzzQCXK][img]https://i.postimg.cc/PCzzQCXK/IMG-20250130-155800-Original.jpg[/img][/url]
+
+
 
 ## Contact Information
 
@@ -9,7 +17,7 @@
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
 ## About Me
-​Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused digital solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and playing the flute.
+​Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused digital solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and singing in my own home.
 
 Aspiring to transition into a remote IT Product Manager role, I am eager to leverage my diverse background and collaborative spirit to drive innovation. Let's connect and explore how we can create impactful products together.
 
@@ -59,7 +67,7 @@ financial reporting.
 
 - **Description:** Simplifying the parking process in vehcles, TOYOTA’S ADVANCED PARK is designed to assist the driver with hands-free parking when parallel parking or backing into a parking space, making parking easier for drivers.
 - **Technologies Used:** Qualitative and qualitative research, 2D design, 3D modeling.
-- **Link:** [Toyota Advanced Park]([https://github.com/yourusername/project-repo](https://www.toyota.com/content/dam/toyota/brochures/pdf/2022/Toyota_Advanced_Park_Overview.pdf))
+- **Link:** [Toyota Advanced Park](https://www.toyota.com/content/dam/toyota/brochures/pdf/2022/Toyota_Advanced_Park_Overview.pdf)
 
 ### Rakuten Cloud
 
