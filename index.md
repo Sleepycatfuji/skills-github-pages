@@ -83,7 +83,7 @@ financial reporting.
 ## Skills
 
 - **Programming Languages:** Ruby, PHP, React, HTML, CSS, Python, SQL, Bootstrap, UX, UI, Javascript
-- **Frameworks and Libraries:** Ruby on Rails, React, Library 2
+- **Frameworks and Libraries:** Ruby on Rails, React
 - **Tools and Platforms:** Git, Heroku, Trello, Jira, Confluence, Figma, Mapbox, Native Cloud
 - **Product Strategy & Roadmaps:** Agile & Lean Methodologies, MVP Development
 - **Collaboration & Leadership:** Stakeholder Management, Vendor Management, Resource Allocation, Cross-functional Team Leadership
