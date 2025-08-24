@@ -19,11 +19,11 @@ title: "KIM - nice to meet you 🌟"
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
 ## About Me
-Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused digital solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and singing at home.
+Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and singing at home. I am currently working at Recursive involved in sustainability projects that help save water. I want to make tap water drinkable for everyone.
 
 ## Education
 
-- **Degree:** Bachelor of Arts
+- **Degree:** Bachelor of Arts (English Literature)
 - **Institution:** Thammasat University
 - **Year:** 2011
 - **Details:** English Literature, American Literature, Literary Theory and Criticism, Cultural Studies.
@@ -35,9 +35,15 @@ Hello! I'm Kim, a UX Project Manager with a background in IT sales and internati
 
 ## Experience
 
+### Project Manager at [Recursive](https://recursiveai.co.jp/?r=0)
+
+- **Duration:** July 2025 – Present
+- **Responsibilities:**
+  - In collaboration with [Sense Info Tech](https://www.sense-infotech.com/) and [Metropolitan Waterworks Authority of Thailand](https://www.mwa.co.th/en/home/), we are building an AI model that will detect leaks in the water pipes within Bangkok Metropolitan Area. Data sources include historical leakage data, RTU, average water flow, topological data. 
+
 ### UX Project Manager at [Woven by Toyota](https://woven.toyota/en/)
 
-- **Duration:** July 2024 – Present
+- **Duration:** July 2024 – June 2025 *on contract
 - **Responsibilities:**
   - Led UX research and design strategy for an Advanced Parking Assistance feature.
   - Assisted in user research and translated insights into intuitive product design proposals.
@@ -46,7 +52,7 @@ Hello! I'm Kim, a UX Project Manager with a background in IT sales and internati
 
 ### Technical Project Manager, [Rakuten Group](https://global.rakuten.com/corp/), Cloud Containers Group
 
-- **Duration:** March 2023 – June 2024
+- **Duration:** March 2023 – June 2024 *on contract
 - **Responsibilities:**
   - Defined and managed the product lifecycle for cloud infrastructure solutions, optimizing workflows.
   - Led cross-functional collaboration, resulting in an 85% reduction in cloud cluster deployment time (from 3 months to 2 weeks).
