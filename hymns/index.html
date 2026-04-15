@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danish Hymn → Chorale Finder</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 24px;
+        background: #f7f7f7;
+        color: #222;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+      }
+
+      .topbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .toolbar-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+
+      button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        background: #1f5fbf;
+        color: white;
+        cursor: pointer;
+        margin-right: 8px;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background: #174a95;
+      }
+
+      .secondary-button {
+        background: #666;
+      }
+
+      .secondary-button:hover {
+        background: #4f4f4f;
+      }
+
+      .muted {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .chorale-item {
+        border: 1px solid #e2e2e2;
+        border-radius: 10px;
+        padding: 12px;
+        margin-top: 10px;
+        background: #fafafa;
+      }
+
+      .preferred {
+        margin-top: 8px;
+        display: block;
+        font-size: 14px;
+      }
+
+      .badge {
+        display: inline-block;
+        font-size: 12px;
+        background: #eaf2ff;
+        color: #1f5fbf;
+        padding: 4px 8px;
+        border-radius: 999px;
+        margin-left: 8px;
+      }
+
+      .comment-box {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid #e6e6e6;
+      }
+
+      .comment-status {
+        font-size: 13px;
+        color: #1f5fbf;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div>
+        <h1 id="appTitle">Salme- og Koralbogssøgning</h1>
+        <p id="appSubtitle" class="muted">
+          Søg efter salmenummer eller titel, og se alle tilknyttede koraler.
+        </p>
+      </div>
+      <div class="toolbar-group">
+        <button id="langDaButton" class="secondary-button" type="button">
+          Dansk
+        </button>
+        <button id="langEnButton" class="secondary-button" type="button">
+          English
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <label for="searchInput"><strong id="searchLabel">Søg</strong></label>
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Fx 309 eller Bøj, o Helligånd"
+      />
+      <button id="searchButton" type="button">Søg</button>
+      <button id="clearButton" class="secondary-button" type="button">
+        Ryd
+      </button>
+    </div>
+
+    <div id="status" class="card muted">Indlæser data...</div>
+    <div id="results"></div>
+
+    <script>
+      const DATA_PATH = "./data/hymns_dataset_updated.json";
+      const PREFERENCES_KEY = "preferredChorales";
+      const COMMENTS_KEY = "hymnComments";
+      const LANGUAGE_KEY = "appLanguage";
+
+      let hymnData = {};
+      let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || "da";
+
+      const translations = {
+        da: {
+          appTitle: "Salme- og Koralbogssøgning",
+          appSubtitle:
+            "Søg efter salmenummer eller titel, og se alle tilknyttede koraler.",
+          searchLabel: "Søg",
+          searchPlaceholder: "Fx 309 eller Bøj, o Helligånd",
+          searchButton: "Søg",
+          clearButton: "Ryd",
+          loading: "Indlæser data...",
+          loaded: "Data indlæst. Søg efter en salme.",
+          couldNotLoad:
+            "Kunne ikke indlæse data. Tjek at du kører siden via en lokal server eller GitHub Pages.",
+          noResults: "Ingen salmer fundet.",
+          resultsFound: (count) => `${count} salme(r) fundet.`,
+          hymnLabel: "Salme",
+          firstLine: "Første linje",
+          verseCount: "Antal vers",
+          unknownVerseCount: "Ukendt",
+          sourceMelodies: "Melodier fra kilden",
+          noChorales: "Ingen koraler fundet.",
+          chorale: "Koral",
+          preferred: "Foretrukken melodi",
+          preferredSaved: "Foretrukken melodi gemt",
+          notesLabel: "Kommentar / note",
+          notesPlaceholder:
+            "Skriv en kommentar om denne salme eller den foretrukne melodi her...",
+          saveComment: "Gem kommentar",
+          commentSaved: "Kommentar gemt",
+          clearPreference: "Fjern valg",
+        },
+        en: {
+          appTitle: "Danish Hymn → Chorale Finder",
+          appSubtitle:
+            "Search by hymn number or title and view all linked chorales.",
+          searchLabel: "Search",
+          searchPlaceholder: "For example 309 or Bøj, o Helligånd",
+          searchButton: "Search",
+          clearButton: "Clear",
+          loading: "Loading data...",
+          loaded: "Data loaded. Search for a hymn.",
+          couldNotLoad:
+            "Could not load data. Make sure you are running the page via a local server or GitHub Pages.",
+          noResults: "No hymns found.",
+          resultsFound: (count) => `${count} hymn(s) found.`,
+          hymnLabel: "Hymn",
+          firstLine: "First line",
+          verseCount: "Verse count",
+          unknownVerseCount: "Unknown",
+          sourceMelodies: "Source melodies",
+          noChorales: "No chorales found.",
+          chorale: "Chorale",
+          preferred: "Preferred melody",
+          preferredSaved: "Preferred melody saved",
+          notesLabel: "Comment / note",
+          notesPlaceholder:
+            "Write a comment about this hymn or the preferred melody here...",
+          saveComment: "Save comment",
+          commentSaved: "Comment saved",
+          clearPreference: "Clear selection",
+        },
+      };
+
+      function t(key, ...args) {
+        const value = translations[currentLanguage][key];
+        return typeof value === "function" ? value(...args) : value;
+      }
+
+      function applyLanguage() {
+        document.documentElement.lang = currentLanguage;
+        document.title = t("appTitle");
+        document.getElementById("appTitle").textContent = t("appTitle");
+        document.getElementById("appSubtitle").textContent = t("appSubtitle");
+        document.getElementById("searchLabel").textContent = t("searchLabel");
+        document.getElementById("searchInput").placeholder =
+          t("searchPlaceholder");
+        document.getElementById("searchButton").textContent = t("searchButton");
+        document.getElementById("clearButton").textContent = t("clearButton");
+
+        const status = document.getElementById("status");
+        if (status.dataset.state === "loading") {
+          status.textContent = t("loading");
+        }
+        if (status.dataset.state === "loaded") {
+          status.textContent = t("loaded");
+        }
+      }
+
+      function loadPreferences() {
+        try {
+          return JSON.parse(localStorage.getItem(PREFERENCES_KEY) || "{}");
+        } catch (error) {
+          console.error("Could not load preferences:", error);
+          return {};
+        }
+      }
+
+      function savePreferences(preferences) {
+        localStorage.setItem(PREFERENCES_KEY, JSON.stringify(preferences));
+      }
+
+      function setPreferredChorale(hymnNumber, choraleNumber) {
+        const preferences = loadPreferences();
+        preferences[String(hymnNumber)] = choraleNumber;
+        savePreferences(preferences);
+      }
+
+      function clearPreferredChorale(hymnNumber) {
+        const preferences = loadPreferences();
+        delete preferences[String(hymnNumber)];
+        savePreferences(preferences);
+      }
+
+      function getPreferredChorale(hymnNumber) {
+        const preferences = loadPreferences();
+        return preferences[String(hymnNumber)] || null;
+      }
+
+      function loadComments() {
+        try {
+          return JSON.parse(localStorage.getItem(COMMENTS_KEY) || "{}");
+        } catch (error) {
+          console.error("Could not load comments:", error);
+          return {};
+        }
+      }
+
+      function saveComments(comments) {
+        localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+      }
+
+      function getComment(hymnNumber) {
+        const comments = loadComments();
+        return comments[String(hymnNumber)] || "";
+      }
+
+      function setComment(hymnNumber, commentText) {
+        const comments = loadComments();
+        comments[String(hymnNumber)] = commentText;
+        saveComments(comments);
+      }
+
+      function normalizeText(text) {
+        return String(text || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .trim();
+      }
+
+      function hymnMatchesQuery(hymnKey, hymn, query) {
+        const rawQuery = String(query || "").trim();
+        const q = normalizeText(rawQuery);
+
+        if (!q) {
+          return true;
+        }
+
+        const hymnNumber = String(
+          hymn.hymn_number !== undefined && hymn.hymn_number !== null
+            ? hymn.hymn_number
+            : hymnKey,
+        ).trim();
+
+        const title = normalizeText(hymn.hymn_title || "");
+        const firstLine = normalizeText(hymn.first_line || "");
+
+        const isNumericQuery = /^\d+$/.test(rawQuery);
+
+        if (isNumericQuery) {
+          return hymnNumber === rawQuery;
+        }
+
+        return title.includes(q) || firstLine.includes(q);
+      }
+
+      function renderResults(matches) {
+        const results = document.getElementById("results");
+        const status = document.getElementById("status");
+        results.innerHTML = "";
+
+        if (matches.length === 0) {
+          status.textContent = t("noResults");
+          return;
+        }
+
+        status.textContent = t("resultsFound", matches.length);
+
+        matches.forEach((hymn) => {
+          const card = document.createElement("div");
+          card.className = "card";
+
+          const preferred = getPreferredChorale(hymn.hymn_number);
+          const chorales = hymn.chorales || [];
+          const savedComment = getComment(hymn.hymn_number);
+
+          let choralesHtml = "";
+          if (chorales.length === 0) {
+            choralesHtml = `<p>${t("noChorales")}</p>`;
+          } else {
+            choralesHtml = chorales
+              .map((chorale) => {
+                const checked =
+                  Number(preferred) === Number(chorale.chorale_number)
+                    ? "checked"
+                    : "";
+                return `
+              <div class="chorale-item">
+                <div><strong>${t("chorale")} ${chorale.chorale_number}</strong></div>
+                <div>${chorale.chorale_title}</div>
+                <label class="preferred">
+                  <input type="radio" name="preferred-${hymn.hymn_number}" value="${chorale.chorale_number}" ${checked}>
+                  ${t("preferred")}
+                </label>
+              </div>
+            `;
+              })
+              .join("");
+          }
+
+          const showClearPreference =
+            preferred !== null && preferred !== undefined;
+
+          const verseCountText =
+            hymn.verse_count !== undefined && hymn.verse_count !== null
+              ? hymn.verse_count
+              : t("unknownVerseCount");
+
+          card.innerHTML = `
+          <div>
+            <strong>${t("hymnLabel")} ${hymn.hymn_number}: ${hymn.hymn_title}</strong>
+            ${showClearPreference ? `<span class="badge">${t("preferredSaved")}</span>` : ""}
+          </div>
+          <p class="muted">${t("verseCount")}: ${verseCountText}</p>
+          <p class="muted">${t("sourceMelodies")}: ${(hymn.melodies || []).join(" | ") || "-"}</p>
+          <div>${choralesHtml}</div>
+          ${showClearPreference ? `<button class="secondary-button clear-preference-button" data-hymn-number="${hymn.hymn_number}" type="button">${t("clearPreference")}</button>` : ""}
+          <div class="comment-box">
+            <label for="comment-${hymn.hymn_number}"><strong>${t("notesLabel")}</strong></label>
+            <textarea id="comment-${hymn.hymn_number}" placeholder="${t("notesPlaceholder")}">${savedComment}</textarea>
+            <button class="save-comment-button" data-hymn-number="${hymn.hymn_number}" type="button">${t("saveComment")}</button>
+            <div id="comment-status-${hymn.hymn_number}" class="comment-status"></div>
+          </div>
+        `;
+
+          card
+            .querySelectorAll(`input[name="preferred-${hymn.hymn_number}"]`)
+            .forEach((radio) => {
+              radio.addEventListener("change", (event) => {
+                setPreferredChorale(
+                  hymn.hymn_number,
+                  Number(event.target.value),
+                );
+                runSearch();
+              });
+            });
+
+          const clearPreferenceButton = card.querySelector(
+            ".clear-preference-button",
+          );
+          if (clearPreferenceButton) {
+            clearPreferenceButton.addEventListener("click", () => {
+              clearPreferredChorale(hymn.hymn_number);
+              runSearch();
+            });
+          }
+
+          const saveCommentButton = card.querySelector(".save-comment-button");
+          saveCommentButton.addEventListener("click", () => {
+            const hymnNumber = saveCommentButton.dataset.hymnNumber;
+            const textarea = card.querySelector(`#comment-${hymnNumber}`);
+            const statusEl = card.querySelector(
+              `#comment-status-${hymnNumber}`,
+            );
+            setComment(hymnNumber, textarea.value);
+            statusEl.textContent = t("commentSaved");
+            setTimeout(() => {
+              statusEl.textContent = "";
+            }, 2000);
+          });
+
+          results.appendChild(card);
+        });
+      }
+
+      function runSearch() {
+        const query = document.getElementById("searchInput").value.trim();
+
+        const matches = Object.entries(hymnData)
+          .filter(([hymnKey, hymn]) => hymnMatchesQuery(hymnKey, hymn, query))
+          .map(([hymnKey, hymn]) => {
+            if (hymn.hymn_number === undefined || hymn.hymn_number === null) {
+              return { ...hymn, hymn_number: Number(hymnKey) || hymnKey };
+            }
+            return hymn;
+          });
+
+        matches.sort((a, b) => Number(a.hymn_number) - Number(b.hymn_number));
+        renderResults(matches);
+      }
+
+      async function loadData() {
+        const status = document.getElementById("status");
+        status.dataset.state = "loading";
+
+        try {
+          const response = await fetch(DATA_PATH);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          hymnData = await response.json();
+
+          status.dataset.state = "loaded";
+          status.textContent = t("loaded");
+          runSearch();
+        } catch (error) {
+          console.error(error);
+          status.dataset.state = "error";
+          status.textContent = t("couldNotLoad");
+        }
+      }
+
+      document
+        .getElementById("searchButton")
+        .addEventListener("click", runSearch);
+
+      document.getElementById("clearButton").addEventListener("click", () => {
+        document.getElementById("searchInput").value = "";
+        runSearch();
+      });
+
+      document
+        .getElementById("searchInput")
+        .addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            runSearch();
+          }
+        });
+
+      document.getElementById("langDaButton").addEventListener("click", () => {
+        currentLanguage = "da";
+        localStorage.setItem(LANGUAGE_KEY, currentLanguage);
+        applyLanguage();
+        runSearch();
+      });
+
+      document.getElementById("langEnButton").addEventListener("click", () => {
+        currentLanguage = "en";
+        localStorage.setItem(LANGUAGE_KEY, currentLanguage);
+        applyLanguage();
+        runSearch();
+      });
+
+      applyLanguage();
+      loadData();
+    </script>
+  </body>
+</html>
