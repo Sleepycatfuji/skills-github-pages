@@ -105,11 +105,59 @@
       .badge {
         display: inline-block;
         font-size: 12px;
-        background: #eaf2ff;
-        color: #1f5fbf;
+        background: #eaf8ef;
+        color: #1f7a3b;
+        border: 1px solid #b7dfc4;
         padding: 4px 8px;
         border-radius: 999px;
         margin-left: 8px;
+        font-weight: 600;
+      }
+
+      .melody-section {
+        border: 1px solid #e2e2e2;
+        border-radius: 10px;
+        padding: 12px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        background: #fafafa;
+      }
+
+      .melody-section-title {
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .recording-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .recording-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .recording-help {
+        margin-top: 4px;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      .source-melodies {
+        border: 1px solid #e2e2e2;
+        border-radius: 10px;
+        background: #fafafa;
+        padding: 12px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      .recording-option input {
+        margin: 0;
       }
 
       .comment-box {
@@ -187,7 +235,10 @@
           firstLine: "Første linje",
           verseCount: "Antal vers",
           unknownVerseCount: "Ukendt",
-          sourceMelodies: "Melodier fra kilden",
+          sourceMelodies: "Melodihenvisninger",
+          recordingMelodies: "Tilgængelige indspilninger",
+          recordingHelp:
+            "Vælg den indspilning, du foretrækker til denne salme.",
           noChorales: "Ingen koraler fundet.",
           chorale: "Koral",
           preferred: "Foretrukken melodi",
@@ -217,7 +268,9 @@
           firstLine: "First line",
           verseCount: "Verse count",
           unknownVerseCount: "Unknown",
-          sourceMelodies: "Source melodies",
+          sourceMelodies: "Tune references",
+          recordingMelodies: "Available recordings",
+          recordingHelp: "Select the recording you prefer for this hymn.",
           noChorales: "No chorales found.",
           chorale: "Chorale",
           preferred: "Preferred melody",
@@ -269,19 +322,19 @@
         localStorage.setItem(PREFERENCES_KEY, JSON.stringify(preferences));
       }
 
-      function setPreferredChorale(hymnNumber, choraleNumber) {
+      function setPreferredMelody(hymnNumber, melodyValue) {
         const preferences = loadPreferences();
-        preferences[String(hymnNumber)] = choraleNumber;
+        preferences[String(hymnNumber)] = melodyValue;
         savePreferences(preferences);
       }
 
-      function clearPreferredChorale(hymnNumber) {
+      function clearPreferredMelody(hymnNumber) {
         const preferences = loadPreferences();
         delete preferences[String(hymnNumber)];
         savePreferences(preferences);
       }
 
-      function getPreferredChorale(hymnNumber) {
+      function getPreferredMelody(hymnNumber) {
         const preferences = loadPreferences();
         return preferences[String(hymnNumber)] || null;
       }
@@ -316,6 +369,15 @@
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
           .trim();
+      }
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
       }
 
       function hymnMatchesQuery(hymnKey, hymn, query) {
@@ -360,7 +422,7 @@
           const card = document.createElement("div");
           card.className = "card";
 
-          const preferred = getPreferredChorale(hymn.hymn_number);
+          const preferred = getPreferredMelody(hymn.hymn_number);
           const chorales = hymn.chorales || [];
           const savedComment = getComment(hymn.hymn_number);
 
@@ -370,22 +432,48 @@
           } else {
             choralesHtml = chorales
               .map((chorale) => {
-                const checked =
-                  Number(preferred) === Number(chorale.chorale_number)
-                    ? "checked"
-                    : "";
                 return `
               <div class="chorale-item">
                 <div><strong>${t("chorale")} ${chorale.chorale_number}</strong></div>
-                <div>${chorale.chorale_title}</div>
-                <label class="preferred">
-                  <input type="radio" name="preferred-${hymn.hymn_number}" value="${chorale.chorale_number}" ${checked}>
-                  ${t("preferred")}
-                </label>
+                <div>${escapeHtml(chorale.chorale_title)}</div>
               </div>
             `;
               })
               .join("");
+          }
+
+          const recordingMelodies = hymn.recording_melodies || [];
+
+          let recordingMelodiesHtml = "";
+          if (recordingMelodies.length > 0) {
+            recordingMelodiesHtml = `
+<div class="source-melodies">
+  <strong>${t("recordingMelodies")}:</strong>
+  <div class="muted recording-help">
+    ${t("recordingHelp")}
+  </div>
+                <div class="recording-list">
+                  ${recordingMelodies
+                    .map((melody) => {
+                      const value = melody;
+                      const checked = preferred === value ? "checked" : "";
+
+                      return `
+                        <label class="recording-option">
+                          <input
+                            type="radio"
+                            name="preferred-${hymn.hymn_number}"
+                            value="${escapeHtml(value)}"
+                            ${checked}
+                          >
+                          <span>${escapeHtml(melody)}</span>
+                        </label>
+                      `;
+                    })
+                    .join("")}
+                </div>
+              </div>
+            `;
           }
 
           const showClearPreference =
@@ -396,31 +484,60 @@
               ? hymn.verse_count
               : t("unknownVerseCount");
 
+          const sourceMelodiesText =
+            (hymn.melodies || []).map(escapeHtml).join(" | ") || "-";
+
           card.innerHTML = `
-          <div>
-            <strong>${t("hymnLabel")} ${hymn.hymn_number}: ${hymn.hymn_title}</strong>
-            ${showClearPreference ? `<span class="badge">${t("preferredSaved")}</span>` : ""}
-          </div>
-          <p class="muted">${t("verseCount")}: ${verseCountText}</p>
-          <p class="muted">${t("sourceMelodies")}: ${(hymn.melodies || []).join(" | ") || "-"}</p>
-          <div>${choralesHtml}</div>
-          ${showClearPreference ? `<button class="secondary-button clear-preference-button" data-hymn-number="${hymn.hymn_number}" type="button">${t("clearPreference")}</button>` : ""}
-          <div class="comment-box">
-            <label for="comment-${hymn.hymn_number}"><strong>${t("notesLabel")}</strong></label>
-            <textarea id="comment-${hymn.hymn_number}" placeholder="${t("notesPlaceholder")}">${savedComment}</textarea>
-            <button class="save-comment-button" data-hymn-number="${hymn.hymn_number}" type="button">${t("saveComment")}</button>
-            <div id="comment-status-${hymn.hymn_number}" class="comment-status"></div>
-          </div>
-        `;
+  <div>
+    <strong>${t("hymnLabel")} ${hymn.hymn_number}: ${escapeHtml(hymn.hymn_title)}</strong>
+    ${showClearPreference ? `<span class="badge">${t("preferredSaved")}</span>` : ""}
+  </div>
+
+  <p class="muted">${t("verseCount")}: ${verseCountText}</p>
+
+  <p class="muted">
+    ${t("sourceMelodies")}: ${sourceMelodiesText}
+  </p>
+
+  ${recordingMelodiesHtml}
+
+  <div>${choralesHtml}</div>
+
+  ${
+    showClearPreference
+      ? `<button class="secondary-button clear-preference-button"
+          data-hymn-number="${hymn.hymn_number}"
+          type="button">
+          ${t("clearPreference")}
+        </button>`
+      : ""
+  }
+
+  <div class="comment-box">
+    <label for="comment-${hymn.hymn_number}">
+      <strong>${t("notesLabel")}</strong>
+    </label>
+    <textarea
+      id="comment-${hymn.hymn_number}"
+      placeholder="${t("notesPlaceholder")}"
+    >${escapeHtml(savedComment)}</textarea>
+
+    <button
+      class="save-comment-button"
+      data-hymn-number="${hymn.hymn_number}"
+      type="button">
+      ${t("saveComment")}
+    </button>
+
+    <div id="comment-status-${hymn.hymn_number}" class="comment-status"></div>
+  </div>
+`;
 
           card
             .querySelectorAll(`input[name="preferred-${hymn.hymn_number}"]`)
             .forEach((radio) => {
               radio.addEventListener("change", (event) => {
-                setPreferredChorale(
-                  hymn.hymn_number,
-                  Number(event.target.value),
-                );
+                setPreferredMelody(hymn.hymn_number, event.target.value);
                 runSearch();
               });
             });
@@ -430,7 +547,7 @@
           );
           if (clearPreferenceButton) {
             clearPreferenceButton.addEventListener("click", () => {
-              clearPreferredChorale(hymn.hymn_number);
+              clearPreferredMelody(hymn.hymn_number);
               runSearch();
             });
           }
