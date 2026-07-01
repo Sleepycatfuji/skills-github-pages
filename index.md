@@ -8,7 +8,7 @@ title: "KIM - nice to meet you 🌟"
 
 ## Contact Information
 
-- **Email:** [kmethakullachat@gmail.com](mailto:kmethakullachat@gmail.com) 
+- **Email:** [kim.minamoto2026@gmail.com](mailto:kim.minamoto2026@gmail.com) 
 - **LinkedIn:** [Kim Minamoto](https://www.linkedin.com/in/kimminamoto/)
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
