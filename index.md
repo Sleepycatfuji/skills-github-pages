@@ -13,7 +13,7 @@ title: "KIM - nice to meet you 🌟"
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
 ## About Me
-Hello! I'm Kim Minamoto (Previously Duangrudee Methakullachat). I identify as human, currently a Computer Science student with a passion for building practical technology that solves real-world problems. My background spans project management, software development, and international collaboration, and I've worked with global teams across Japan, Thailand, and now Denmark.
+Hello! I'm Kim Minamoto (previously Duangrudee Methakullachat). I identify as human, currently pursuing my second degree in Computer Science. My background spans project management, software development, and international collaboration, and I've worked with global teams from Thailand, Singapore, Japan, the United States, India, and Ukraine.
 
 After spending over a decade in Japan, I'm fluent in Japanese and enjoy working across cultures and disciplines. I believe the best technology is built by bringing people together, aligning technical solutions with business goals, and keeping the end user in focus.
 
@@ -91,11 +91,11 @@ financial reporting.
 
 ## Skills
 
+- **Product Strategy & Roadmaps:** Agile & Lean Methodologies, MVP Development
+- **Collaboration & Leadership:** Stakeholder Management, Vendor Management, Cloud Resource Allocation, Cross-functional Team Leadership
 - **Programming Languages:** Ruby, PHP, React, HTML, CSS, Python, SQL, Bootstrap, UX, UI, Javascript
 - **Frameworks and Libraries:** Ruby on Rails, React
-- **Tools and Platforms:** Git, Heroku, Trello, Jira, Confluence, Figma, Mapbox, Native Cloud
-- **Product Strategy & Roadmaps:** Agile & Lean Methodologies, MVP Development
-- **Collaboration & Leadership:** Stakeholder Management, Vendor Management, Resource Allocation, Cross-functional Team Leadership
+- **Tools and Platforms:** Git, Heroku, Trello, Jira, Confluence, Figma, Mapbox
 
 ## Honors & Extracurriculars
 
