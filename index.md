@@ -15,31 +15,41 @@ title: "KIM - nice to meet you 🌟"
 ## Contact Information
 
 - **Email:** [kmethakullachat@gmail.com](mailto:kmethakullachat@gmail.com) 
-- **LinkedIn:** [Kim Methakullachat](https://www.linkedin.com/in/duangrudee-m/)
+- **LinkedIn:** [Kim Minamoto](https://www.linkedin.com/in/kimminamoto/)
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
 ## About Me
-Hello! I'm Kim, a UX Project Manager with a background in IT sales and international client relations. For the past three years, I've led cross-functional teams to create user-focused solutions. Having lived in Japan for a decade, I'm fluent in Japanese and bring a multicultural perspective to my work. Beyond the office, I enjoy nature, cooking, and singing at home. I am currently working at Recursive involved in sustainability projects that help save water. I want to make tap water drinkable for everyone.
+Hello! I'm Kim Minamoto, a Technical Project Manager and Computer Science student with a passion for building practical technology that solves real-world problems. My background spans project management, software development, and international collaboration, and I've worked with global teams across Japan, Thailand, and now Denmark.
+
+After spending over a decade in Japan, I'm fluent in Japanese and enjoy working across cultures and disciplines. I believe the best technology is built by bringing people together, aligning technical solutions with business goals, and keeping the end user in focus.
+
+Outside of work, I enjoy cooking, exploring nature, and developing personal software projects. One of my recent projects is the [Danish Hymn → Chorale Finder](https://hellokim.me/hymns/), a web app that helps church musicians quickly locate melodies and chorale references.
 
 ## Education
+
+**Bachelor of Arts (Computer Science)**
+- Institution: Thomas Edison State University (TESU), United States
+- Expected Graduation: September 2026
+- Pursuing a second bachelor's degree in Computer Science with a focus on software development, algorithms, data structures, operating systems, computer architecture, discrete mathes, and database systems. 
 
 - **Degree:** Bachelor of Arts (English Literature)
 - **Institution:** Thammasat University
 - **Year:** 2011
 - **Details:** English Literature, American Literature, Literary Theory and Criticism, Cultural Studies.
 
-- **Degree:** Web Development
-- **Institution:** LeWagon
-- **Year:** 2022
-- **Details:** 9-week full-time intensive coding bootcamp learning HTML, CSS, Bootstrap, JavaScript ES6, SQL, git, GitHub, Heroku and Ruby on Rails. Designed, implemented and shipped to production a clone of AirBnB and a Rails prototype.
-
 ## Experience
 
-### Project Manager at [Recursive](https://recursiveai.co.jp/?r=0)
+### Business Solution Architect at [Recursive](https://recursiveai.co.jp/?r=0)
 
-- **Duration:** July 2025 – Present
+- **Duration:** July 2025 – April 2026
 - **Responsibilities:**
-  - In collaboration with [Sense Info Tech](https://www.sense-infotech.com/) and [Metropolitan Waterworks Authority of Thailand](https://www.mwa.co.th/en/home/), we are building an AI model that will detect leaks in the water pipes within Bangkok Metropolitan Area. Data sources include historical leakage data, RTU, average water flow, topological data. 
+  - Sense Info Tech × Metropolitan Waterworks Authority (Thailand)
+Collaborated with AI engineers, data scientists, and business stakeholders to develop an AI-based water leakage detection solution for the Bangkok and Nonthaburi Area. The project combined historical leakage records, RTU data, average water flow, and water network topology to help identify potential leaks and improve infrastructure maintenance.
+- Suntory: AI Water Cycle Prediction Project
+Worked closely with AI engineers on a scientific water cycle prediction model. The project compared AI-generated simulations with meteorological observations from the Japan Meteorological Agency across regions including Nagano, Okinawa, and other parts of Japan to improve prediction accuracy and environmental modelling.
+- Fujitsu × Palantir Consulting Project (End Client: Honda)
+Collaborated with the Fujitsu engineering team to optimize backend workflows built on the Palantir platform. The project focused on streamlining the quotation process for automotive parts, improving efficiency and reducing manual processing for Honda's internal operations.
+
 
 ### UX Project Manager at [Woven by Toyota](https://woven.toyota/en/)
 
@@ -102,7 +112,6 @@ financial reporting.
   BEST dressed in my room. ✌️
 
 ## Footer
-
 *This portfolio was generated using Markdown.*
 
 
