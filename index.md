@@ -41,12 +41,12 @@ Outside of work, I enjoy cooking, exploring nature, and developing personal soft
 ### Business Solution Architect at [Recursive](https://recursiveai.co.jp/?r=0)
 
 - **Duration:** July 2025 – April 2026
-- **Responsibilities:**
+- **Projects**
   - Sense Info Tech × Metropolitan Waterworks Authority (Thailand)
 Collaborated with AI engineers, data scientists, and business stakeholders to develop an AI-based water leakage detection solution for the Bangkok and Nonthaburi Area. The project combined historical leakage records, RTU data, average water flow, and water network topology to help identify potential leaks and improve infrastructure maintenance.
-- Suntory: AI Water Cycle Prediction Project
+  - Suntory: AI Water Cycle Prediction Project
 Worked closely with AI engineers on a scientific water cycle prediction model. The project compared AI-generated simulations with meteorological observations from the Japan Meteorological Agency across regions including Nagano, Okinawa, and other parts of Japan to improve prediction accuracy and environmental modelling.
-- Fujitsu × Palantir Consulting Project (End Client: Honda)
+  - Fujitsu × Palantir Consulting Project (End Client: Honda)
 Collaborated with the Fujitsu engineering team to optimize backend workflows built on the Palantir platform. The project focused on streamlining the quotation process for automotive parts, improving efficiency and reducing manual processing for Honda's internal operations.
 
 
