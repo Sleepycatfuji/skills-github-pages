@@ -19,7 +19,7 @@ title: "KIM - nice to meet you 🌟"
 - **GitHub:** [Kim's Github](https://github.com/Sleepycatfuji)
 
 ## About Me
-Hello! I'm Kim Minamoto, a Technical Project Manager and Computer Science student with a passion for building practical technology that solves real-world problems. My background spans project management, software development, and international collaboration, and I've worked with global teams across Japan, Thailand, and now Denmark.
+Hello! I'm Kim Minamoto (Previously Duangrudee Methakullachat). I identify as human, currently a Computer Science student with a passion for building practical technology that solves real-world problems. My background spans project management, software development, and international collaboration, and I've worked with global teams across Japan, Thailand, and now Denmark.
 
 After spending over a decade in Japan, I'm fluent in Japanese and enjoy working across cultures and disciplines. I believe the best technology is built by bringing people together, aligning technical solutions with business goals, and keeping the end user in focus.
 
