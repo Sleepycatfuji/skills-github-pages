@@ -32,7 +32,7 @@ Outside of work, I enjoy cooking, exploring nature, and developing personal soft
 - Expected Graduation: September 2026
 - Pursuing a second bachelor's degree in Computer Science with a focus on software development, algorithms, data structures, operating systems, computer architecture, discrete mathes, and database systems. 
 
-** Bachelor of Arts (English Literature)**
+**Bachelor of Arts (English Literature)**
 - Institution: Thammasat University, Thailand
 - Year: 2011
 
