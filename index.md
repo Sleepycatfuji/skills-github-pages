@@ -5,12 +5,6 @@ title: "KIM - nice to meet you 🌟"
 
 [![IMG-20250130-155753-Original.jpg](https://i.postimg.cc/d1Y5ZYs4/IMG-20250130-155753-Original.jpg)](https://postimg.cc/qt1sWWC3)
 
-[![IMG-20250130-155757-Original.jpg](https://i.postimg.cc/htXyHsZb/IMG-20250130-155757-Original.jpg)](https://postimg.cc/75ynz3kf)
-
-[![IMG-20250130-155759-Original.jpg](https://i.postimg.cc/JhJThnLs/IMG-20250130-155759-Original.jpg)](https://postimg.cc/R3S1svqm)
-
-[![IMG-20250130-155800-Original.jpg](https://i.postimg.cc/zG4t5h9m/IMG-20250130-155800-Original.jpg)](https://postimg.cc/PCzzQCXK)
-
 
 ## Contact Information
 
