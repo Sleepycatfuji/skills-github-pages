@@ -1,5 +1,5 @@
 ---
-title: "KIM - nice to meet you 🌟"
+title: Hi, I'm KIM"
 ---
 
 
