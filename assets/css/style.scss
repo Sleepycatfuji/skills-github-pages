@@ -97,6 +97,23 @@ img {
   color: var(--accent);
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 16px;
+}
+
+.language-switcher a {
+  font-size: 1.35rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.language-switcher a:hover {
+  transform: scale(1.15);
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
