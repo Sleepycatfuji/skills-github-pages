@@ -97,21 +97,26 @@ img {
   color: var(--accent);
 }
 
-.language-switcher {
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-left: 16px;
+  gap: 24px;
 }
 
-.language-switcher a {
-  font-size: 1.35rem;
+.language-toggle {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
 }
 
-.language-switcher a:hover {
-  transform: scale(1.15);
+.language-toggle:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .nav-links {
