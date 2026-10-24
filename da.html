@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 
-<!doctype html>
 <html lang="da">
 <head>
 <meta charset="utf-8"/>
@@ -204,7 +204,26 @@ h3{font-weight:800}
   .contact-card{padding:28px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-</style><meta content="#174b3b" name="theme-color"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://hellokim.me/da.html" hreflang="da" rel="alternate"/><link href="https://hellokim.me/" hreflang="en" rel="alternate"/></head>
+
+
+/* Four-language menu and Thai/Japanese typography */
+.language-menu{position:relative;font:inherit;flex:none}
+.language-menu summary{list-style:none;cursor:pointer;border:1px solid #b4d3be;border-radius:24px;padding:6px 12px;font-size:.80rem;font-weight:800;color:var(--forest);background:#fff;white-space:nowrap;min-width:53px;text-align:center}
+.language-menu summary::-webkit-details-marker{display:none}
+.language-menu summary::after{content:'⌄';padding-left:5px;font-size:.80rem}
+.language-menu[open] summary{background:#e2f1e5}
+.language-options{position:absolute;right:0;top:calc(100% + 9px);background:#fff;border:1px solid #d1e1d4;border-radius:13px;box-shadow:0 12px 26px rgba(17,57,47,.13);min-width:160px;padding:7px;z-index:30}
+.language-options a{display:block;padding:9px 10px;border-radius:7px;white-space:nowrap;font-size:.86rem;color:#25583f;text-decoration:none}
+.language-options a:hover,.language-options a[aria-current="page"]{background:#e8f3ea}
+html[lang="th"] body{font-family:'Noto Sans Thai','Nunito Sans',sans-serif;line-height:1.78}
+html[lang="ja"] body{font-family:'Noto Sans JP','Nunito Sans',sans-serif;line-height:1.75}
+html[lang="th"] h2,html[lang="th"] h3,html[lang="th"] .eyebrow,html[lang="th"] .hero-specialisms,html[lang="th"] .project-type,html[lang="th"] .edu-label,
+html[lang="ja"] h2,html[lang="ja"] h3,html[lang="ja"] .eyebrow,html[lang="ja"] .hero-specialisms,html[lang="ja"] .project-type,html[lang="ja"] .edu-label{font-family:inherit;letter-spacing:0}
+html[lang="ja"] h2,html[lang="ja"] h3{letter-spacing:-.03em}
+html[lang="ja"] .about-copy p,html[lang="th"] .about-copy p{line-height:1.85}
+html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:none}
+@media(max-width:720px){.nav-links{gap:9px}.nav-links a{font-size:.76rem}.language-menu summary{padding:5px 8px;font-size:.76rem}}
+</style><meta content="#174b3b" name="theme-color"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://hellokim.me/index.html" hreflang="en" rel="alternate"/><link href="https://hellokim.me/da.html" hreflang="da" rel="alternate"/><link href="https://hellokim.me/th.html" hreflang="th" rel="alternate"/><link href="https://hellokim.me/ja.html" hreflang="ja" rel="alternate"/><meta content="da_DK" property="og:locale"/></head>
 <body>
 <a class="skip-link" href="#main-content">Spring til indhold</a>
 <header class="site-nav">
@@ -217,8 +236,8 @@ h3{font-weight:800}
 <a href="#about">Om mig</a>
 <a href="#projects">Projekter</a><a href="#education">Uddannelse</a>
 <a href="#contact">Kontakt</a>
-<a class="language-toggle" href="/index.html">EN</a>
-</nav>
+
+<details class="language-menu"><summary aria-label="Vælg sprog">DK</summary><div class="language-options"><a href="/index.html" hreflang="en">EN · English</a><a aria-current="page" href="/da.html" hreflang="da">DK · Dansk</a><a href="/th.html" hreflang="th">TH · ไทย</a><a href="/ja.html" hreflang="ja">JP · 日本語</a></div></details></nav>
 </div>
 </header>
 <main id="main-content">
@@ -410,7 +429,6 @@ h3{font-weight:800}
 <div>
 <p class="eyebrow">Lad os arbejde sammen</p>
 <h2>Lad os skabe noget, der gør en forskel.</h2>
-
 </div>
 <div class="contact-links">
 <a href="mailto:kim.minamoto2026@gmail.com?subject=Hello%20Kim" rel="noopener noreferrer" target="_blank">
