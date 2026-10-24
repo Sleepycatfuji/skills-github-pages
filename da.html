@@ -1,402 +1,438 @@
+
 <!doctype html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Kim Minamoto | Teknisk Projektleder</title>
-
-  <meta
-    name="description"
-    content="Kim Minamoto er teknisk projektleder i Danmark med erfaring inden for AI, cloud-infrastruktur, UX og softwarelevering."
-  >
-
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kim Minamoto</title>
+<meta content="Mød Kim Minamoto, der bor i Danmark og har international erfaring med teknologi, produktudvikling, projektledelse og forretningsløsninger." name="description"/>
+<style>@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap');
+:root {
+  --ink:#192d28;
+  --ink-soft:#51665c;
+  --forest:#174b3b;
+  --forest-deep:#123c32;
+  --green:#267451;
+  --green-bright:#d8edda;
+  --mint:#eef7f0;
+  --cream:#fbf4e9;
+  --line:#dce9de;
+  --bg:#fbfcf8;
+  --white:#ffffff;
+  --orange:#f2be7c;
+  --radius:20px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito Sans',ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto}
+a{color:inherit}
+button,a{outline-offset:4px}
+::selection{background:#f8d9a2;color:#17392d}
+main{overflow:hidden}
+.section-shell{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+h1,h2,h3,.brand{font-family:'Bricolage Grotesque',ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.13;letter-spacing:-.032em}
+h1,h2,h3,p{margin-top:0}
+h2{font-size:clamp(2rem,3.8vw,3.1rem);font-weight:800}
+h3{font-weight:800}
+.skip-link{position:absolute;top:-100px;left:16px;background:white;color:var(--forest-deep);z-index:20;padding:10px 16px;border-radius:8px}
+.skip-link:focus{top:12px}
+/* Navigation */
+.site-nav{position:sticky;top:0;z-index:12;background:rgba(251,252,248,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(44,93,70,.13)}
+.nav-inner{width:min(1120px,calc(100% - 48px));margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:baseline;gap:6px;text-decoration:none;color:var(--ink);font-size:1.13rem;font-weight:800;letter-spacing:-.025em;white-space:nowrap}
+.brand-kim{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,28px);flex-wrap:wrap}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.87rem;color:#36564a;transition:color .2s}
+.nav-links a:hover{color:#0e9a5a}
+.nav-links .language-toggle{border:1px solid #b4d3be;border-radius:30px;padding:5px 10px;font-size:.78rem;color:var(--forest)}
+/* Hero */
+.hero{padding-block:96px 94px;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(35px,6vw,85px);align-items:center}
+.hero-copy{position:relative;z-index:1}
+.eyebrow{margin-bottom:18px;color:var(--green);font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;border-radius:100px;background:#e2f1e5;padding:8px 15px;letter-spacing:.065em;text-transform:none;font-size:.87rem}
+.hero .eyebrow::before{content:'✳';font-size:.95rem;color:#2e865d}
+.hero h1{font-size:clamp(3.7rem,6.5vw,6rem);font-weight:800;letter-spacing:-.055em;margin-bottom:20px;line-height:1.06;color:#091c16}
+.hero-specialisms{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;color:var(--forest);font-size:.86rem;font-weight:800;letter-spacing:.025em;line-height:2;margin-bottom:22px}
+.hero-specialisms span{padding:0 5px;color:#d19d59}
+.hero-intro{max-width:580px;color:#455e53;font-size:1.13rem;line-height:1.75;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:29px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 20px;text-decoration:none;border-radius:12px;font-size:.91rem;font-weight:800;transition:transform .2s,background .2s,box-shadow .2s}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:var(--forest);color:#fff;box-shadow:0 7px 16px rgba(23,75,59,.18)}
+.button-primary:hover{background:#0c362c}
+.button-secondary{background:#fff;color:var(--forest);border:1px solid #cbded0}
+.button-secondary:hover{background:#eff8f0}
+.availability{color:#547064;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:10px}
+.availability-dot{display:inline-block;flex:none;background:#3bb477;border:4px solid #d4f1df;border-radius:50%;width:16px;height:16px}
+.hero-photo-wrap{position:relative;border-radius:36px;transform:rotate(1.6deg);padding:11px;background:linear-gradient(145deg,#dff0e2 0%,#cee4cf 55%,#f7e4c5 100%);box-shadow:0 26px 58px rgba(18,60,50,.13)}
+.hero-photo-wrap::before{content:'';position:absolute;z-index:-1;width:155px;height:155px;right:-33px;bottom:-28px;border-radius:50%;background:#f4c88f;opacity:.8}
+.hero-photo{display:block;width:100%;height:clamp(330px,35vw,455px);object-fit:cover;border-radius:27px;transform:rotate(-1.6deg)}
+/* Logo area */
+.logo-section{background:#eaf3eb;border:1px solid #d4e9d9;border-radius:28px;padding:48px clamp(20px,4vw,55px) 54px;margin-bottom:95px}
+.section-heading{margin-bottom:32px}
+.section-heading h2{margin-bottom:17px}
+.section-heading-centered{text-align:center}
+.section-intro{max-width:790px;margin:0 auto;color:var(--ink-soft);line-height:1.75;font-size:.99rem}
+.logo-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.logo-card{min-height:120px;padding:17px 9px;background:white;border:1px solid #d7e4d8;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;text-decoration:none;box-shadow:0 5px 18px rgba(21,73,47,.045);transition:transform .2s,box-shadow .2s}
+.logo-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(21,73,47,.12)}
+.logo-card img{width:80px;height:36px;object-fit:contain}
+.company-label{font-size:.72rem;font-weight:700;line-height:1.25;color:#526458}
+.logo-text-card{gap:2px}
+.recursive-mark{font-size:2rem;line-height:1;color:#328961}
+.recursive-wordmark{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-size:1rem;font-weight:800;letter-spacing:-.05em}
+.suntory-wordmark{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;color:#2965ab;font-size:1.2rem;font-weight:800;letter-spacing:.025em;margin-bottom:9px}
+/* About */
+.about{padding-block:6px 100px}
+.about .section-heading{max-width:900px}
+.about-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:65px;align-items:start}
+.about-copy{padding:8px 0 0 23px;border-left:4px solid var(--orange);max-width:540px}
+.about-copy p{font-size:1.055rem;line-height:1.85;color:#455e53;margin-bottom:18px}
+.about-copy p:last-child{margin-bottom:0}
+.strengths-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.strength-card{background:#fff;border:1px solid #ddeadd;border-radius:18px;padding:22px;box-shadow:0 6px 22px rgba(30,75,50,.045)}
+.strength-icon{display:flex;justify-content:center;align-items:center;width:42px;height:42px;background:#deefe2;border-radius:13px;font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-weight:800;color:#287a57;font-size:1.25rem;margin-bottom:17px}
+.strength-card h3{font-size:.99rem;letter-spacing:-.025em;margin-bottom:9px}
+.strength-card p{color:var(--ink-soft);font-size:.84rem;line-height:1.7;margin-bottom:0}
+/* Portfolio */
+.projects{padding-block:65px 98px;position:relative}
+.projects::before{content:'';position:absolute;z-index:-1;inset:10px -100vw 0;background:#eef5f0}
+.projects-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:32px}
+.projects-heading h2{max-width:690px;margin-bottom:0}
+.text-link{font-size:.9rem;color:#227348;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:gap .18s,color .18s}
+.text-link:hover{color:#134c32;gap:11px}
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.project-card{min-width:0;display:flex;flex-direction:column;overflow:hidden;border:1px solid #dbe7dc;border-radius:20px;background:#fff;box-shadow:0 10px 25px rgba(26,72,49,.06);transition:transform .2s,box-shadow .2s}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(26,72,49,.13)}
+.project-visual.portfolio-photo{position:relative;display:block;height:200px;min-height:200px;padding:0!important;overflow:hidden;background:#2d6254}
+.project-visual.portfolio-photo>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.project-card:hover .portfolio-photo>img{transform:scale(1.04)}
+.project-visual.portfolio-photo .photo-caption{position:absolute;inset:auto 0 0 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:start;gap:7px;padding:48px 20px 16px;color:white;background:linear-gradient(transparent,rgba(10,34,30,.87))}
+.project-visual.portfolio-photo .photo-caption .photo-label{display:inline-block;padding:3px 9px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.75);border-radius:20px;font-size:.65rem;font-weight:800;letter-spacing:.08em}
+.project-visual.portfolio-photo .photo-caption p{margin:0;color:white;font-size:.92rem;font-weight:800;line-height:1.25}
+.project-content{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:23px 23px 26px;gap:0}
+.project-type{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-size:.69rem;font-weight:800;color:#27744d;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px;line-height:1.65}
+.project-content h3{font-size:1.19rem;line-height:1.35;margin-bottom:11px;letter-spacing:-.035em}
+.project-content>p:not(.project-type):not(.project-highlight):not(.project-photo-credit){font-size:.9rem;line-height:1.75;color:var(--ink-soft)}
+.project-content>.text-link,.project-links{margin-top:auto;padding-top:14px}
+.project-content .project-links{display:flex;flex-direction:column;align-items:start;gap:7px}
+.project-highlight{border-left:3px solid #eab879;background:#fff9ee;border-radius:0 8px 8px 0;padding:10px 13px;font-size:.86rem;line-height:1.55;margin:1px 0 10px;color:#506055}
+.project-highlight strong{color:#174a35}
+.project-photo-credit{font-size:.71rem;color:#708379;line-height:1.5;margin-top:16px}
+.portfolio-image-note{font-size:.76rem;color:#698073;margin:19px 0 0;line-height:1.7}
+/* Education: warmer neutral + TESU accent */
+.education-section{padding:85px 0 98px;position:relative}
+.education-section::before{content:'';position:absolute;z-index:-1;inset:12px -100vw 0;background:#fbf4e9}
+.education-heading{max-width:760px;margin-bottom:35px}
+.education-heading h2{position:relative;max-width:660px}
+.education-intro{font-size:1.02rem;line-height:1.8;color:#56675c;max-width:670px;margin-top:16px}
+.education-layout{display:grid;grid-template-columns:minmax(0,1.24fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.education-card{min-width:0;padding:30px;background:#fff;border:1px solid #eadfce;border-radius:19px;box-shadow:0 11px 27px rgba(90,78,43,.055)}
+.education-card h3{font-size:1.13rem;line-height:1.35;letter-spacing:-.025em;margin:10px 0}
+.education-card p{font-size:.92rem;color:var(--ink-soft);line-height:1.75;margin:9px 0}
+.education-card p strong{color:var(--ink)}
+.education-card .edu-label{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-weight:800;letter-spacing:.11em;font-size:.68rem;text-transform:uppercase;color:#7d5641;margin:0}
+.education-featured{background:linear-gradient(145deg,#fffdf9,#fff4e7);border:1px solid #e9cba2;border-left:6px solid #9e4550;padding-left:26px}
+.education-stack{display:flex;flex-direction:column;gap:20px}
+.education-stack .education-card{flex:1}
+.education-stack .education-card h3{margin-top:14px;font-size:1.13rem}
+.education-card .edu-status{color:#5b6b5e}
+.tesu-brand-row{display:flex;align-items:center;gap:17px;margin:18px 0 12px}
+.tesu-brand-row h3{font-size:1.36rem;margin:0}
+.tesu-logo-link{flex:0 0 85px;width:85px;height:85px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:14px;border:1px solid #ead9cc;background:#fff}
+.tesu-logo{display:block;width:100%;height:100%;object-fit:contain}
+/* Contact: visual focal point */
+.contact-section{padding-block:70px 102px}
+.contact-card{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.7fr);gap:65px;align-items:center;padding:clamp(34px,5vw,64px);border-radius:28px;color:#fff;background:linear-gradient(118deg,#11392f 0%,#1a5845 72%,#27735a 100%);box-shadow:0 21px 60px rgba(19,67,52,.23)}
+.contact-card::before{content:'';position:absolute;z-index:-1;width:310px;height:310px;right:-90px;bottom:-200px;border-radius:50%;border:65px solid rgba(245,201,131,.11)}
+.contact-card::after{content:'✳';position:absolute;z-index:-1;right:28px;top:-75px;font-size:220px;line-height:1;color:rgba(255,255,255,.05)}
+.contact-card .eyebrow{color:#f8ce95}
+.contact-card h2{color:white;font-size:clamp(2rem,3.3vw,3rem);line-height:1.19;margin-bottom:19px;max-width:625px}
+.contact-card p:not(.eyebrow){color:#d7ebe0;line-height:1.85;font-size:.99rem;max-width:570px;margin-bottom:0}
+.contact-links{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.contact-links a{display:block;padding:13px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:#fff;font-weight:700;font-size:.85rem;text-decoration:none;overflow-wrap:anywhere;transition:background .2s,transform .2s}
+.contact-links a:hover{background:rgba(255,255,255,.22);transform:translateX(3px)}
+/* Footer */
+.site-footer{text-align:center;color:#6b8072;padding:0 16px 35px;font-size:.78rem}
+.site-footer .footer-social{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px 12px;margin:0 auto 21px}
+.site-footer .footer-social a{display:inline-flex;align-items:center;gap:8px;border:1px solid #d4e4d8;border-radius:100px;background:white;padding:8px 14px;text-decoration:none;color:#285c43;font-size:.83rem;font-weight:800;transition:background .18s,transform .18s}
+.site-footer .footer-social a:hover{background:#e4f2e8;transform:translateY(-2px)}
+.social-icon{width:19px;height:19px;flex:none}
+.site-footer p{margin:0}
+@media(max-width:1020px){
+  .logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .about-layout{gap:32px}
+  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-card{gap:32px}
+}
+@media(max-width:720px){
+  .section-shell,.nav-inner{width:min(100% - 32px,1120px)}
+  .nav-inner{min-height:66px;flex-wrap:wrap;padding-block:11px;gap:7px}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:.78rem}
+  .hero{padding-block:55px 70px;grid-template-columns:1fr;gap:30px}
+  .hero h1{font-size:clamp(3.3rem,13vw,5.6rem)}
+  .hero-photo-wrap{max-width:530px;margin:auto;width:88%}
+  .hero-photo{height:350px}
+  .logo-section{padding:30px 20px;margin-bottom:64px}
+  .logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .logo-card{min-height:105px}
+  .about{padding-bottom:60px}
+  .about-layout{grid-template-columns:1fr;gap:30px}
+  .projects{padding-block:45px 68px}
+  .projects-heading{align-items:start;flex-direction:column}
+  .project-grid{grid-template-columns:1fr}
+  .project-visual.portfolio-photo{height:240px;min-height:240px}
+  .education-section{padding-block:65px}
+  .education-layout{grid-template-columns:1fr}
+  .contact-section{padding-block:65px}
+  .contact-card{grid-template-columns:1fr;gap:29px}
+}
+@media(max-width:430px){
+  .nav-inner{align-items:start}
+  .nav-links{column-gap:11px}
+  .hero-actions{gap:8px}
+  .button{padding:8px 14px}
+  .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strengths-grid{grid-template-columns:1fr}
+  .project-visual.portfolio-photo{height:205px;min-height:205px}
+  .education-card{padding:22px}
+  .tesu-brand-row{gap:12px}
+  .tesu-logo-link{width:62px;height:62px;flex-basis:62px}
+  .tesu-brand-row h3{font-size:1.13rem}
+  .contact-card{padding:28px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+</style><meta content="#174b3b" name="theme-color"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://hellokim.me/da.html" hreflang="da" rel="alternate"/><link href="https://hellokim.me/" hreflang="en" rel="alternate"/></head>
 <body>
-  <a class="skip-link" href="#main-content">Gå til indhold</a>
-
-  <header class="site-nav">
-    <div class="nav-inner">
-      <a class="brand" href="/" aria-label="Kim Minamoto home">
-        <span class="brand-kim">KIM</span>
-        <span>MINAMOTO</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Primær navigation">
-        <a href="/da.html#about">Om mig</a>
-        <a href="/da.html#projects">Projekter</a>
-        <a href="/da.html#contact">Kontakt</a>
-        <a href="/">EN</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="hero section-shell" id="top">
-      <div class="hero-copy">
-        <p class="eyebrow">Hej, jeg hedder</p>
-
-        <h1>Kim Minamoto</h1>
-
-        <p class="hero-role">Teknisk Projektleder</p>
-
-        <p class="hero-specialisms">
-          AI <span>•</span> Cloud <span>•</span> Softwarelevering
-          <span>•</span> Tværfaglige teams
-        </p>
-
-        <p class="hero-intro">
-          Jeg hjælper virksomheder med at omsætte tekniske idéer til forretningsresultater
-          ved at skabe klarhed og samarbejde mellem ingeniører, designere, interessenter og brugere.
-        </p>
-
-        <p class="translation-note">
-          Denne side er oversat til dansk for at gøre den lettere at læse. Jeg lærer stadig dansk.
-        </p>
-
-        <div class="hero-actions">
-          <a
-            class="button button-primary"
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=kim.minamoto2026@gmail.com&su=Technical%20Project%20Management%20Opportunity"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Send e-mail
-          </a>
-
-          <a
-            class="button button-secondary"
-            href="https://www.linkedin.com/in/kimminamoto/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+<a class="skip-link" href="#main-content">Spring til indhold</a>
+<header class="site-nav">
+<div class="nav-inner">
+<a aria-label="Kim Minamotos forside" class="brand" href="#top">
+<span class="brand-kim">KIM</span>
+<span>MINAMOTO</span>
+</a>
+<nav aria-label="Hovednavigation" class="nav-links">
+<a href="#about">Om mig</a>
+<a href="#projects">Projekter</a><a href="#education">Uddannelse</a>
+<a href="#contact">Kontakt</a>
+<a class="language-toggle" href="/index.html">EN</a>
+</nav>
+</div>
+</header>
+<main id="main-content">
+<section class="hero section-shell" id="top">
+<div class="hero-copy">
+<p class="eyebrow">Hej, jeg hedder</p>
+<h1>Kim Minamoto</h1>
+<p class="hero-specialisms">Mennesker <span>•</span> Produkter <span>•</span> Teknologi</p>
+<p class="hero-intro">Jeg holder af at lytte til mennesker, forstå deres behov og løse problemer sammen med andre. Jeg har været med til at føre teknologiprojekter ud i livet i Japan, Thailand og internationalt.</p>
+<div class="hero-actions">
+<a class="button button-primary" href="mailto:kim.minamoto2026@gmail.com?subject=Hello%20Kim" rel="noopener noreferrer" target="_blank">Skriv til mig</a>
+<a class="button button-secondary" href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">
             LinkedIn
           </a>
-
-          <a
-            class="button button-secondary"
-            href="https://github.com/Sleepycatfuji"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+<a class="button button-secondary" href="https://github.com/Sleepycatfuji" rel="noopener noreferrer" target="_blank">
             GitHub
           </a>
-        </div>
+</div>
+<div class="availability"><span class="availability-dot"></span> Bor i Vejle, Danmark · Åben for nye muligheder</div>
+</div>
+<div class="hero-photo-wrap">
+<img alt="Kim Minamoto på landet i Danmark" class="hero-photo" src="assets/css/IMG_0486.jpg"/>
+</div>
+</section>
+<section aria-labelledby="experience-heading" class="logo-section section-shell">
+<div class="section-heading section-heading-centered">
+<p class="eyebrow">Virksomheder, jeg har arbejdet med</p>
+<h2 id="experience-heading">Erfaring fra forskellige virksomheder</h2>
+<p class="section-intro">Jeg har været ansat hos Recursive AI, Woven by Toyota, Rakuten Group og Netwise. Jeg har også arbejdet på projekter for eller sammen med Suntory, Metropolitan Waterworks Authority, Fujitsu, Palantir og Honda.</p>
+</div>
+<div class="logo-grid">
+<a aria-label="Besøg Recursive AIs hjemmeside" class="logo-card logo-text-card" href="https://recursiveai.co.jp/" rel="noopener noreferrer" target="_blank">
+<span class="recursive-mark">✦</span>
+<span class="recursive-wordmark">recursive</span>
+<span class="company-label">Recursive AI</span>
+</a>
+<a aria-label="Besøg Woven by Toyotas hjemmeside" class="logo-card" href="https://woven.toyota/" rel="noopener noreferrer" target="_blank">
+<img alt="Toyota logo" src="https://cdn.simpleicons.org/toyota/EB0A1E"/>
+<span class="company-label">Woven by Toyota</span>
+</a>
+<a aria-label="Besøg Rakuten Groups hjemmeside" class="logo-card" href="https://global.rakuten.com/corp/" rel="noopener noreferrer" target="_blank">
+<img alt="Rakuten logo" src="https://cdn.simpleicons.org/rakuten/BF0000"/>
+<span class="company-label">Rakuten Group</span>
+</a>
+<a aria-label="Besøg Fujitsus hjemmeside" class="logo-card" href="https://www.fujitsu.com/" rel="noopener noreferrer" target="_blank">
+<img alt="Fujitsu logo" src="https://cdn.simpleicons.org/fujitsu/FF0000"/>
+<span class="company-label">Fujitsu</span>
+</a>
+<a aria-label="Besøg Suntorys hjemmeside" class="logo-card logo-text-card suntory-text-card" href="https://www.suntory.com/" rel="noopener noreferrer" target="_blank">
+<span class="suntory-wordmark">SUNTORY</span>
+<span class="company-label">Suntory</span>
+</a>
+<a aria-label="Besøg Hondas hjemmeside" class="logo-card" href="https://global.honda/" rel="noopener noreferrer" target="_blank">
+<img alt="Honda logo" src="https://cdn.simpleicons.org/honda/E40521"/>
+<span class="company-label">Honda</span>
+</a>
+</div>
+</section>
+<section class="about section-shell" id="about">
+<div class="section-heading">
+<p class="eyebrow">Om mig</p>
+<h2>Nysgerrig på teknologi.<br/>Engageret i mennesker og udvikling.</h2>
+</div>
+<div class="about-layout">
+<div class="about-copy"><p>Jeg har arbejdet med AI-, cloud-, bil- og softwareprojekter og været med til at få internationale teams til at arbejde tættere sammen. Jeg kan godt lide at hjælpe mennesker med at føre deres idéer ud i livet.</p>
+<p>Jeg har afsluttet alle fag på min anden bacheloruddannelse, en B.A. i Computer Science fra Thomas Edison State University (TESU), og venter på, at graden bliver officielt tildelt.</p></div>
+<div class="strengths-grid">
+<article class="strength-card">
+<span class="strength-icon">◎</span>
+<h3>Internationalt samarbejde</h3>
+<p>Jeg har samarbejdet med interessenter fra Japan, Thailand, Indien, Nordamerika, Tyskland, Ukraine og resten af verden.</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">↗</span>
+<h3>Kommunikation på tværs af fagområder</h3>
+<p>Udvikling, UX, forskning, indkøb, økonomi, jura og forretning.</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">&lt;/&gt;</span>
+<h3>Teknisk forståelse</h3>
+<p>AI-projekter, cloudplatforme, Kubernetes, softwareudvikling og dokumentation.</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">⌘</span>
+<h3>Sprog og kommunikation</h3>
+<p>Jeg taler flydende engelsk, japansk og thai og er ved at lære dansk.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="projects section-shell" id="projects">
+<div class="section-heading projects-heading">
+<div>
+<p class="eyebrow">Udvalgte projekter</p>
+<h2>Projekter, der forbinder teknologi med virkelige behov</h2>
+</div>
+<a class="text-link" href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">Mere på LinkedIn <span>→</span></a>
+</div>
+<div class="project-grid">
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Toyota bZ4X, elektrisk SUV" decoding="async" loading="lazy" src="https://scene7.toyota.eu/is/image/toyotaeurope/bZ4X_STATIC_04%3AMedium-Landscape?op_usm=1.75%2C0.3%2C2%2C0&amp;resMode=sharp2&amp;ts=0"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Toyota bZ4X</p></div></div>
+<div class="project-content">
+<p class="project-type">Biler · Produkt og UX · Teamsamarbejde</p>
+<h3>Toyota bZ4X</h3>
+<p>Hos Woven by Toyota arbejdede jeg sammen med UX-designere, researchere og produktteams på Advanced Parking til Toyota bZ4X. Jeg fokuserede på brugeroplevelsen og koordinerede research og leverandører, så de forskellige teams kunne arbejde godt sammen, mens funktionen blev gjort klar til produktion.</p>
+<a class="text-link" href="https://www.toyota.dk/nye-biler/bz4x" rel="noopener noreferrer" target="_blank">Se Toyota bZ4X <span>→</span></a>
+<p style="font-size: 0.75rem; opacity: 0.75; margin-top: 0.75rem;">Bilfoto: Toyota. Projektbeskrivelsen handler om mit eget arbejde hos Woven by Toyota.</p>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Illustrativt luftfoto af et vandbehandlingsanlæg" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1705708551758-76b153fa536e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">AI</span><p>Vandinfrastruktur</p></div></div>
+<div class="project-content">
+<p class="project-type">AI · Deep learning · Forskning</p>
+<h3>AI-baseret registrering af vandlækager</h3>
+<p>Jeg bidrog til en proof-of-concept-rapport med historiske lækagedata, RTU-data, vandflow og oplysninger om ledningsnettet for at finde mulige lækager i Bangkok og Nonthaburi.</p>
+<a class="text-link" href="https://recursiveai.co.jp/news/fighting-critical-water-loss-with-deep-learning" rel="noopener noreferrer" target="_blank">Læs casen om deep learning <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Illustrativt foto af regnskyer til miljømodellering" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1500915760625-756e918b7fcb?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">AI</span><p>Miljømodellering</p></div></div>
+<div class="project-content">
+<p class="project-type">AI · Klima · Forskning</p>
+<h3>Forudsigelse af vandets kredsløb</h3>
+<p>Jeg arbejdede sammen med AI-ingeniører om at modellere nedbør og vandets kredsløb ud fra historiske data om regn, grundvand og vejrforhold i Japan.</p>
+<a class="text-link" href="https://recursiveai.co.jp/case-studies/smarter-water-planning-with-ai-powered-precipitation-modeling" rel="noopener noreferrer" target="_blank">Læs casen fra Recursive AI <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Illustrativt foto af servere i et datacenter" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">CLOUD</span><p>Levering af Kubernetes-platform</p></div></div>
+<div class="project-content">
+<p class="project-type">Cloud · Kubernetes · Automatisering</p>
+<h3>Rakuten Cloud Platform</h3>
+<p>Jeg koordinerede leverancer på en cloudplatform, kapacitetsplanlægning, fakturering, migrationsstøtte og automatiseringsinitiativer hos Rakuten.</p>
+<p class="project-highlight"><strong>85 % kortere udrulningstid</strong><br/>Fra tre måneder til to uger.</p>
+<a class="text-link" href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it" rel="noopener noreferrer" target="_blank">Læs om Rakuten Cloud <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Illustrativt foto af en Honda Civic parkeret på gaden" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Honda_Civic_075226749.jpg/960px-Honda_Civic_075226749.jpg"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Rådgivning om arbejdsgange i bilindustrien</p></div></div>
+<div class="project-content">
+<p class="project-type">Enterprise AI · Rådgivning · Platforme</p>
+<h3>Fujitsu × Palantir × Honda</h3>
+<p>Jeg arbejdede som konsulent med at optimere arbejdsgange i backend på Palantir-platformen til en proces for tilbud på bildele til Honda-biler.</p>
+<div class="project-links">
+<a class="text-link" href="https://www.palantir.com/partnerships/fujitsu/" rel="noopener noreferrer" target="_blank">Fujitsu–Palantir-samarbejdet <span>→</span></a>
+<a class="text-link" href="https://global.fujitsu/en-global/pr/news/2025/08/19-01-en" rel="noopener noreferrer" target="_blank">Meddelelse fra Fujitsu <span>→</span></a>
+</div>
+<p class="project-photo-credit">Fotoet af Honda-bilen er illustrativt og viser ikke mit konkrete projektarbejde.</p></div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Illustrativt foto af noder på et klaver" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1755287078382-94c1ad66cf8e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">WEB</span><p>Selvstændigt softwareprojekt</p></div></div>
+<div class="project-content">
+<p class="project-type">Webapp · Data · Dansk kultur</p>
+<h3>Danish Hymn → Chorale Finder</h3>
+<p>Jeg har udviklet en webapp, som hjælper kirkemusikere med hurtigt at finde danske salmemelodier og de tilhørende henvisninger i koralbogen.</p>
+<a class="text-link" href="https://hellokim.me/hymns/" rel="noopener noreferrer" target="_blank">Åbn projektet <span>→</span></a>
+</div>
+</article>
+</div>
+<p class="portfolio-image-note">Billederne i portfolioen er illustrative, bortset fra fotoet af Toyota bZ4X. Honda-foto: <a href="https://commons.wikimedia.org/wiki/File:Honda_Civic_075226749.jpg" rel="noopener noreferrer" target="_blank">Trop86 / Wikimedia Commons (CC0)</a>. Øvrige illustrative fotos: <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash</a>.</p></section><section aria-labelledby="education-heading" class="education-section section-shell" id="education">
+<div class="section-heading education-heading">
+<p class="eyebrow">Uddannelse og faglig udvikling</p>
+<h2 id="education-heading">Altid nysgerrig, altid i udvikling.</h2>
+<p class="education-intro">Jeg tror på, at der altid er noget nyt at lære. Min baggrund kombinerer teknologi, forretning og glæden ved at arbejde med mennesker.</p>
+</div>
+<div class="education-layout">
+<article class="education-card education-featured">
+<p class="edu-label">Uddannelse · 2026</p><div class="tesu-brand-row"><a aria-label="Besøg Thomas Edison State Universitys hjemmeside" class="tesu-logo-link" href="https://www.tesu.edu/" rel="noopener noreferrer" target="_blank"><img alt="Thomas Edison State Universitys officielle logo med vinrød og guldfarvet fakkel" class="tesu-logo" decoding="async" height="84" loading="lazy" src="https://www.tesu.edu/about/newsroom/_media/tesu-icon-2024.jpg" width="84"/></a><h3>Thomas Edison State University (TESU)</h3></div>
+<p><strong>Bachelor of Arts in Computer Science</strong></p>
+<p>Alle fag afsluttet i oktober 2026.</p>
+<p class="edu-status">Afventer officiel tildeling af graden.</p>
+</article>
+<div class="education-stack">
+<article class="education-card">
+<p class="edu-label">Certificering</p>
+<h3>Certified ScrumMaster (CSM)</h3>
+<p class="edu-status">Tidligere certificeret. Certificeringen er ikke længere aktiv.</p>
+</article>
+<article class="education-card">
+<p class="edu-label">Faglig udvikling</p>
+<h3>Google Project Management Certificate</h3>
+<p class="edu-status">Gennemført.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="contact-section section-shell" id="contact">
+<div class="contact-card">
+<div>
+<p class="eyebrow">Lad os arbejde sammen</p>
+<h2>Lad os skabe noget, der gør en forskel.</h2>
 
-        <div class="availability">
-          <span class="availability-dot"></span>
-          Baseret i Vejle · Åben for tekniske projektlederroller
-        </div>
-      </div>
-
-      <div class="hero-photo-wrap">
-<img
-  class="hero-photo"
-  src="assets/css/IMG_0486.jpg"
-  alt="Kim Minamoto in the Danish countryside"
->
-      </div>
-    </section>
-
-    <section class="logo-section section-shell" aria-labelledby="experience-heading">
-      <div class="section-heading section-heading-centered">
-        <p class="eyebrow">Erfaring</p>
-        <h2 id="experience-heading">Projekterfaring på tværs af virksomheder</h2>
-        <p class="section-intro">
-          Har abejdet for Recursive AI, Woven by Toyota, Rakuten Group og Netwise.
-          Projektlevering involverede også initiativer for eller med Suntory,
-          Metropolitan Waterworks Authority, Fujitsu, Palantir og Honda.
-        </p>
-      </div>
-    </section>
-
-    <section class="about section-shell" id="about">
-      <div class="section-heading">
-        <p class="eyebrow">Om mig</p>
-        <h2>Teknisk orienteret til at forstå arbejdet.<br>Menneskelig indsigt til at drive arbejdet fremad.</h2>
-      </div>
-
-      <div class="about-layout">
-        <div class="about-copy">
-          <p>
-            Jeg er teknisk projektleder med erfaring i AI, cloud-infrastruktur,
-            UX og softwareprojekter på tværs af japanske-, thailandske- og internationale teams.
-          </p>
-
-          <p>
-            Min baggrund kombinerer projektledelse, forretningskommunikation og teknisk læring.
-            Jeg kan lide at gøre komplekst arbejde overskueligt, skabe afstemning mellem teams
-            og hjælpe projekter fra idé til levering.
-          </p>
-
-          <p>
-            Jeg er i gang med min anden bachelorgrad, denne gang i datalogi med forventet afslutning
-            i september 2026.
-          </p>
-        </div>
-
-        <div class="strengths-grid">
-          <article class="strength-card">
-            <span class="strength-icon">◎</span>
-            <h3>International levering</h3>
-            <p>Japanske-, thailandske-, indiske-, nordamerikanske-, tyske-, ukrainske- og globale interessenter.</p>
-          </article>
-
-          <article class="strength-card">
-            <span class="strength-icon">↗</span>
-            <h3>Tværfaglig ledelse</h3>
-            <p>Teams inden for udvikling, UX, forskning, leverandørstyring, økonomi, jura og business.</p>
-          </article>
-
-          <article class="strength-card">
-            <span class="strength-icon">&lt;/&gt;</span>
-            <h3>Teknisk fundament</h3>
-            <p>AI-projekter, cloud-platforme, Kubernetes, softwarelevering og dokumentation.</p>
-          </article>
-
-          <article class="strength-card">
-            <span class="strength-icon">⌘</span>
-            <h3>Flersproget kommunikation</h3>
-            <p>Flydende engelsk, japansk og thailandsk; er ved at lære dansk.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="projects section-shell" id="projects">
-      <div class="section-heading projects-heading">
-        <div>
-          <p class="eyebrow">Udvalgte projekter</p>
-          <h2>Projekter der forbinder teknologi med konkrete resultater</h2>
-        </div>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-visual visual-water">
-            <span>AI</span>
-            <p>Vandinfrastruktur</p>
-          </div>
-
-          <div class="project-content">
-            <p class="project-type">AI · Deep Learning · Research</p>
-            <h3>AI Water Leakage Detection</h3>
-            <p>
-              Støttede en proof-of-concept rapport med historiske lækagedata,
-              RTU-data, vandflow og netværkstopologi for at hjælpe med at identificere
-              potentielle lækager i Bangkok og Nonthaburi (TH).
-            </p>
-
-            <a
-              class="text-link"
-              href="https://recursiveai.co.jp/news/fighting-critical-water-loss-with-deep-learning"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Læs case study <span>→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-rain">
-            <span>AI</span>
-            <p>Miljømodellering</p>
-          </div>
-
-          <div class="project-content">
-            <p class="project-type">AI · Klima · Research</p>
-            <h3>Water Cycle Prediction</h3>
-            <p>
-              Samarbejdede med AI-ingeniører om nedbørs- og vandcyklusmodellering
-              baseret på historiske regn-, grundvands- og meteorologiske data fra Japan.
-            </p>
-
-            <a
-              class="text-link"
-              href="https://recursiveai.co.jp/case-studies/smarter-water-planning-with-ai-powered-precipitation-modeling"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Læs Recursive AI case study <span>→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-car">
-            <span>UX</span>
-            <p>Advanced parking assistance</p>
-          </div>
-
-          <div class="project-content">
-            <p class="project-type">UX · ADAS · Produktlevering</p>
-            <h3>Toyota Advanced Park</h3>
-            <p>
-              Støttede UX-research og leveringskoordinering for Toyota Advanced Park,
-              en håndfri parkeringsassistent.
-            </p>
-
-            <div class="project-links">
-              <a
-                class="text-link"
-                href="https://www.toyota.com/content/dam/toyota/brochures/pdf/2022/Toyota_Advanced_Park_Overview.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Se Advanced Park <span>→</span>
-              </a>
-
-              <a
-                class="text-link"
-                href="https://www.nhtsa.gov/vehicle-safety/driver-assistance-technologies"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Hvad er ADAS? <span>→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-cloud">
-            <span>Cloud</span>
-            <p>Kubernetes-platform</p>
-          </div>
-
-          <div class="project-content">
-            <p class="project-type">Cloud · Kubernetes · Automation</p>
-            <h3>Rakuten Cloud Platform</h3>
-            <p>
-              Koordinerede cloud-platformlevering, kapacitetsplanlægning,
-              billing, migrationssupport og automatiseringsinitiativer på tværs af tekniske teams.
-            </p>
-
-            <p class="project-highlight">
-              <strong>85% reduktion i implementeringstid-tid</strong><br>
-              Fra tre måneder til to uger.
-            </p>
-
-            <a
-              class="text-link"
-              href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Læs om Rakuten Cloud <span>→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-ai">
-            <span>AI</span>
-            <p>Enterprise workflow consulting</p>
-          </div>
-
-          <div class="project-content">
-            <p class="project-type">Enterprise AI · Consulting · Platforme</p>
-            <h3>Fujitsu × Palantir × Honda</h3>
-            <p>
-              Consulting-arbejde med optimering af backend-workflows
-              på Palantir-platformen til en proces for tilbudsgivning på bildele.
-            </p>
-
-            <div class="project-links">
-              <a
-                class="text-link"
-                href="https://www.palantir.com/partnerships/fujitsu/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Fujitsu–Palantir partnership <span>→</span>
-              </a>
-
-              <a
-                class="text-link"
-                href="https://global.fujitsu/en-global/pr/news/2025/08/19-01-en"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Fujitsu announcement <span>→</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual visual-hymn">
-            <span>Web</span>
-            <p>Selvstændigt softwareprojekt</p>
-          </div>
-
-          <div class="project-content">
-            <p class="project-type">Web App · Data · Dansk kultur</p>
-            <h3>Danish Hymn → Chorale Finder</h3>
-            <p>
-              Byggede en webapp, der hjælper kirkemusikere med hurtigt at finde
-              salmemelodier i Den Danske Koralbog.
-            </p>
-
-            <a
-              class="text-link"
-              href="https://hellokim.me/hymns/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Åbn projektet <span>→</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="contact-section section-shell" id="contact">
-      <div class="contact-card">
-        <div>
-          <p class="eyebrow">Lad os arbejde sammen</p>
-          <h2>Leder I efter en teknisk projektleder i Danmark?</h2>
-          <p>
-            Jeg er åben for roller inden for teknisk projektledelse, AI-delivery,
-            cloud-platforme og tværfaglig softwarelevering — især omkring Billund,
-            Vejle og Aarhus.
-          </p>
-        </div>
-
-        <div class="contact-links">
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=kim.minamoto2026@gmail.com&su=Technical%20Project%20Management%20Opportunity"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            kim.minamoto2026@gmail.com
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/kimminamoto/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            linkedin.com/in/kimminamoto
-          </a>
-
-          <a
-            href="https://github.com/Sleepycatfuji"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            github.com/Sleepycatfuji
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2026 Kim Minamoto · Bygget med GitHub Pages</p>
-  </footer>
+</div>
+<div class="contact-links">
+<a href="mailto:kim.minamoto2026@gmail.com?subject=Hello%20Kim" rel="noopener noreferrer" target="_blank">
+        kim.minamoto2026@gmail.com
+      </a>
+<a href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">
+        linkedin.com/in/kimminamoto
+      </a>
+<a href="https://github.com/Sleepycatfuji" rel="noopener noreferrer" target="_blank">
+        github.com/Sleepycatfuji
+      </a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer"><nav aria-label="Sociale medier" class="footer-social">
+<a href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+<a href="https://github.com/Sleepycatfuji" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+<a aria-label="Instagram – kimxukim (åbner i en ny fane)" href="https://www.instagram.com/kimxukim/" rel="noopener noreferrer" target="_blank"><svg aria-label="Instagram-ikon" class="social-icon social-instagram" focusable="false" role="img" viewbox="0 0 24 24"><rect fill="none" height="19" rx="5" stroke="currentColor" stroke-width="2" width="19" x="2.5" y="2.5"></rect><circle cx="12" cy="12" fill="none" r="4.1" stroke="currentColor" stroke-width="2"></circle><circle cx="17.7" cy="6.4" fill="currentColor" r="1.3"></circle></svg> Instagram</a>
+<a aria-label="Facebook – Kim (åbner i en ny fane)" href="https://www.facebook.com/duangrudee.kim/" rel="noopener noreferrer" target="_blank"><svg aria-label="Facebook-ikon" class="social-icon social-facebook" focusable="false" role="img" viewbox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.095 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.027 1.792-4.699 4.533-4.699 1.312 0 2.686.235 2.686.235v2.974H15.83c-1.491 0-1.956.931-1.956 1.887v2.263h3.328l-.532 3.49h-2.796V24C19.612 23.095 24 18.1 24 12.073z" fill="currentColor"></path></svg> Facebook</a>
+</nav>
+<p>© 2026 Kim Minamoto · Lavet med GitHub Pages</p>
+</footer>
 </body>
 </html>
