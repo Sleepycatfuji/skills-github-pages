@@ -88,28 +88,93 @@
         font-size: 14px;
       }
 
-      .chorale-item {
-        border: 1px solid #e2e2e2;
-        border-radius: 10px;
-        padding: 12px;
-        margin-top: 10px;
-        background: #fafafa;
-      }
-
-      .preferred {
-        margin-top: 8px;
-        display: block;
-        font-size: 14px;
-      }
-
       .badge {
         display: inline-block;
         font-size: 12px;
-        background: #eaf2ff;
-        color: #1f5fbf;
+        background: #eaf8ef;
+        color: #1f7a3b;
+        border: 1px solid #b7dfc4;
         padding: 4px 8px;
         border-radius: 999px;
         margin-left: 8px;
+        font-weight: 600;
+      }
+
+      .source-melodies,
+      .chorale-options-section,
+      .recording-information {
+        border: 1px solid #e2e2e2;
+        border-radius: 10px;
+        background: #fafafa;
+        padding: 12px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .section-help {
+        margin-top: 4px;
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+
+      .chorale-options {
+        display: grid;
+        gap: 10px;
+      }
+
+      .chorale-option {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid #dedede;
+        border-radius: 9px;
+        background: white;
+        cursor: pointer;
+      }
+
+      .chorale-option:hover {
+        border-color: #a8a8a8;
+      }
+
+      .chorale-option.selected {
+        border-color: #1f5fbf;
+        background: #f2f7ff;
+      }
+
+      .chorale-option input {
+        margin-top: 3px;
+        flex: 0 0 auto;
+      }
+
+      .chorale-option-content {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+      }
+
+      .chorale-option-main {
+        line-height: 1.35;
+      }
+
+      .chorale-option-meta {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .recording-list {
+        margin: 8px 0 0;
+        padding-left: 20px;
+      }
+
+      .recording-list li {
+        margin: 4px 0;
       }
 
       .comment-box {
@@ -160,8 +225,14 @@
     <div id="results"></div>
 
     <script>
-      const DATA_PATH = "./data/hymns_dataset_updated.json";
-      const PREFERENCES_KEY = "preferredChorales";
+      const DATA_PATH = "./data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json";
+      const DATA_SHA256 = "0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713"; // Set by build_release.py for production bundles.
+
+      // New preference storage uses KDS option IDs, not recording labels.
+      // Keeping the old key allows an existing saved recording preference to
+      // migrate automatically when it has one exact KDS match.
+      const PREFERENCES_KEY = "preferredChoraleOptionsV2";
+      const LEGACY_PREFERENCES_KEY = "preferredChorales";
       const COMMENTS_KEY = "hymnComments";
       const LANGUAGE_KEY = "appLanguage";
 
@@ -184,17 +255,26 @@
           noResults: "Ingen salmer fundet.",
           resultsFound: (count) => `${count} salme(r) fundet.`,
           hymnLabel: "Salme",
-          firstLine: "Første linje",
           verseCount: "Antal vers",
           unknownVerseCount: "Ukendt",
-          sourceMelodies: "Melodier fra kilden",
+          sourceMelodies: "Melodihenvisninger",
+          choraleOptions: "Vælg koralbogsvariant",
+          choraleOptionsHelp:
+            "Vælg den koralbogsvariant, du vil bruge til denne salme.",
           noChorales: "Ingen koraler fundet.",
           chorale: "Koral",
-          preferred: "Foretrukken melodi",
-          preferredSaved: "Foretrukken melodi gemt",
+          choraleBookNumber: "Koralbog nr.",
+          choraleBookPage: "Bogside",
+          kdsReference: "KDS-reference",
+          kdsLongName: "Koralbog til Den Danske Salmebog",
+          composerSource: "Komponist / kilde",
+          melodyInformation: "Melodioplysninger",
+          melodyInformationHelp:
+            "Disse oplysninger gælder for salmen, men kan ikke knyttes entydigt til én bestemt koralbogsvariant.",
+          preferredSaved: "Foretrukken koral gemt",
           notesLabel: "Kommentar / note",
           notesPlaceholder:
-            "Skriv en kommentar om denne salme eller den foretrukne melodi her...",
+            "Skriv en kommentar om denne salme eller den foretrukne koral her...",
           saveComment: "Gem kommentar",
           commentSaved: "Kommentar gemt",
           clearPreference: "Fjern valg",
@@ -214,17 +294,26 @@
           noResults: "No hymns found.",
           resultsFound: (count) => `${count} hymn(s) found.`,
           hymnLabel: "Hymn",
-          firstLine: "First line",
           verseCount: "Verse count",
           unknownVerseCount: "Unknown",
-          sourceMelodies: "Source melodies",
+          sourceMelodies: "Tune references",
+          choraleOptions: "Choose a chorale-book version",
+          choraleOptionsHelp:
+            "Choose the chorale-book version you want to use for this hymn.",
           noChorales: "No chorales found.",
           chorale: "Chorale",
-          preferred: "Preferred melody",
-          preferredSaved: "Preferred melody saved",
+          choraleBookNumber: "Chorale book no.",
+          choraleBookPage: "Book page",
+          kdsReference: "KDS reference",
+          kdsLongName: "Koralbog til Den Danske Salmebog",
+          composerSource: "Composer / source",
+          melodyInformation: "Melody information",
+          melodyInformationHelp:
+            "These details apply to the hymn, but the sources do not connect them uniquely to one chorale-book version.",
+          preferredSaved: "Preferred chorale saved",
           notesLabel: "Comment / note",
           notesPlaceholder:
-            "Write a comment about this hymn or the preferred melody here...",
+            "Write a comment about this hymn or the preferred chorale here...",
           saveComment: "Save comment",
           commentSaved: "Comment saved",
           clearPreference: "Clear selection",
@@ -256,47 +345,82 @@
         }
       }
 
-      function loadPreferences() {
+      function loadStoredObject(key) {
         try {
-          return JSON.parse(localStorage.getItem(PREFERENCES_KEY) || "{}");
+          return JSON.parse(localStorage.getItem(key) || "{}");
         } catch (error) {
-          console.error("Could not load preferences:", error);
+          console.error(`Could not load ${key}:`, error);
           return {};
         }
       }
 
-      function savePreferences(preferences) {
-        localStorage.setItem(PREFERENCES_KEY, JSON.stringify(preferences));
+      function saveStoredObject(key, value) {
+        localStorage.setItem(key, JSON.stringify(value));
       }
 
-      function setPreferredChorale(hymnNumber, choraleNumber) {
+      function loadPreferences() {
+        return loadStoredObject(PREFERENCES_KEY);
+      }
+
+      function savePreferences(preferences) {
+        saveStoredObject(PREFERENCES_KEY, preferences);
+      }
+
+      function setPreferredChorale(hymnNumber, optionId) {
         const preferences = loadPreferences();
-        preferences[String(hymnNumber)] = choraleNumber;
+        preferences[String(hymnNumber)] = optionId;
         savePreferences(preferences);
       }
 
       function clearPreferredChorale(hymnNumber) {
+        const key = String(hymnNumber);
+
         const preferences = loadPreferences();
-        delete preferences[String(hymnNumber)];
+        delete preferences[key];
         savePreferences(preferences);
+
+        const legacyPreferences = loadStoredObject(LEGACY_PREFERENCES_KEY);
+        delete legacyPreferences[key];
+        saveStoredObject(LEGACY_PREFERENCES_KEY, legacyPreferences);
       }
 
-      function getPreferredChorale(hymnNumber) {
-        const preferences = loadPreferences();
-        return preferences[String(hymnNumber)] || null;
+      function getPreferredChorale(hymnNumber, choraleOptions) {
+        const hymnKey = String(hymnNumber);
+        const savedOptionId = loadPreferences()[hymnKey];
+
+        if (
+          savedOptionId &&
+          choraleOptions.some((option) => option.option_id === savedOptionId)
+        ) {
+          return savedOptionId;
+        }
+
+        // One-time compatibility migration for preferences saved by the
+        // previous version of the app, which stored a recording label.
+        const legacyValue = loadStoredObject(LEGACY_PREFERENCES_KEY)[hymnKey];
+        if (!legacyValue) {
+          return null;
+        }
+
+        const matchingOptions = choraleOptions.filter(
+          (option) => option.recording_melody === legacyValue,
+        );
+
+        if (matchingOptions.length === 1) {
+          const migratedOptionId = matchingOptions[0].option_id;
+          setPreferredChorale(hymnNumber, migratedOptionId);
+          return migratedOptionId;
+        }
+
+        return null;
       }
 
       function loadComments() {
-        try {
-          return JSON.parse(localStorage.getItem(COMMENTS_KEY) || "{}");
-        } catch (error) {
-          console.error("Could not load comments:", error);
-          return {};
-        }
+        return loadStoredObject(COMMENTS_KEY);
       }
 
       function saveComments(comments) {
-        localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+        saveStoredObject(COMMENTS_KEY, comments);
       }
 
       function getComment(hymnNumber) {
@@ -318,6 +442,52 @@
           .trim();
       }
 
+      function escapeHtml(value) {
+        return String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function getChoraleOptions(hymn) {
+        const structuredOptions = Array.isArray(hymn.chorale_options)
+          ? hymn.chorale_options
+          : [];
+
+        if (structuredOptions.length > 0) {
+          return structuredOptions.map((option, index) => {
+            const displayKds =
+              option.display_kds ||
+              (Array.isArray(option.kds_codes)
+                ? option.kds_codes.join(", ")
+                : "") ||
+              option.chorale_number ||
+              "?";
+
+            return {
+              option_id: String(
+                option.option_id || `kds:${displayKds}:${index}`,
+              ),
+              display_kds: String(displayKds),
+              chorale_title: option.chorale_title || "",
+              recording_melody: option.recording_melody || null,
+              source_melody: option.source_melody || null,
+            };
+          });
+        }
+
+        // Backward-compatible fallback while older JSON is still deployed.
+        return (hymn.chorales || []).map((chorale, index) => ({
+          option_id: `legacy:${hymn.hymn_number}:${chorale.chorale_number || index}`,
+          display_kds: String(chorale.chorale_number || "?"),
+          chorale_title: chorale.chorale_title || "",
+          recording_melody: null,
+          source_melody: null,
+        }));
+      }
+
       function hymnMatchesQuery(hymnKey, hymn, query) {
         const rawQuery = String(query || "").trim();
         const q = normalizeText(rawQuery);
@@ -335,13 +505,113 @@
         const title = normalizeText(hymn.hymn_title || "");
         const firstLine = normalizeText(hymn.first_line || "");
 
-        const isNumericQuery = /^\d+$/.test(rawQuery);
-
-        if (isNumericQuery) {
+        if (/^\d+$/.test(rawQuery)) {
           return hymnNumber === rawQuery;
         }
 
         return title.includes(q) || firstLine.includes(q);
+      }
+
+      function renderChoraleOptionsHtml(
+        hymn,
+        choraleOptions,
+        preferredOptionId,
+      ) {
+        const bookReferenceHtml = Number.isInteger(hymn.book_page) && hymn.book_page > 0
+          ? `<p class="special-reference" data-reference-type="book_page" data-page-number="${hymn.book_page}"><strong>${t("choraleBookPage")} ${hymn.book_page}</strong> — ${escapeHtml(hymn.book_page_label)}</p>`
+          : "";
+        if (choraleOptions.length === 0) {
+          return bookReferenceHtml || `<p>${t("noChorales")}</p>`;
+        }
+
+        const hymnNumber = escapeHtml(hymn.hymn_number);
+
+        return `
+          <div class="chorale-options-section">
+            <div class="section-title">${t("choraleOptions")}</div>
+            <div class="muted section-help">${t("choraleOptionsHelp")}</div>
+            <div class="chorale-options">
+              ${choraleOptions
+                .map((option) => {
+                  const checked =
+                    preferredOptionId === option.option_id ? "checked" : "";
+                  const selectedClass =
+                    preferredOptionId === option.option_id ? "selected" : "";
+                  // Prefer the official hymn-site attribution when available.
+                  // Otherwise show the source melody reference. These are intentionally
+                  // displayed as one plain-language line rather than two technical fields.
+                  const composerOrSource =
+                    option.recording_melody || option.source_melody || null;
+                  const composerSourceHtml = composerOrSource
+                    ? `<div class="chorale-option-meta">
+                        <strong>${t("composerSource")}:</strong>
+                        ${escapeHtml(composerOrSource)}
+                      </div>`
+                    : "";
+
+                  return `
+                    <label class="chorale-option ${selectedClass}" data-reference-type="chorale" data-chorale-number="${escapeHtml(option.display_kds)}">
+                      <input
+                        type="radio"
+                        name="preferred-kds-${hymnNumber}"
+                        value="${escapeHtml(option.option_id)}"
+                        ${checked}
+                      />
+                      <span class="chorale-option-content">
+                        <span class="chorale-option-main">
+                          <strong>${t("choraleBookNumber")} ${escapeHtml(option.display_kds)}</strong>
+                          — ${escapeHtml(option.chorale_title)}
+                        </span>
+                        ${composerSourceHtml}
+                      </span>
+                    </label>
+                  `;
+                })
+                .join("")}
+            </div>
+            ${bookReferenceHtml}
+          </div>
+        `;
+      }
+
+      function renderSharedRecordingInformationHtml(
+        recordingMelodies,
+        choraleOptions,
+      ) {
+        const recordings = Array.from(
+          new Set((recordingMelodies || []).filter(Boolean)),
+        );
+
+        if (recordings.length === 0) {
+          return "";
+        }
+
+        const assignedRecordings = new Set(
+          choraleOptions
+            .map((option) => normalizeText(option.recording_melody))
+            .filter(Boolean),
+        );
+
+        // Show only labels not already displayed inside an individual KDS choice.
+        const sharedRecordings = recordings.filter(
+          (recording) => !assignedRecordings.has(normalizeText(recording)),
+        );
+
+        if (sharedRecordings.length === 0) {
+          return "";
+        }
+
+        return `
+          <div class="recording-information">
+            <div class="section-title">${t("melodyInformation")}</div>
+            <div class="muted section-help">${t("melodyInformationHelp")}</div>
+            <ul class="recording-list">
+              ${sharedRecordings
+                .map((recording) => `<li>${escapeHtml(recording)}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
       }
 
       function renderResults(matches) {
@@ -360,67 +630,86 @@
           const card = document.createElement("div");
           card.className = "card";
 
-          const preferred = getPreferredChorale(hymn.hymn_number);
-          const chorales = hymn.chorales || [];
+          const choraleOptions = getChoraleOptions(hymn);
+          const preferredOptionId = getPreferredChorale(
+            hymn.hymn_number,
+            choraleOptions,
+          );
           const savedComment = getComment(hymn.hymn_number);
-
-          let choralesHtml = "";
-          if (chorales.length === 0) {
-            choralesHtml = `<p>${t("noChorales")}</p>`;
-          } else {
-            choralesHtml = chorales
-              .map((chorale) => {
-                const checked =
-                  Number(preferred) === Number(chorale.chorale_number)
-                    ? "checked"
-                    : "";
-                return `
-              <div class="chorale-item">
-                <div><strong>${t("chorale")} ${chorale.chorale_number}</strong></div>
-                <div>${chorale.chorale_title}</div>
-                <label class="preferred">
-                  <input type="radio" name="preferred-${hymn.hymn_number}" value="${chorale.chorale_number}" ${checked}>
-                  ${t("preferred")}
-                </label>
-              </div>
-            `;
-              })
-              .join("");
-          }
-
-          const showClearPreference =
-            preferred !== null && preferred !== undefined;
+          const recordingMelodies = hymn.recording_melodies || [];
 
           const verseCountText =
             hymn.verse_count !== undefined && hymn.verse_count !== null
               ? hymn.verse_count
               : t("unknownVerseCount");
 
+          const sourceMelodiesText =
+            (hymn.melodies || []).map(escapeHtml).join(" | ") || "-";
+
+          const showClearPreference = Boolean(preferredOptionId);
+
           card.innerHTML = `
-          <div>
-            <strong>${t("hymnLabel")} ${hymn.hymn_number}: ${hymn.hymn_title}</strong>
-            ${showClearPreference ? `<span class="badge">${t("preferredSaved")}</span>` : ""}
-          </div>
-          <p class="muted">${t("verseCount")}: ${verseCountText}</p>
-          <p class="muted">${t("sourceMelodies")}: ${(hymn.melodies || []).join(" | ") || "-"}</p>
-          <div>${choralesHtml}</div>
-          ${showClearPreference ? `<button class="secondary-button clear-preference-button" data-hymn-number="${hymn.hymn_number}" type="button">${t("clearPreference")}</button>` : ""}
-          <div class="comment-box">
-            <label for="comment-${hymn.hymn_number}"><strong>${t("notesLabel")}</strong></label>
-            <textarea id="comment-${hymn.hymn_number}" placeholder="${t("notesPlaceholder")}">${savedComment}</textarea>
-            <button class="save-comment-button" data-hymn-number="${hymn.hymn_number}" type="button">${t("saveComment")}</button>
-            <div id="comment-status-${hymn.hymn_number}" class="comment-status"></div>
-          </div>
-        `;
+            <div>
+              <strong>${t("hymnLabel")} ${escapeHtml(hymn.hymn_number)}: ${escapeHtml(hymn.hymn_title)}</strong>
+              ${
+                showClearPreference
+                  ? `<span class="badge">${t("preferredSaved")}</span>`
+                  : ""
+              }
+            </div>
+
+            <p class="muted">${t("verseCount")}: ${escapeHtml(verseCountText)}</p>
+
+            <p class="muted">
+              ${t("sourceMelodies")}: ${sourceMelodiesText}
+            </p>
+
+            ${renderChoraleOptionsHtml(hymn, choraleOptions, preferredOptionId)}
+
+            ${renderSharedRecordingInformationHtml(
+              recordingMelodies,
+              choraleOptions,
+            )}
+
+            ${
+              showClearPreference
+                ? `<button
+                    class="secondary-button clear-preference-button"
+                    data-hymn-number="${escapeHtml(hymn.hymn_number)}"
+                    type="button">
+                    ${t("clearPreference")}
+                  </button>`
+                : ""
+            }
+
+            <div class="comment-box">
+              <label for="comment-${escapeHtml(hymn.hymn_number)}">
+                <strong>${t("notesLabel")}</strong>
+              </label>
+              <textarea
+                id="comment-${escapeHtml(hymn.hymn_number)}"
+                placeholder="${t("notesPlaceholder")}"
+              >${escapeHtml(savedComment)}</textarea>
+
+              <button
+                class="save-comment-button"
+                data-hymn-number="${escapeHtml(hymn.hymn_number)}"
+                type="button">
+                ${t("saveComment")}
+              </button>
+
+              <div
+                id="comment-status-${escapeHtml(hymn.hymn_number)}"
+                class="comment-status"
+              ></div>
+            </div>
+          `;
 
           card
-            .querySelectorAll(`input[name="preferred-${hymn.hymn_number}"]`)
+            .querySelectorAll(`input[name="preferred-kds-${hymn.hymn_number}"]`)
             .forEach((radio) => {
               radio.addEventListener("change", (event) => {
-                setPreferredChorale(
-                  hymn.hymn_number,
-                  Number(event.target.value),
-                );
+                setPreferredChorale(hymn.hymn_number, event.target.value);
                 runSearch();
               });
             });
@@ -479,7 +768,13 @@
             throw new Error(`HTTP ${response.status}`);
           }
 
-          hymnData = await response.json();
+          const payload = await response.text();
+          if (DATA_SHA256) {
+            const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(payload));
+            const actual = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+            if (actual !== DATA_SHA256) throw new Error("Dataset does not match this frontend release");
+          }
+          hymnData = JSON.parse(payload);
 
           status.dataset.state = "loaded";
           status.textContent = t("loaded");

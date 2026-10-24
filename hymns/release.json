@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "revision": "8e6b808be7b151f6b125154bbf879a16c5a39f2f",
+  "hymn_count": 791,
+  "data_path": "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json",
+  "files": {
+    "index.html": "8ba9afa5729af12631e60cc66a1c4377d1f5eb08c85b62747cb4d276e21f4783",
+    "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json": "0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713",
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
