@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kim Minamoto</title>
+<meta content="デンマーク在住のKim Minamoto。日本・タイをはじめとする国際的な環境で、テクノロジー、プロダクト開発、プロジェクト推進、ビジネスソリューションに携わってきました。" name="description"/>
+<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap');
+:root {
+  --ink:#192d28;
+  --ink-soft:#51665c;
+  --forest:#174b3b;
+  --forest-deep:#123c32;
+  --green:#267451;
+  --green-bright:#d8edda;
+  --mint:#eef7f0;
+  --cream:#fbf4e9;
+  --line:#dce9de;
+  --bg:#fbfcf8;
+  --white:#ffffff;
+  --orange:#f2be7c;
+  --radius:20px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito Sans',ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto}
+a{color:inherit}
+button,a{outline-offset:4px}
+::selection{background:#f8d9a2;color:#17392d}
+main{overflow:hidden}
+.section-shell{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+h1,h2,h3,.brand{font-family:'Bricolage Grotesque',ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.13;letter-spacing:-.032em}
+h1,h2,h3,p{margin-top:0}
+h2{font-size:clamp(2rem,3.8vw,3.1rem);font-weight:800}
+h3{font-weight:800}
+.skip-link{position:absolute;top:-100px;left:16px;background:white;color:var(--forest-deep);z-index:20;padding:10px 16px;border-radius:8px}
+.skip-link:focus{top:12px}
+/* Navigation */
+.site-nav{position:sticky;top:0;z-index:12;background:rgba(251,252,248,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(44,93,70,.13)}
+.nav-inner{width:min(1120px,calc(100% - 48px));margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:baseline;gap:6px;text-decoration:none;color:var(--ink);font-size:1.13rem;font-weight:800;letter-spacing:-.025em;white-space:nowrap}
+.brand-kim{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,28px);flex-wrap:wrap}
+.nav-links a{text-decoration:none;font-weight:700;font-size:.87rem;color:#36564a;transition:color .2s}
+.nav-links a:hover{color:#0e9a5a}
+.nav-links .language-toggle{border:1px solid #b4d3be;border-radius:30px;padding:5px 10px;font-size:.78rem;color:var(--forest)}
+/* Hero */
+.hero{padding-block:96px 94px;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(35px,6vw,85px);align-items:center}
+.hero-copy{position:relative;z-index:1}
+.eyebrow{margin-bottom:18px;color:var(--green);font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;border-radius:100px;background:#e2f1e5;padding:8px 15px;letter-spacing:.065em;text-transform:none;font-size:.87rem}
+.hero .eyebrow::before{content:'✳';font-size:.95rem;color:#2e865d}
+.hero h1{font-size:clamp(3.7rem,6.5vw,6rem);font-weight:800;letter-spacing:-.055em;margin-bottom:20px;line-height:1.06;color:#091c16}
+.hero-specialisms{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;color:var(--forest);font-size:.86rem;font-weight:800;letter-spacing:.025em;line-height:2;margin-bottom:22px}
+.hero-specialisms span{padding:0 5px;color:#d19d59}
+.hero-intro{max-width:580px;color:#455e53;font-size:1.13rem;line-height:1.75;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:29px}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 20px;text-decoration:none;border-radius:12px;font-size:.91rem;font-weight:800;transition:transform .2s,background .2s,box-shadow .2s}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:var(--forest);color:#fff;box-shadow:0 7px 16px rgba(23,75,59,.18)}
+.button-primary:hover{background:#0c362c}
+.button-secondary{background:#fff;color:var(--forest);border:1px solid #cbded0}
+.button-secondary:hover{background:#eff8f0}
+.availability{color:#547064;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:10px}
+.availability-dot{display:inline-block;flex:none;background:#3bb477;border:4px solid #d4f1df;border-radius:50%;width:16px;height:16px}
+.hero-photo-wrap{position:relative;border-radius:36px;transform:rotate(1.6deg);padding:11px;background:linear-gradient(145deg,#dff0e2 0%,#cee4cf 55%,#f7e4c5 100%);box-shadow:0 26px 58px rgba(18,60,50,.13)}
+.hero-photo-wrap::before{content:'';position:absolute;z-index:-1;width:155px;height:155px;right:-33px;bottom:-28px;border-radius:50%;background:#f4c88f;opacity:.8}
+.hero-photo{display:block;width:100%;height:clamp(330px,35vw,455px);object-fit:cover;border-radius:27px;transform:rotate(-1.6deg)}
+/* Logo area */
+.logo-section{background:#eaf3eb;border:1px solid #d4e9d9;border-radius:28px;padding:48px clamp(20px,4vw,55px) 54px;margin-bottom:95px}
+.section-heading{margin-bottom:32px}
+.section-heading h2{margin-bottom:17px}
+.section-heading-centered{text-align:center}
+.section-intro{max-width:790px;margin:0 auto;color:var(--ink-soft);line-height:1.75;font-size:.99rem}
+.logo-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.logo-card{min-height:120px;padding:17px 9px;background:white;border:1px solid #d7e4d8;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;text-decoration:none;box-shadow:0 5px 18px rgba(21,73,47,.045);transition:transform .2s,box-shadow .2s}
+.logo-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(21,73,47,.12)}
+.logo-card img{width:80px;height:36px;object-fit:contain}
+.company-label{font-size:.72rem;font-weight:700;line-height:1.25;color:#526458}
+.logo-text-card{gap:2px}
+.recursive-mark{font-size:2rem;line-height:1;color:#328961}
+.recursive-wordmark{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-size:1rem;font-weight:800;letter-spacing:-.05em}
+.suntory-wordmark{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;color:#2965ab;font-size:1.2rem;font-weight:800;letter-spacing:.025em;margin-bottom:9px}
+/* About */
+.about{padding-block:6px 100px}
+.about .section-heading{max-width:900px}
+.about-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:65px;align-items:start}
+.about-copy{padding:8px 0 0 23px;border-left:4px solid var(--orange);max-width:540px}
+.about-copy p{font-size:1.055rem;line-height:1.85;color:#455e53;margin-bottom:18px}
+.about-copy p:last-child{margin-bottom:0}
+.strengths-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.strength-card{background:#fff;border:1px solid #ddeadd;border-radius:18px;padding:22px;box-shadow:0 6px 22px rgba(30,75,50,.045)}
+.strength-icon{display:flex;justify-content:center;align-items:center;width:42px;height:42px;background:#deefe2;border-radius:13px;font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-weight:800;color:#287a57;font-size:1.25rem;margin-bottom:17px}
+.strength-card h3{font-size:.99rem;letter-spacing:-.025em;margin-bottom:9px}
+.strength-card p{color:var(--ink-soft);font-size:.84rem;line-height:1.7;margin-bottom:0}
+/* Portfolio */
+.projects{padding-block:65px 98px;position:relative}
+.projects::before{content:'';position:absolute;z-index:-1;inset:10px -100vw 0;background:#eef5f0}
+.projects-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:32px}
+.projects-heading h2{max-width:690px;margin-bottom:0}
+.text-link{font-size:.9rem;color:#227348;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:gap .18s,color .18s}
+.text-link:hover{color:#134c32;gap:11px}
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.project-card{min-width:0;display:flex;flex-direction:column;overflow:hidden;border:1px solid #dbe7dc;border-radius:20px;background:#fff;box-shadow:0 10px 25px rgba(26,72,49,.06);transition:transform .2s,box-shadow .2s}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(26,72,49,.13)}
+.project-visual.portfolio-photo{position:relative;display:block;height:200px;min-height:200px;padding:0!important;overflow:hidden;background:#2d6254}
+.project-visual.portfolio-photo>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.project-card:hover .portfolio-photo>img{transform:scale(1.04)}
+.project-visual.portfolio-photo .photo-caption{position:absolute;inset:auto 0 0 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:start;gap:7px;padding:48px 20px 16px;color:white;background:linear-gradient(transparent,rgba(10,34,30,.87))}
+.project-visual.portfolio-photo .photo-caption .photo-label{display:inline-block;padding:3px 9px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.75);border-radius:20px;font-size:.65rem;font-weight:800;letter-spacing:.08em}
+.project-visual.portfolio-photo .photo-caption p{margin:0;color:white;font-size:.92rem;font-weight:800;line-height:1.25}
+.project-content{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:23px 23px 26px;gap:0}
+.project-type{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-size:.69rem;font-weight:800;color:#27744d;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px;line-height:1.65}
+.project-content h3{font-size:1.19rem;line-height:1.35;margin-bottom:11px;letter-spacing:-.035em}
+.project-content>p:not(.project-type):not(.project-highlight):not(.project-photo-credit){font-size:.9rem;line-height:1.75;color:var(--ink-soft)}
+.project-content>.text-link,.project-links{margin-top:auto;padding-top:14px}
+.project-content .project-links{display:flex;flex-direction:column;align-items:start;gap:7px}
+.project-highlight{border-left:3px solid #eab879;background:#fff9ee;border-radius:0 8px 8px 0;padding:10px 13px;font-size:.86rem;line-height:1.55;margin:1px 0 10px;color:#506055}
+.project-highlight strong{color:#174a35}
+.project-photo-credit{font-size:.71rem;color:#708379;line-height:1.5;margin-top:16px}
+.portfolio-image-note{font-size:.76rem;color:#698073;margin:19px 0 0;line-height:1.7}
+/* Education: warmer neutral + TESU accent */
+.education-section{padding:85px 0 98px;position:relative}
+.education-section::before{content:'';position:absolute;z-index:-1;inset:12px -100vw 0;background:#fbf4e9}
+.education-heading{max-width:760px;margin-bottom:35px}
+.education-heading h2{position:relative;max-width:660px}
+.education-intro{font-size:1.02rem;line-height:1.8;color:#56675c;max-width:670px;margin-top:16px}
+.education-layout{display:grid;grid-template-columns:minmax(0,1.24fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.education-card{min-width:0;padding:30px;background:#fff;border:1px solid #eadfce;border-radius:19px;box-shadow:0 11px 27px rgba(90,78,43,.055)}
+.education-card h3{font-size:1.13rem;line-height:1.35;letter-spacing:-.025em;margin:10px 0}
+.education-card p{font-size:.92rem;color:var(--ink-soft);line-height:1.75;margin:9px 0}
+.education-card p strong{color:var(--ink)}
+.education-card .edu-label{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;font-weight:800;letter-spacing:.11em;font-size:.68rem;text-transform:uppercase;color:#7d5641;margin:0}
+.education-featured{background:linear-gradient(145deg,#fffdf9,#fff4e7);border:1px solid #e9cba2;border-left:6px solid #9e4550;padding-left:26px}
+.education-stack{display:flex;flex-direction:column;gap:20px}
+.education-stack .education-card{flex:1}
+.education-stack .education-card h3{margin-top:14px;font-size:1.13rem}
+.education-card .edu-status{color:#5b6b5e}
+.tesu-brand-row{display:flex;align-items:center;gap:17px;margin:18px 0 12px}
+.tesu-brand-row h3{font-size:1.36rem;margin:0}
+.tesu-logo-link{flex:0 0 85px;width:85px;height:85px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:14px;border:1px solid #ead9cc;background:#fff}
+.tesu-logo{display:block;width:100%;height:100%;object-fit:contain}
+/* Contact: visual focal point */
+.contact-section{padding-block:70px 102px}
+.contact-card{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.7fr);gap:65px;align-items:center;padding:clamp(34px,5vw,64px);border-radius:28px;color:#fff;background:linear-gradient(118deg,#11392f 0%,#1a5845 72%,#27735a 100%);box-shadow:0 21px 60px rgba(19,67,52,.23)}
+.contact-card::before{content:'';position:absolute;z-index:-1;width:310px;height:310px;right:-90px;bottom:-200px;border-radius:50%;border:65px solid rgba(245,201,131,.11)}
+.contact-card::after{content:'✳';position:absolute;z-index:-1;right:28px;top:-75px;font-size:220px;line-height:1;color:rgba(255,255,255,.05)}
+.contact-card .eyebrow{color:#f8ce95}
+.contact-card h2{color:white;font-size:clamp(2rem,3.3vw,3rem);line-height:1.19;margin-bottom:19px;max-width:625px}
+.contact-card p:not(.eyebrow){color:#d7ebe0;line-height:1.85;font-size:.99rem;max-width:570px;margin-bottom:0}
+.contact-links{display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.contact-links a{display:block;padding:13px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1);color:#fff;font-weight:700;font-size:.85rem;text-decoration:none;overflow-wrap:anywhere;transition:background .2s,transform .2s}
+.contact-links a:hover{background:rgba(255,255,255,.22);transform:translateX(3px)}
+/* Footer */
+.site-footer{text-align:center;color:#6b8072;padding:0 16px 35px;font-size:.78rem}
+.site-footer .footer-social{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px 12px;margin:0 auto 21px}
+.site-footer .footer-social a{display:inline-flex;align-items:center;gap:8px;border:1px solid #d4e4d8;border-radius:100px;background:white;padding:8px 14px;text-decoration:none;color:#285c43;font-size:.83rem;font-weight:800;transition:background .18s,transform .18s}
+.site-footer .footer-social a:hover{background:#e4f2e8;transform:translateY(-2px)}
+.social-icon{width:19px;height:19px;flex:none}
+.site-footer p{margin:0}
+@media(max-width:1020px){
+  .logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .about-layout{gap:32px}
+  .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-card{gap:32px}
+}
+@media(max-width:720px){
+  .section-shell,.nav-inner{width:min(100% - 32px,1120px)}
+  .nav-inner{min-height:66px;flex-wrap:wrap;padding-block:11px;gap:7px}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:.78rem}
+  .hero{padding-block:55px 70px;grid-template-columns:1fr;gap:30px}
+  .hero h1{font-size:clamp(3.3rem,13vw,5.6rem)}
+  .hero-photo-wrap{max-width:530px;margin:auto;width:88%}
+  .hero-photo{height:350px}
+  .logo-section{padding:30px 20px;margin-bottom:64px}
+  .logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .logo-card{min-height:105px}
+  .about{padding-bottom:60px}
+  .about-layout{grid-template-columns:1fr;gap:30px}
+  .projects{padding-block:45px 68px}
+  .projects-heading{align-items:start;flex-direction:column}
+  .project-grid{grid-template-columns:1fr}
+  .project-visual.portfolio-photo{height:240px;min-height:240px}
+  .education-section{padding-block:65px}
+  .education-layout{grid-template-columns:1fr}
+  .contact-section{padding-block:65px}
+  .contact-card{grid-template-columns:1fr;gap:29px}
+}
+@media(max-width:430px){
+  .nav-inner{align-items:start}
+  .nav-links{column-gap:11px}
+  .hero-actions{gap:8px}
+  .button{padding:8px 14px}
+  .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strengths-grid{grid-template-columns:1fr}
+  .project-visual.portfolio-photo{height:205px;min-height:205px}
+  .education-card{padding:22px}
+  .tesu-brand-row{gap:12px}
+  .tesu-logo-link{width:62px;height:62px;flex-basis:62px}
+  .tesu-brand-row h3{font-size:1.13rem}
+  .contact-card{padding:28px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* Four-language menu and Thai/Japanese typography */
+.language-menu{position:relative;font:inherit;flex:none}
+.language-menu summary{list-style:none;cursor:pointer;border:1px solid #b4d3be;border-radius:24px;padding:6px 12px;font-size:.80rem;font-weight:800;color:var(--forest);background:#fff;white-space:nowrap;min-width:53px;text-align:center}
+.language-menu summary::-webkit-details-marker{display:none}
+.language-menu summary::after{content:'⌄';padding-left:5px;font-size:.80rem}
+.language-menu[open] summary{background:#e2f1e5}
+.language-options{position:absolute;right:0;top:calc(100% + 9px);background:#fff;border:1px solid #d1e1d4;border-radius:13px;box-shadow:0 12px 26px rgba(17,57,47,.13);min-width:160px;padding:7px;z-index:30}
+.language-options a{display:block;padding:9px 10px;border-radius:7px;white-space:nowrap;font-size:.86rem;color:#25583f;text-decoration:none}
+.language-options a:hover,.language-options a[aria-current="page"]{background:#e8f3ea}
+html[lang="th"] body{font-family:'Noto Sans Thai','Nunito Sans',sans-serif;line-height:1.78}
+html[lang="ja"] body{font-family:'Noto Sans JP','Nunito Sans',sans-serif;line-height:1.75}
+html[lang="th"] h2,html[lang="th"] h3,html[lang="th"] .eyebrow,html[lang="th"] .hero-specialisms,html[lang="th"] .project-type,html[lang="th"] .edu-label,
+html[lang="ja"] h2,html[lang="ja"] h3,html[lang="ja"] .eyebrow,html[lang="ja"] .hero-specialisms,html[lang="ja"] .project-type,html[lang="ja"] .edu-label{font-family:inherit;letter-spacing:0}
+html[lang="ja"] h2,html[lang="ja"] h3{letter-spacing:-.03em}
+html[lang="ja"] .about-copy p,html[lang="th"] .about-copy p{line-height:1.85}
+html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:none}
+@media(max-width:720px){.nav-links{gap:9px}.nav-links a{font-size:.76rem}.language-menu summary{padding:5px 8px;font-size:.76rem}}
+</style><meta content="#174b3b" name="theme-color"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://hellokim.me/index.html" hreflang="en" rel="alternate"/><link href="https://hellokim.me/da.html" hreflang="da" rel="alternate"/><link href="https://hellokim.me/th.html" hreflang="th" rel="alternate"/><link href="https://hellokim.me/ja.html" hreflang="ja" rel="alternate"/><meta content="ja_JP" property="og:locale"/></head>
+<body>
+<a class="skip-link" href="#main-content">本文へスキップ</a>
+<header class="site-nav">
+<div class="nav-inner">
+<a aria-label="Kim Minamotos forside" class="brand" href="#top">
+<span class="brand-kim">KIM</span>
+<span>MINAMOTO</span>
+</a>
+<nav aria-label="メインナビゲーション" class="nav-links">
+<a href="#about">私について</a>
+<a href="#projects">プロジェクト</a><a href="#education">学歴・資格</a>
+<a href="#contact">お問い合わせ</a>
+
+<details class="language-menu"><summary aria-label="言語を選択">JP</summary><div class="language-options"><a href="/index.html" hreflang="en">EN · English</a><a href="/da.html" hreflang="da">DK · Dansk</a><a href="/th.html" hreflang="th">TH · ไทย</a><a aria-current="page" href="/ja.html" hreflang="ja">JP · 日本語</a></div></details></nav>
+</div>
+</header>
+<main id="main-content">
+<section class="hero section-shell" id="top">
+<div class="hero-copy">
+<p class="eyebrow">こんにちは、</p>
+<h1>Kim Minamoto</h1>
+<p class="hero-specialisms">人 <span>•</span> プロダクト <span>•</span> テクノロジー</p>
+<p class="hero-intro">人の話に耳を傾け、相手が何を必要としているかを理解し、チームで課題を解決することが好きです。日本やタイ、そして世界中の仲間と、技術を形にする仕事に携わってきました。</p>
+<div class="hero-actions">
+<a class="button button-primary" href="mailto:kim.minamoto2026@gmail.com?subject=Hello%20Kim" rel="noopener noreferrer" target="_blank">メールする</a>
+<a class="button button-secondary" href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">
+            LinkedIn
+          </a>
+<a class="button button-secondary" href="https://github.com/Sleepycatfuji" rel="noopener noreferrer" target="_blank">
+            GitHub
+          </a>
+</div>
+<div class="availability"><span class="availability-dot"></span> デンマーク・ヴァイレ在住 · 新しい仕事の機会を探しています</div>
+</div>
+<div class="hero-photo-wrap">
+<img alt="デンマークの自然の中にいるKim Minamoto" class="hero-photo" src="assets/css/IMG_0486.jpg"/>
+</div>
+</section>
+<section aria-labelledby="experience-heading" class="logo-section section-shell">
+<div class="section-heading section-heading-centered">
+<p class="eyebrow">これまでの経験</p>
+<h2 id="experience-heading">さまざまな企業・チームとともに</h2>
+<p class="section-intro">Recursive AI、Woven by Toyota、Rakuten Group、Netwiseに在籍しました。また、Suntory、Metropolitan Waterworks Authority、Fujitsu、Palantir、Hondaに関わるプロジェクトにも携わってきました。</p>
+</div>
+<div class="logo-grid">
+<a aria-label="ロゴ：Recursive AI" class="logo-card logo-text-card" href="https://recursiveai.co.jp/" rel="noopener noreferrer" target="_blank">
+<span class="recursive-mark">✦</span>
+<span class="recursive-wordmark">recursive</span>
+<span class="company-label">Recursive AI</span>
+</a>
+<a aria-label="ロゴ：Woven by Toyota" class="logo-card" href="https://woven.toyota/" rel="noopener noreferrer" target="_blank">
+<img alt="ロゴ：Woven by Toyota" src="https://cdn.simpleicons.org/toyota/EB0A1E"/>
+<span class="company-label">Woven by Toyota</span>
+</a>
+<a aria-label="ロゴ：Rakuten Group" class="logo-card" href="https://global.rakuten.com/corp/" rel="noopener noreferrer" target="_blank">
+<img alt="ロゴ：Rakuten Group" src="https://cdn.simpleicons.org/rakuten/BF0000"/>
+<span class="company-label">Rakuten Group</span>
+</a>
+<a aria-label="ロゴ：Fujitsu" class="logo-card" href="https://www.fujitsu.com/" rel="noopener noreferrer" target="_blank">
+<img alt="ロゴ：Fujitsu" src="https://cdn.simpleicons.org/fujitsu/FF0000"/>
+<span class="company-label">Fujitsu</span>
+</a>
+<a aria-label="ロゴ：Suntory" class="logo-card logo-text-card suntory-text-card" href="https://www.suntory.com/" rel="noopener noreferrer" target="_blank">
+<span class="suntory-wordmark">SUNTORY</span>
+<span class="company-label">Suntory</span>
+</a>
+<a aria-label="ロゴ：Honda" class="logo-card" href="https://global.honda/" rel="noopener noreferrer" target="_blank">
+<img alt="ロゴ：Honda" src="https://cdn.simpleicons.org/honda/E40521"/>
+<span class="company-label">Honda</span>
+</a>
+</div>
+</section>
+<section class="about section-shell" id="about">
+<div class="section-heading">
+<p class="eyebrow">私について</p>
+<h2>テクノロジーへの好奇心<br/>人と成長を大切に</h2>
+</div>
+<div class="about-layout">
+<div class="about-copy"><p>AI、クラウド、自動車、ソフトウェアのプロジェクトに携わり、国や専門分野を越えたチームの橋渡しをしてきました。人のアイデアが形になる過程にやりがいを感じます。</p>
+<p>Thomas Edison State University（TESU）で、2つ目の学士号となるコンピューターサイエンス（B.A.）の全科目を修了し、現在は学位の正式な授与を待っています。</p></div>
+<div class="strengths-grid">
+<article class="strength-card">
+<span class="strength-icon">◎</span>
+<h3>国際的なチームでの仕事</h3>
+<p>日本、タイ、インド、北米、ドイツ、ウクライナなど、さまざまな国の関係者と協働</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">↗</span>
+<h3>部門を越えたコミュニケーション</h3>
+<p>エンジニアリング、UX、リサーチ、調達、財務、法務、ビジネス部門</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">&lt;/&gt;</span>
+<h3>技術への理解</h3>
+<p>AIプロジェクト、クラウド基盤、Kubernetes、ソフトウェアの開発・提供、ドキュメント作成</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">⌘</span>
+<h3>多言語コミュニケーション</h3>
+<p>英語・日本語・タイ語での業務が可能。現在デンマーク語を勉強中</p>
+</article>
+</div>
+</div>
+</section>
+<section class="projects section-shell" id="projects">
+<div class="section-heading projects-heading">
+<div>
+<p class="eyebrow">主なプロジェクト</p>
+<h2>技術を、実際の価値につなげる仕事</h2>
+</div>
+<a class="text-link" href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">LinkedInでもっと見る <span>→</span></a>
+</div>
+<div class="project-grid">
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Toyota bZ4Xの電気自動車SUV" decoding="async" loading="lazy" src="https://scene7.toyota.eu/is/image/toyotaeurope/bZ4X_STATIC_04%3AMedium-Landscape?op_usm=1.75%2C0.3%2C2%2C0&amp;resMode=sharp2&amp;ts=0"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Toyota bZ4X</p></div></div>
+<div class="project-content">
+<p class="project-type">自動車 · プロダクト・UX · チーム連携</p>
+<h3>Toyota bZ4X</h3>
+<p>Woven by Toyotaでは、Toyota bZ4XのAdvanced Parking機能について、UXデザイン、リサーチ、プロダクトの各チームと協働しました。ユーザー体験の検討、リサーチやベンダーの調整、量産に向けたチーム間の連携を担当しました。</p>
+<a class="text-link" href="https://www.toyota.dk/nye-biler/bz4x" rel="noopener noreferrer" target="_blank">Toyota bZ4Xについて見る <span>→</span></a>
+<p style="font-size: 0.75rem; opacity: 0.75; margin-top: 0.75rem;">車両写真：Toyota。説明はWoven by Toyotaでの私自身の担当業務に基づいています。</p>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="浄水施設のイメージ写真（上空からの風景）" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1705708551758-76b153fa536e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">AI</span><p>水インフラ</p></div></div>
+<div class="project-content">
+<p class="project-type">AI · ディープラーニング · リサーチ</p>
+<h3>AIによる漏水検知</h3>
+<p>過去の漏水記録、RTUデータ、水流量、配管ネットワークの情報を活用し、バンコクとノンタブリーで漏水の可能性がある箇所を見つけるための概念実証（PoC）レポート作成を支援しました。</p>
+<a class="text-link" href="https://recursiveai.co.jp/news/fighting-critical-water-loss-with-deep-learning" rel="noopener noreferrer" target="_blank">ディープラーニングの事例を見る <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="環境モデリングをイメージした雨雲の写真" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1500915760625-756e918b7fcb?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">AI</span><p>環境モデリング</p></div></div>
+<div class="project-content">
+<p class="project-type">AI · 気候 · リサーチ</p>
+<h3>水循環の予測</h3>
+<p>日本の降雨量、地下水、気象データの履歴をもとに、降水や水循環のモデリングを行うAIエンジニアと協働しました。</p>
+<a class="text-link" href="https://recursiveai.co.jp/case-studies/smarter-water-planning-with-ai-powered-precipitation-modeling" rel="noopener noreferrer" target="_blank">Recursive AIの事例を見る <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="データセンターのサーバーのイメージ写真" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">CLOUD</span><p>Kubernetes基盤の導入・運用</p></div></div>
+<div class="project-content">
+<p class="project-type">クラウド · Kubernetes · 自動化</p>
+<h3>Rakuten Cloud Platform</h3>
+<p>Rakuten社内で、クラウド基盤の提供、キャパシティ計画、課金、移行支援、自動化施策などの調整を担当しました。</p>
+<p class="project-highlight"><strong>デプロイ期間を85％短縮</strong><br/> 3か月から2週間へ</p>
+<a class="text-link" href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it" rel="noopener noreferrer" target="_blank">Rakuten Cloudについて見る <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="路上に停まっているHonda Civicのイメージ写真" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Honda_Civic_075226749.jpg/960px-Honda_Civic_075226749.jpg"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>自動車業界の業務フロー改善</p></div></div>
+<div class="project-content">
+<p class="project-type">エンタープライズAI · コンサルティング · プラットフォーム</p>
+<h3>Fujitsu × Palantir × Honda</h3>
+<p>Honda車の自動車部品見積もりプロセスを対象に、Palantirプラットフォーム上のバックエンド業務フローを最適化するコンサルティングに携わりました。</p>
+<div class="project-links">
+<a class="text-link" href="https://www.palantir.com/partnerships/fujitsu/" rel="noopener noreferrer" target="_blank">FujitsuとPalantirの提携 <span>→</span></a>
+<a class="text-link" href="https://global.fujitsu/en-global/pr/news/2025/08/19-01-en" rel="noopener noreferrer" target="_blank">Fujitsuの発表を見る <span>→</span></a>
+</div>
+<p class="project-photo-credit">Honda車の写真はイメージです。実際のプロジェクト写真ではありません。</p></div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="ピアノの上に置かれた楽譜のイメージ写真" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1755287078382-94c1ad66cf8e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">WEB</span><p>個人開発プロジェクト</p></div></div>
+<div class="project-content">
+<p class="project-type">Webアプリ · データ · デンマーク文化</p>
+<h3>Danish Hymn → Chorale Finder</h3>
+<p>教会音楽家がデンマークの賛美歌の旋律と対応するコラール集の参照情報をすばやく探せるWebアプリを開発しました。</p>
+<a class="text-link" href="https://hellokim.me/hymns/" rel="noopener noreferrer" target="_blank">プロジェクトを見る <span>→</span></a>
+</div>
+</article>
+</div>
+<p class="portfolio-image-note">Toyota bZ4Xの車両写真を除き、掲載写真はプロジェクトのイメージです。Honda車の写真： <a href="https://commons.wikimedia.org/wiki/File:Honda_Civic_075226749.jpg" rel="noopener noreferrer" target="_blank">Trop86 / Wikimedia Commons (CC0)</a> · その他のイメージ写真： <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash</a>.</p></section><section aria-labelledby="education-heading" class="education-section section-shell" id="education">
+<div class="section-heading education-heading">
+<p class="eyebrow">学歴・資格と学び</p>
+<h2 id="education-heading">学び続けることを、楽しみたい。</h2>
+<p class="education-intro">新しく学べることは、いつもあると思っています。私の経験には、テクノロジー、ビジネス、そして人と一緒に働くことへの想いが詰まっています。</p>
+</div>
+<div class="education-layout">
+<article class="education-card education-featured">
+<p class="edu-label">学歴 · 2026年</p><div class="tesu-brand-row"><a aria-label="Thomas Edison State University" class="tesu-logo-link" href="https://www.tesu.edu/" rel="noopener noreferrer" target="_blank"><img alt="Thomas Edison State Universityのワインレッドとゴールドのトーチ型エンブレム" class="tesu-logo" decoding="async" height="84" loading="lazy" src="https://www.tesu.edu/about/newsroom/_media/tesu-icon-2024.jpg" width="84"/></a><h3>Thomas Edison State University (TESU)</h3></div>
+<p><strong>Bachelor of Arts in Computer Science</strong></p>
+<p>2026年10月に全科目を修了</p>
+<p class="edu-status">学位の正式な授与待ち</p>
+</article>
+<div class="education-stack">
+<article class="education-card">
+<p class="edu-label">資格</p>
+<h3>Certified ScrumMaster (CSM)</h3>
+<p class="edu-status">以前取得しましたが、現在は有効期限が切れています。</p>
+</article>
+<article class="education-card">
+<p class="edu-label">専門スキルの学習</p>
+<h3>Google Project Management Certificate</h3>
+<p class="edu-status">修了済み</p>
+</article>
+</div>
+</div>
+</section>
+<section class="contact-section section-shell" id="contact">
+<div class="contact-card">
+<div>
+<p class="eyebrow">一緒に働きませんか</p>
+<h2>一緒に、意味のあるものをつくりましょう。</h2>
+</div>
+<div class="contact-links">
+<a href="mailto:kim.minamoto2026@gmail.com?subject=Hello%20Kim" rel="noopener noreferrer" target="_blank">
+        kim.minamoto2026@gmail.com
+      </a>
+<a href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">
+        linkedin.com/in/kimminamoto
+      </a>
+<a href="https://github.com/Sleepycatfuji" rel="noopener noreferrer" target="_blank">
+        github.com/Sleepycatfuji
+      </a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer"><nav aria-label="ソーシャルメディア" class="footer-social">
+<a href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a>
+<a href="https://github.com/Sleepycatfuji" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+<a aria-label="Instagram — kimxukim" href="https://www.instagram.com/kimxukim/" rel="noopener noreferrer" target="_blank"><svg aria-label="Instagram-ikon" class="social-icon social-instagram" focusable="false" role="img" viewbox="0 0 24 24"><rect fill="none" height="19" rx="5" stroke="currentColor" stroke-width="2" width="19" x="2.5" y="2.5"></rect><circle cx="12" cy="12" fill="none" r="4.1" stroke="currentColor" stroke-width="2"></circle><circle cx="17.7" cy="6.4" fill="currentColor" r="1.3"></circle></svg> Instagram</a>
+<a aria-label="Facebook — Kim" href="https://www.facebook.com/duangrudee.kim/" rel="noopener noreferrer" target="_blank"><svg aria-label="Facebook-ikon" class="social-icon social-facebook" focusable="false" role="img" viewbox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.095 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.027 1.792-4.699 4.533-4.699 1.312 0 2.686.235 2.686.235v2.974H15.83c-1.491 0-1.956.931-1.956 1.887v2.263h3.328l-.532 3.49h-2.796V24C19.612 23.095 24 18.1 24 12.073z" fill="currentColor"></path></svg> Facebook</a>
+</nav>
+<p>© 2026 Kim Minamoto · GitHub Pagesで制作</p>
+</footer>
+</body>
+</html>
