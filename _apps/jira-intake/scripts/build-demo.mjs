@@ -4,7 +4,14 @@ import { pdfFixture, docxFixture } from "./fixtures.mjs";
 const root = new URL("../", import.meta.url);
 const examples = new URL("public/examples/", root);
 await mkdir(examples, { recursive: true });
-await writeFile(
+async function writeMissingExample(path, data) {
+  try {
+    await writeFile(path, data, { flag: "wx" });
+  } catch (error) {
+    if (error.code !== "EEXIST") throw error;
+  }
+}
+await writeMissingExample(
   new URL("meeting-notes.pdf", examples),
   pdfFixture([
     [
@@ -21,7 +28,7 @@ await writeFile(
     ],
   ]),
 );
-await writeFile(
+await writeMissingExample(
   new URL("product-summary.docx", examples),
   docxFixture([
     "Product follow-up summary",
