@@ -1,0 +1,2387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-bd42MXfWhuwYcGebADyiU5jvyZtWRCBnEbgxoL/hIKw='; style-src 'sha256-Hc2n80zsJ0IS5tzxY8R45VTdser7YuZ1BKBGY84+W1c='; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Turn your emails into clear next steps and thoughtful replies."
+    />
+    <title>Mailroom — A little less inbox.</title>
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiM1MTQ2MzciLz48cGF0aCBkPSJNMTEgMTdoMjZ2MTdIMTF6IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmY4ZWIiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Im0xMSAxNyAxMyAxMCAxMy0xMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmOGViIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJtMzQgNyAxLjUgNC41TDQwIDEzbC00LjUgMS41TDM0IDE5bC0xLjUtNC41TDI4IDEzbDQuNS0xLjV6IiBmaWxsPSIjZTRiMzVkIi8+PC9zdmc+Cg==" type="image/svg+xml" />
+    <style>:root {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #39372e;
+  background: #f8f7f3;
+  font-synthesis: none;
+  --muted: #858178;
+  --border: #e8e5dc;
+  --olive: #56634b;
+  --ink: #39372e;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+button {
+  transition:
+    background 0.15s,
+    box-shadow 0.15s;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #a8b58c;
+  outline-offset: 3px;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #8b9b72;
+  outline-offset: 2px;
+}
+button {
+  color: inherit;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+[hidden] {
+  display: none !important;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: 228px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.sidebar {
+  background: #efeee7;
+  border-right: 1px solid var(--border);
+  padding: 35px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.brand {
+  font-family: Georgia, serif;
+  font-size: 29px;
+  letter-spacing: -1.3px;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: bold;
+  margin-bottom: 46px;
+}
+.brand-dot {
+  color: #735d37;
+  margin-left: -9px;
+}
+.workspace-label {
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  color: #656258;
+  margin: 0 12px 12px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 12px 11px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: #626058;
+}
+.nav-item > span:first-child {
+  font-size: 20px;
+  line-height: 16px;
+}
+.nav-item.active {
+  background: #e3e5d9;
+  color: #45513b;
+  font-weight: 600;
+}
+.nav-item:hover {
+  background: #e4e5dc;
+}
+.count {
+  margin-left: auto;
+  border-radius: 4px;
+  background: #d5dbc8;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+.sidebar-note {
+  margin: 68px 9px 50px;
+  border-top: 1px solid #dad8cb;
+  padding-top: 24px;
+}
+.note-spark {
+  font-size: 35px;
+  color: #72613a;
+  margin-bottom: 13px;
+}
+.sidebar-note h2 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 0 0 15px;
+}
+.sidebar-note p {
+  color: #656258;
+  font-size: 11px;
+  line-height: 1.9;
+}
+.note-lines {
+  margin-top: 28px;
+}
+.note-lines i {
+  display: block;
+  margin: 7px 0;
+  background: #dfdccf;
+  height: 1px;
+  transform: rotate(-9deg);
+  width: 105px;
+}
+.note-lines i:nth-child(2) {
+  width: 85px;
+}
+.note-lines i:nth-child(3) {
+  width: 63px;
+}
+.sidebar-bottom {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  border-top: 1px solid #dcdace;
+  padding-top: 20px;
+  margin-top: auto;
+}
+.sidebar-bottom strong {
+  font-size: 11px;
+  font-weight: 600;
+  display: block;
+}
+.sidebar-bottom div > span {
+  font-size: 10px;
+  color: #666258;
+  display: block;
+  margin-top: 4px;
+}
+.small-spark {
+  margin-left: auto;
+  color: #676356;
+}
+.avatar {
+  height: 35px;
+  width: 35px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  background: #eae3d6;
+  color: #6d6047;
+}
+.avatar.small {
+  height: 30px;
+  width: 30px;
+  background: #ddd9cb;
+}
+main {
+  min-width: 0;
+  padding: 0 42px 24px;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+.topbar {
+  height: 78px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+}
+.breadcrumb {
+  color: #636058;
+  display: flex;
+  gap: 13px;
+}
+.breadcrumb strong {
+  font-weight: 500;
+  color: #615e54;
+}
+.quiet-button {
+  background: transparent;
+  border: 0;
+  font-size: 11px;
+  color: #656157;
+  padding: 10px 0;
+}
+.quiet-button span {
+  margin-left: 9px;
+}
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 39px 0 26px;
+  gap: 20px;
+}
+.eyebrow {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.7px;
+  color: #656156;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  font-size: 44px;
+  line-height: 1.15;
+  margin: 12px 0 10px;
+}
+.page-heading p {
+  font-size: 12px;
+  color: #676259;
+  margin: 0;
+  line-height: 1.6;
+}
+.mode-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  border: 1px solid #e0ddcf;
+  border-radius: 20px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  background: #f1efe6;
+}
+.mode-pill > span:first-child {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #bd9e5e;
+}
+.mode-pill.live > span:first-child {
+  background: #7c9864;
+}
+.demo-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #eeefe5;
+  border: 1px solid #e4e6d7;
+  border-radius: 7px;
+  padding: 13px 16px;
+  margin-bottom: 25px;
+}
+.banner-icon {
+  font-size: 23px;
+  color: #5e6748;
+}
+.demo-banner p {
+  font-size: 11px;
+  color: #5e644e;
+  margin: 0;
+  line-height: 1.6;
+}
+.demo-banner strong {
+  font-weight: 600;
+  color: #4e5b40;
+}
+.banner-tag {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #5e6453;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.mail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 23px;
+  align-items: start;
+}
+.panel {
+  border: 1px solid var(--border);
+  background: #fffefa;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 3px 9px #39311e03;
+  min-height: 650px;
+}
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 24px 21px;
+  gap: 8px;
+}
+.panel-kicker {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #656056;
+}
+.panel-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  margin: 9px 0 0;
+}
+.outline-icon {
+  color: #666051;
+  font-size: 23px;
+}
+.assistant-emblem {
+  height: 32px;
+  width: 32px;
+  border-radius: 9px;
+  background: #ecefe4;
+  color: #5a6748;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+.tabs {
+  display: flex;
+  margin: 0 24px;
+  border-bottom: 1px solid var(--border);
+  gap: 24px;
+}
+.tabs button {
+  border: 0;
+  background: transparent;
+  color: #656158;
+  padding: 10px 0 13px;
+  font-size: 11px;
+  position: relative;
+}
+.tabs button[aria-selected="true"] {
+  color: #556249;
+  font-weight: 600;
+}
+.tabs button[aria-selected="true"]:after {
+  content: "";
+  height: 2px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  background: #7a8963;
+}
+.sample-list {
+  padding: 18px 24px;
+  display: grid;
+  gap: 7px;
+  border-bottom: 1px solid var(--border);
+}
+.sample-card {
+  border: 1px solid #e9e6de;
+  border-radius: 6px;
+  background: #fffefa;
+  text-align: left;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+.sample-card:hover {
+  background: #f5f5ed;
+}
+.sample-card.selected {
+  border-color: #c4cbb3;
+  background: #f1f3e9;
+  box-shadow: 0 0 0 1px #d3dac733;
+}
+.sample-card .avatar {
+  width: 29px;
+  height: 29px;
+  font-size: 9px;
+  background: #ede7db;
+}
+.sample-card:nth-child(2) .avatar {
+  background: #e3e8ee;
+  color: #566374;
+}
+.sample-card:nth-child(3) .avatar {
+  background: #ece4ea;
+  color: #735a6b;
+}
+.sample-info {
+  display: block;
+  min-width: 0;
+  flex: 1;
+}
+.sample-info strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sample-info small {
+  display: block;
+  font-size: 10px;
+  color: #666258;
+  margin-top: 5px;
+}
+.sample-marker {
+  color: #5c654a;
+  font-size: 14px;
+}
+.email-preview {
+  padding: 24px;
+}
+.email-meta {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.email-meta strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+}
+.email-meta div > span {
+  display: block;
+  font-size: 9px;
+  margin-top: 4px;
+  color: #656157;
+}
+.email-time {
+  margin-left: auto;
+  color: #666257;
+  font-size: 9px;
+}
+.email-preview h3 {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
+  margin: 21px 0 15px;
+  font-weight: 600;
+}
+.email-body {
+  white-space: pre-wrap;
+  font-size: 11px;
+  line-height: 1.95;
+  color: #676258;
+  overflow-wrap: anywhere;
+}
+.analyze-footer {
+  border-top: 1px solid var(--border);
+  padding: 18px 24px 12px;
+  margin-top: 8px;
+}
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #56634b;
+  border-radius: 6px;
+  background: #56634b;
+  color: #fffef8;
+  font-size: 12px;
+  font-weight: 500;
+}
+.primary-button:hover {
+  background: #45543c;
+}
+.primary-button > span:first-child {
+  font-size: 18px;
+}
+.primary-button > span:last-child {
+  margin-left: auto;
+}
+.primary-button > span:nth-child(2) {
+  margin-right: auto;
+}
+.analyze-footer p {
+  text-align: center;
+  font-size: 9px;
+  line-height: 1.6;
+  color: #656259;
+  margin: 12px 0 0;
+}
+.assistant-panel > .panel-heading {
+  border-bottom: 1px solid var(--border);
+}
+.empty-state {
+  text-align: center;
+  padding: 65px 20px 40px;
+}
+.letter-art {
+  height: 122px;
+  width: 130px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+.letter-envelope {
+  position: absolute;
+  width: 105px;
+  height: 68px;
+  bottom: 0;
+  left: 10px;
+  background: #e9e5d7;
+  border: 1px solid #d8d2bf;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  color: #6e6145;
+  transform: rotate(-6deg);
+}
+.letter-envelope:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(32deg, transparent 49%, #d7d0bc 50%, transparent 51%)
+      left/50% 100% no-repeat,
+    linear-gradient(-32deg, transparent 49%, #d7d0bc 50%, transparent 51%)
+      right/50% 100% no-repeat;
+  opacity: 0.6;
+}
+.letter-paper {
+  position: absolute;
+  width: 78px;
+  height: 83px;
+  left: 25px;
+  top: 13px;
+  background: #fcfaf2;
+  border: 1px solid #e5deca;
+  transform: rotate(7deg);
+  border-radius: 3px;
+  padding: 16px 12px;
+}
+.letter-paper i {
+  display: block;
+  height: 2px;
+  background: #ddd8c6;
+  margin: 7px 0;
+}
+.letter-paper i:last-child {
+  width: 65%;
+}
+.art-star {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #5d654b;
+  font-size: 26px;
+}
+.empty-kicker {
+  font-size: 8px;
+  letter-spacing: 1.9px;
+  color: #666054;
+}
+.empty-state h3 {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  line-height: 1.35;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin: 15px 0;
+}
+.empty-state > p {
+  font-size: 11px;
+  color: #666157;
+  line-height: 1.9;
+  margin-bottom: 29px;
+}
+.feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.feature-pills span {
+  font-size: 9px;
+  padding: 6px 8px;
+  background: #f5f3eb;
+  border: 1px solid #ece9df;
+  border-radius: 20px;
+  color: #666054;
+}
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #676258;
+  font-size: 9px;
+  margin-top: 22px;
+  gap: 15px;
+}
+.page-footer > span:first-child > span {
+  margin-right: 6px;
+}
+.paste-form {
+  padding: 12px 24px 15px;
+}
+.form-hint {
+  font-size: 11px;
+  color: #686258;
+  margin-bottom: 22px;
+}
+.paste-form label {
+  display: block;
+  font-size: 11px;
+  margin: 17px 0 8px;
+}
+.paste-form label span {
+  font-size: 10px;
+  color: #676259;
+}
+.paste-form input,
+.paste-form textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #fffefb;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  color: var(--ink);
+}
+textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+.paste-form textarea {
+  min-height: 190px;
+}
+.paste-form input::placeholder,
+.paste-form textarea::placeholder {
+  color: #656158;
+}
+.char-count {
+  text-align: right;
+  font-size: 9px;
+  color: #676259;
+  margin-top: 7px;
+}
+.analysis-result {
+  padding: 0 24px;
+}
+.summary-section,
+.actions-section {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.section-label h3 {
+  font-size: 12px;
+  margin: 0;
+  font-weight: 600;
+}
+.result-mode {
+  font-size: 8px;
+  letter-spacing: 0.6px;
+  color: #676152;
+}
+.result-tags {
+  display: flex;
+  gap: 6px;
+  margin: 15px 0 12px;
+}
+.result-tags > span {
+  font-size: 9px;
+  padding: 4px 7px;
+  border-radius: 4px;
+  background: #eeefe5;
+  color: #5e6451;
+}
+.result-tags > span.priority-high {
+  background: #f7e9dc;
+  color: #825636;
+}
+.result-tags > span.priority-low {
+  background: #eaf0ed;
+  color: #4e6859;
+}
+#summary-text {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #666157;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.deadline {
+  font-size: 10px;
+  color: #795f34;
+  background: #f8f2e5;
+  padding: 9px;
+  border-radius: 4px;
+  margin-bottom: 0;
+}
+.subtle {
+  font-size: 9px;
+  color: #666055;
+}
+#action-list {
+  padding: 0;
+  margin: 15px 0 0;
+  list-style: none;
+}
+#action-list li {
+  display: flex;
+  gap: 10px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #666157;
+  margin: 9px 0;
+  overflow-wrap: anywhere;
+}
+#action-list li:before {
+  content: "↗";
+  font-size: 12px;
+  color: #5c674a;
+  background: #f0f2e8;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+.reply-section {
+  padding: 23px 0;
+}
+.reply-section > .section-label > .subtle {
+  font-size: 7px;
+  letter-spacing: 0.6px;
+}
+.tone-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 12px;
+  font-size: 10px;
+  color: #676054;
+}
+.tone-row select {
+  border: 1px solid var(--border);
+  background: #f8f7f0;
+  border-radius: 5px;
+  font-size: 10px;
+  padding: 6px;
+  color: #625e50;
+}
+.text-button {
+  border: 0;
+  background: transparent;
+  padding: 4px 0;
+  color: #576643;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tone-row .text-button {
+  margin-left: auto;
+  text-decoration: none;
+}
+.draft-box {
+  border: 1px solid #e3e1d5;
+  background: #faf9f3;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.draft-box > label:first-child {
+  font-size: 9px;
+  color: #676052;
+  display: inline-block;
+  margin: 12px 0 10px 13px;
+}
+.draft-box input {
+  display: block;
+  border: 0;
+  border-bottom: 1px solid #e8e4d8;
+  background: transparent;
+  padding: 0 13px 12px;
+  font-size: 11px;
+  width: 100%;
+  color: #676053;
+}
+.draft-box textarea {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  border: 0;
+  background: transparent;
+  padding: 13px;
+  font-size: 11px;
+  color: #686355;
+}
+.draft-footer {
+  margin-top: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.draft-label {
+  font-size: 8px;
+  color: #666155;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.draft-label > span {
+  height: 4px;
+  width: 4px;
+  background: #afa185;
+  border-radius: 50%;
+}
+.draft-buttons {
+  display: flex;
+  gap: 6px;
+}
+.secondary-button,
+.dark-button {
+  font-size: 9px;
+  padding: 9px 10px;
+  border: 1px solid #e4e0d4;
+  background: transparent;
+  border-radius: 5px;
+}
+.dark-button {
+  color: #fffdf5;
+  background: #545143;
+  border-color: #545143;
+}
+.dark-button:hover {
+  background: #3e3c32;
+}
+.secondary-button:hover {
+  background: #eeece2;
+}
+.dark-button span {
+  margin-left: 10px;
+}
+.error-box {
+  margin: 18px 24px 0;
+  border: 1px solid #ead0c3;
+  background: #fbefea;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 11px;
+  color: #8e513e;
+  line-height: 1.6;
+}
+.error-box p {
+  margin: 0;
+}
+.error-box button {
+  margin-top: 8px;
+}
+.loading-state {
+  padding: 130px 24px;
+  text-align: center;
+}
+.loading-state h3 {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+.loading-state p {
+  font-size: 11px;
+  color: #686154;
+  line-height: 1.7;
+}
+.spinner {
+  height: 28px;
+  width: 28px;
+  border: 2px solid #e3e6d8;
+  border-top-color: #7f8e66;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #484c3e;
+  color: #fffef5;
+  padding: 13px 20px;
+  border-radius: 7px;
+  font-size: 12px;
+  box-shadow: 0 5px 30px #0002;
+  z-index: 10;
+  max-width: 90vw;
+  text-align: center;
+}
+dialog {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 36px;
+  max-width: 500px;
+  width: calc(100% - 32px);
+  color: var(--ink);
+  background: #fffefa;
+  box-shadow: 0 15px 80px #0002;
+}
+dialog::backdrop {
+  background: #29271f55;
+  backdrop-filter: blur(3px);
+}
+dialog h2 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 29px;
+  line-height: 1.25;
+}
+dialog p,
+dialog li {
+  font-size: 12px;
+  color: #676052;
+  line-height: 1.9;
+}
+dialog ol {
+  padding-left: 20px;
+}
+dialog code {
+  font-size: 11px;
+}
+.dialog-close {
+  position: absolute;
+  right: 13px;
+  top: 9px;
+  border: 0;
+  background: transparent;
+  font-size: 25px;
+  color: #666053;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (min-width: 1600px) {
+  main {
+    padding: 0 60px 30px;
+  }
+  .mail-grid {
+    gap: 30px;
+  }
+  .panel {
+    min-height: 700px;
+  }
+  .email-body {
+    font-size: 12px;
+  }
+  .empty-state {
+    padding-top: 90px;
+  }
+}
+@media (max-width: 1150px) {
+  .workspace {
+    grid-template-columns: 185px minmax(0, 1fr);
+  }
+  .sidebar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .brand {
+    font-size: 25px;
+  }
+  .brand img {
+    width: 30px;
+    height: 30px;
+  }
+  main {
+    padding: 0 24px 22px;
+  }
+  .mail-grid {
+    gap: 16px;
+  }
+  .panel-heading,
+  .email-preview {
+    padding: 20px 18px;
+  }
+  .panel-heading h2 {
+    font-size: 18px;
+  }
+  .tabs {
+    margin: 0 18px;
+  }
+  .sample-list {
+    padding: 16px 18px;
+  }
+  .analyze-footer {
+    padding: 16px 18px 12px;
+  }
+  .analysis-result {
+    padding: 0 18px;
+  }
+  .banner-tag {
+    display: none;
+  }
+  .reply-section > .section-label > .subtle {
+    display: none;
+  }
+  .page-heading h1 {
+    font-size: 39px;
+  }
+}
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .topbar {
+    height: 62px;
+  }
+  .page-heading {
+    margin-top: 28px;
+  }
+  .mail-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+  .panel-heading h2 {
+    font-size: 17px;
+  }
+  .panel-heading {
+    gap: 5px;
+  }
+  .outline-icon {
+    display: none;
+  }
+  .assistant-emblem {
+    width: 26px;
+    height: 26px;
+    font-size: 17px;
+  }
+  .draft-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .empty-state h3 {
+    font-size: 25px;
+  }
+  .sample-info strong {
+    font-size: 10px;
+  }
+}
+@media (max-width: 650px) {
+  main {
+    padding: 0 17px 22px;
+  }
+  .topbar {
+    height: 56px;
+  }
+  .breadcrumb {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin: 26px 0 20px;
+  }
+  .page-heading h1 {
+    font-size: 39px;
+  }
+  .page-heading p {
+    font-size: 11px;
+  }
+  .mode-pill {
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+  .demo-banner {
+    padding: 11px 12px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .demo-banner p {
+    font-size: 10px;
+  }
+  .banner-icon {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .mail-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .panel {
+    min-height: 0;
+  }
+  .panel-heading h2 {
+    font-size: 21px;
+  }
+  .panel-heading {
+    padding: 22px;
+  }
+  .tabs {
+    margin: 0 22px;
+  }
+  .sample-list {
+    padding: 18px 22px;
+  }
+  .sample-info strong {
+    font-size: 12px;
+  }
+  .email-preview {
+    padding: 22px;
+  }
+  .email-body {
+    font-size: 12px;
+  }
+  .email-preview h3 {
+    font-size: 15px;
+  }
+  .email-meta strong {
+    font-size: 12px;
+  }
+  .analyze-footer {
+    padding: 18px 22px 15px;
+  }
+  .assistant-panel .panel-heading h2 {
+    font-size: 20px;
+  }
+  .empty-state {
+    padding: 35px 20px 40px;
+  }
+  .letter-art {
+    margin-bottom: 24px;
+  }
+  .analysis-result {
+    padding: 0 22px;
+  }
+  .summary-section {
+    padding-top: 23px;
+  }
+  #summary-text {
+    font-size: 13px;
+  }
+  .section-label h3 {
+    font-size: 13px;
+  }
+  #action-list li {
+    font-size: 12px;
+  }
+  .draft-box textarea {
+    font-size: 12px;
+  }
+  .draft-footer {
+    flex-direction: row;
+    align-items: center;
+  }
+  .page-footer {
+    line-height: 1.7;
+  }
+  .page-footer > span:last-child {
+    display: none;
+  }
+  .loading-state {
+    padding: 70px 20px;
+  }
+  dialog {
+    padding: 28px;
+  }
+  .toast {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation-duration: 0.01ms !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.gmail-connection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 20px;
+  margin: -8px 0 24px;
+  background: #fffefa;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+}
+.gmail-connection h2 {
+  font-size: 12px;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+.gmail-connection p {
+  font-size: 11px;
+  color: #6f6b5f;
+  line-height: 1.7;
+  margin: 0;
+}
+.gmail-connection .gmail-privacy {
+  font-size: 10px;
+  margin-top: 4px;
+}
+.connection-buttons {
+  flex-shrink: 0;
+}
+.gmail-inbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px 0;
+  font-size: 10px;
+  color: #6f6b5f;
+  gap: 8px;
+}
+.gmail-message-status {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #6f6b5f;
+  margin: 15px 24px;
+  overflow-wrap: anywhere;
+}
+.gmail-message-status:empty {
+  display: none;
+}
+#gmail-preview .gmail-message-status {
+  margin: 0 0 14px;
+}
+#gmail-message-list:empty {
+  display: none;
+}
+.tabs button[aria-disabled="true"] {
+  color: #716c60;
+}
+@media (max-width: 650px) {
+  .gmail-connection {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .connection-buttons .secondary-button {
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+}
+</style>
+    <script type="module">
+const TONES = ["professional","friendly","concise"];
+class AppError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
+}
+function validateInput(input) {
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
+    throw new AppError(400, "Provide an email to analyze.");
+  }
+  const email = {};
+  for (const [field, max] of [
+    ["body", 12000],
+    ["subject", 200],
+    ["from", 200],
+  ]) {
+    if (input[field] !== undefined && typeof input[field] !== "string") {
+      throw new AppError(400, `${field} must be text.`);
+    }
+    email[field] = (input[field] || "").trim();
+    if (email[field].length > max)
+      throw new AppError(400, `${field} must be ${max} characters or fewer.`);
+  }
+  if (!email.body)
+    throw new AppError(400, "Paste an email or choose a sample first.");
+  const tone = input.tone ?? "professional";
+  if (!TONES.includes(tone))
+    throw new AppError(400, "Choose a supported reply tone.");
+  const mode = input.mode ?? "auto";
+  if (!["auto", "demo", "live"].includes(mode))
+    throw new AppError(400, "Choose a supported assistant mode.");
+  return { ...email, tone, mode };
+}
+function demoAnalysis(email) {
+  const content = `${email.subject} ${email.body}`;
+  const category = /invoice|payment|receipt|billing/i.test(content)
+    ? "Finance"
+    : /meeting|catch.?up|call|calendar/i.test(content)
+      ? "Meeting"
+      : /project|launch|design|proposal|feedback/i.test(content)
+        ? "Project"
+        : "General";
+  const priority = /urgent|asap|overdue|today|by tomorrow/i.test(content)
+    ? "High"
+    : /newsletter|no (action|reply) (is )?needed|fyi/i.test(content)
+      ? "Low"
+      : "Normal";
+  const lines = email.body
+    .split(/\n+|(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const meaningful = lines.filter(
+    (s) =>
+      !/^(hi|hello|hey|dear|thanks|thank you|best|regards|cheers)[,!]?($|\s)/i.test(
+        s,
+      ),
+  );
+  const summary = (meaningful.slice(0, 2).join(" ") || email.body).slice(
+    0,
+    500,
+  );
+  const actions = meaningful
+    .filter((s) =>
+      /\?|\b(please|could you|can you|would you|let me know)\b|^(review|send|confirm|share|approve|schedule|pay)\b/i.test(
+        s,
+      ),
+    )
+    .slice(0, 4)
+    .map((s) => s.slice(0, 240));
+  const match = email.body.match(
+    /\b(?:by|before|on)\s+(?:(?:next|this)\s+)?(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday|tomorrow|today|\d{1,2}[/.\-]\d{1,2}(?:[/.\-]\d{2,4})?)(?:\s+(?:at\s+)?\d{1,2}(?::\d{2})?\s*(?:am|pm)?)?/i,
+  );
+  const name = email.from.split("<")[0].trim().split(/\s+/)[0];
+  const greeting =
+    name && !name.includes("@")
+      ? `Hi ${name.replace(/[,<>]/g, "")},`
+      : "Hello,";
+  const opening =
+    email.tone === "friendly"
+      ? "Thanks so much for reaching out!"
+      : email.tone === "concise"
+        ? "Thanks for your email."
+        : "Thank you for your email.";
+  const next =
+    category === "Meeting"
+      ? "I’ll check my availability and follow up with a time that works."
+      : category === "Finance"
+        ? "I’ll review the details and follow up if I have any questions."
+        : category === "Project"
+          ? "I’ll review the details and get back to you with my feedback."
+          : "I’ll review your message and follow up with the next steps.";
+  const signoff =
+    email.tone === "friendly"
+      ? "Best,"
+      : email.tone === "concise"
+        ? "Thanks,"
+        : "Kind regards,";
+  return {
+    summary,
+    category,
+    priority,
+    actions,
+    deadline: match ? match[0] : null,
+    replySubject: `Re: ${email.subject.replace(/^(re:\s*)+/i, "") || "Your email"}`,
+    reply: `${greeting}\n\n${opening} ${next}\n\n${signoff}\n[Your name]`,
+  };
+}
+// Module-local transport: no network requests are made by this demo.
+const fetch = async (path, options = {}) => {
+  options.signal?.throwIfAborted();
+  try {
+    if (path === '/api/status') return Response.json({ status: 'ok', mode: 'demo', model: null });
+    if (path === '/api/gmail/status') return Response.json({ configured: false, connected: false, email: null });
+    if (path === '/api/analyze') {
+      const email = validateInput(JSON.parse(options.body));
+      if (email.mode === 'live') throw new AppError(503, 'This standalone demo works offline only.');
+      return Response.json({ mode: 'demo', ...demoAnalysis(email) });
+    }
+    return Response.json({ error: 'Not found.' }, { status: 404 });
+  } catch (error) {
+    return Response.json({ error: error.message }, { status: error.status || 400 });
+  }
+};
+const $ = (id) => document.getElementById(id);
+const samples = [
+  {
+    id: "project",
+    initials: "JL",
+    name: "Jamie Lee",
+    address: "jamie@example.com",
+    label: "Project feedback",
+    subject: "A fresh look at the launch plan",
+    body: "Hi there,\n\nWe’ve put together the first draft of the spring launch plan, and I’d love your perspective before we share it with the wider team.\n\nCould you review the proposed timeline and share any feedback by Friday? In particular, please take a look at whether we’ve left enough time for testing.\n\nNo need for a detailed write-up — a few thoughts would be really helpful.\n\nThanks,\nJamie",
+  },
+  {
+    id: "meeting",
+    initials: "AM",
+    name: "Alex Morgan",
+    address: "alex@example.com",
+    label: "Meeting request",
+    subject: "Time for a quick catch-up?",
+    body: "Hello,\n\nIt would be great to catch up on the website project this week. We have a few design decisions to talk through before the next stage.\n\nCould you let me know if Tuesday at 10am or Thursday at 2pm works for a 30-minute call? If neither works, please suggest another time.\n\nI’ll send a calendar invitation once we find a slot.\n\nBest,\nAlex",
+  },
+  {
+    id: "invoice",
+    initials: "SP",
+    name: "Sam Patel",
+    address: "sam@example.com",
+    label: "Payment reminder",
+    subject: "Invoice #1042 — a quick reminder",
+    body: "Hi there,\n\nJust a friendly reminder that invoice #1042 for the November design work is due by tomorrow. The total is €480.\n\nPlease check whether the payment has been scheduled, and let me know if you need a copy of the invoice.\n\nIf you’ve already paid, please share the payment reference so I can update our records.\n\nMany thanks,\nSam",
+  },
+];
+
+let source = "sample";
+let selected = samples[0];
+let result = null;
+let controller = null;
+let generation = 0;
+let busy = false;
+let serverMode = "demo";
+let connected = false;
+let resultEmail = null;
+let draftBaseline = "";
+let toastTimer;
+let gmailAccount = { configured: false, connected: false, email: null };
+let selectedGmail = null;
+let gmailGeneration = 0;
+let gmailReadController = null;
+
+function toast(message) {
+  $("toast").textContent = message;
+  $("toast").hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    $("toast").hidden = true;
+  }, 4000);
+}
+
+function setBusy(value) {
+  busy = value;
+  $("assistant-panel").setAttribute("aria-busy", String(value));
+  $("analyze-button").disabled = value;
+  $("analyze-label").textContent = value ? "Working on it…" : "Analyze email";
+  const stale =
+    resultEmail &&
+    JSON.stringify(currentEmail()) !== JSON.stringify(resultEmail);
+  $("regenerate-button").disabled = value || Boolean(stale);
+  $("regenerate-button").title = stale
+    ? "Analyze the updated email first."
+    : "Replace your draft using the selected tone";
+  $("reply-tone").disabled = value;
+  $("loading-state").hidden = !value;
+}
+
+function resetResult() {
+  generation++;
+  controller?.abort();
+  controller = null;
+  result = null;
+  resultEmail = null;
+  setBusy(false);
+  $("analysis-result").hidden = true;
+  $("assistant-error").hidden = true;
+  $("empty-state").hidden = false;
+  $("reply-body").value = "";
+  $("reply-subject").value = "";
+}
+
+function confirmDiscard() {
+  return (
+    !result ||
+    `${$("reply-subject").value}\n${$("reply-body").value}` === draftBaseline ||
+    window.confirm("You’ve edited this draft. Discard your changes?")
+  );
+}
+
+function selectSample(sample, { initial = false } = {}) {
+  if (!initial && !confirmDiscard()) return;
+  selected = sample;
+  document.querySelectorAll(".sample-card").forEach((button) => {
+    const active = button.dataset.id === sample.id;
+    button.classList.toggle("selected", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.querySelector(".sample-marker").textContent = active ? "●" : "○";
+  });
+  $("sender-avatar").textContent = sample.initials;
+  $("preview-from").textContent = sample.name;
+  $("preview-address").textContent = sample.address;
+  $("preview-subject").textContent = sample.subject;
+  $("preview-body").textContent = sample.body;
+  resetResult();
+}
+
+function setSource(next) {
+  if (source === next) return;
+  if (next === "gmail" && !gmailAccount.connected) {
+    toast(
+      "Use Connect Gmail first. If setup is needed, follow the deployment guide.",
+    );
+    return;
+  }
+  if (!confirmDiscard()) return;
+  source = next;
+  for (const id of ["sample", "paste", "gmail"]) {
+    const active = id === next;
+    $(`${id}-view`).hidden = !active;
+    $(`${id}-tab`).setAttribute("aria-selected", String(active));
+    $(`${id}-tab`).tabIndex = active ? 0 : -1;
+  }
+  $("samples-nav").classList.toggle("active", next === "sample");
+  $("paste-nav").classList.toggle("active", next === "paste");
+  $("gmail-nav").classList.toggle("active", next === "gmail");
+  resetResult();
+  if (next === "gmail") loadInbox();
+}
+
+function currentEmail() {
+  if (source === "gmail")
+    return {
+      from: selectedGmail?.from || "",
+      subject: selectedGmail?.subject || "",
+      body: selectedGmail?.body || "",
+    };
+  return source === "sample"
+    ? {
+        from: `${selected.name} <${selected.address}>`,
+        subject: selected.subject,
+        body: selected.body,
+      }
+    : {
+        from: $("email-from").value.trim(),
+        subject: $("email-subject").value.trim(),
+        body: $("email-body").value.trim(),
+      };
+}
+
+function showError(message, fallback = false) {
+  $("error-text").textContent = message;
+  $("assistant-error").hidden = false;
+  $("fallback-button").hidden = !fallback;
+}
+
+function renderResult(data) {
+  result = data;
+  $("empty-state").hidden = true;
+  $("analysis-result").hidden = false;
+  $("result-mode").textContent =
+    data.mode === "demo" ? "DEMO SUGGESTION" : "AI SUGGESTION";
+  $("category-tag").textContent = data.category;
+  $("priority-tag").textContent = `${data.priority} priority`;
+  $("priority-tag").className = `priority-${data.priority.toLowerCase()}`;
+  $("summary-text").textContent = data.summary;
+  $("deadline").hidden = !data.deadline;
+  $("deadline").textContent = data.deadline
+    ? `Mentioned deadline: ${data.deadline}`
+    : "";
+  $("action-list").replaceChildren(
+    ...data.actions.map((action) => {
+      const li = document.createElement("li");
+      li.textContent = action;
+      return li;
+    }),
+  );
+  $("action-count").textContent =
+    `${data.actions.length} ${data.actions.length === 1 ? "item" : "items"}`;
+  $("no-actions").hidden = data.actions.length > 0;
+  $("reply-subject").value = data.replySubject;
+  $("reply-body").value = data.reply;
+  draftBaseline = `${data.replySubject}\n${data.reply}`;
+}
+
+async function analyzeEmail({ mode = "auto", regenerate = false } = {}) {
+  if (busy || !confirmDiscard()) return;
+  const email = regenerate && resultEmail ? resultEmail : currentEmail();
+  if (!email.body) {
+    showError(
+      source === "gmail"
+        ? "Select a Gmail message with a plain-text body first."
+        : "Paste an email message first.",
+    );
+    if (source !== "gmail") $("email-body").focus();
+    return;
+  }
+  $("assistant-error").hidden = true;
+  $("empty-state").hidden = true;
+  $("analysis-result").hidden = true;
+  const requestGeneration = ++generation;
+  controller?.abort();
+  controller = new AbortController();
+  setBusy(true);
+  try {
+    const response = await fetch("/api/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...email, tone: $("reply-tone").value, mode }),
+      signal: controller.signal,
+    });
+    const data = await response.json();
+    if (requestGeneration !== generation) return;
+    if (!response.ok)
+      throw new Error(
+        data.error || "The assistant could not complete that request.",
+      );
+    resultEmail = email;
+    renderResult(data);
+    if (window.matchMedia("(max-width: 650px)").matches) {
+      $("assistant-panel").scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "start",
+      });
+    }
+  } catch (error) {
+    if (error.name === "AbortError" || requestGeneration !== generation) return;
+    showError(
+      error instanceof TypeError
+        ? "Could not reach the server. Check that npm start is still running."
+        : error.message,
+      connected && serverMode === "live" && mode !== "demo",
+    );
+    $("analysis-result").hidden = !result;
+    $("empty-state").hidden = Boolean(result);
+  } finally {
+    if (requestGeneration === generation) {
+      controller = null;
+      setBusy(false);
+    }
+  }
+}
+
+for (const sample of samples) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "sample-card";
+  button.dataset.id = sample.id;
+  const avatar = document.createElement("span");
+  avatar.className = "avatar";
+  avatar.textContent = sample.initials;
+  const info = document.createElement("span");
+  info.className = "sample-info";
+  const title = document.createElement("strong");
+  title.textContent = sample.subject;
+  const sub = document.createElement("small");
+  sub.textContent = `${sample.name} · ${sample.label}`;
+  info.append(title, sub);
+  const marker = document.createElement("span");
+  marker.className = "sample-marker";
+  marker.setAttribute("aria-hidden", "true");
+  button.append(avatar, info, marker);
+  button.addEventListener("click", () => selectSample(sample));
+  $("sample-list").append(button);
+}
+selectSample(selected, { initial: true });
+
+$("sample-tab").addEventListener("click", () => setSource("sample"));
+$("paste-tab").addEventListener("click", () => setSource("paste"));
+$("gmail-tab").addEventListener("click", () => setSource("gmail"));
+$("gmail-nav").addEventListener("click", () => setSource("gmail"));
+$("samples-nav").addEventListener("click", () => setSource("sample"));
+$("paste-nav").addEventListener("click", () => {
+  setSource("paste");
+  if (source === "paste") $("email-from").focus();
+});
+for (const tab of [$("sample-tab"), $("paste-tab"), $("gmail-tab")]) {
+  tab.addEventListener("keydown", (event) => {
+    if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      const available = gmailAccount.connected
+        ? ["sample", "paste", "gmail"]
+        : ["sample", "paste"];
+      const index = available.indexOf(source);
+      const next =
+        event.key === "Home"
+          ? available[0]
+          : event.key === "End"
+            ? available.at(-1)
+            : available[
+                (index +
+                  (event.key === "ArrowLeft" ? -1 : 1) +
+                  available.length) %
+                  available.length
+              ];
+      setSource(next);
+      $(`${source}-tab`).focus();
+    }
+  });
+}
+for (const field of ["email-from", "email-subject", "email-body"]) {
+  $(field).addEventListener("input", () => {
+    if (busy) resetResult();
+    if (result) {
+      $("analyze-label").textContent = "Analyze updated email";
+      $("regenerate-button").disabled = true;
+      $("regenerate-button").title = "Analyze the updated email first.";
+    }
+    $("body-count").textContent =
+      `${$("email-body").value.length.toLocaleString("en-US")} / 12,000 characters`;
+  });
+}
+$("analyze-button").addEventListener("click", () => analyzeEmail());
+$("regenerate-button").addEventListener("click", () =>
+  analyzeEmail({ mode: result?.mode || "auto", regenerate: true }),
+);
+$("fallback-button").addEventListener("click", () =>
+  analyzeEmail({ mode: "demo" }),
+);
+
+$("copy-button").addEventListener("click", async () => {
+  try {
+    if (!navigator.clipboard?.writeText)
+      throw new Error("Clipboard unavailable");
+    await navigator.clipboard.writeText($("reply-body").value);
+    toast("Reply copied. Review it before sending.");
+  } catch {
+    $("reply-body").focus();
+    $("reply-body").select();
+    toast(
+      "Clipboard unavailable. Your reply is selected; use your device’s copy command.",
+    );
+  }
+});
+$("download-button").addEventListener("click", () => {
+  const text = `Subject: ${$("reply-subject").value}\n\n${$("reply-body").value}\n`;
+  const url = URL.createObjectURL(
+    new Blob([text], { type: "text/plain;charset=utf-8" }),
+  );
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "mailroom-reply.txt";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  toast("Reply downloaded as a text file.");
+});
+$("how-button").addEventListener("click", () => $("help-dialog").showModal());
+$("close-help").addEventListener("click", () => $("help-dialog").close());
+$("help-dialog").addEventListener("click", (event) => {
+  const bounds = $("help-dialog").getBoundingClientRect();
+  if (
+    event.clientX < bounds.left ||
+    event.clientX > bounds.right ||
+    event.clientY < bounds.top ||
+    event.clientY > bounds.bottom
+  )
+    $("help-dialog").close();
+});
+window.addEventListener("beforeunload", (event) => {
+  if (
+    result &&
+    `${$("reply-subject").value}\n${$("reply-body").value}` !== draftBaseline
+  ) {
+    event.preventDefault();
+    event.returnValue = "";
+  }
+});
+
+function renderGmailAccount() {
+  $("gmail-connection-status").textContent = gmailAccount.connected
+    ? `Connected as ${gmailAccount.email}. Sessions last up to one hour.`
+    : gmailAccount.configured
+      ? "Connect your configured Google account to try your own emails."
+      : "Gmail setup is needed on the server. The samples and paste tools work now.";
+  $("gmail-connect").hidden = gmailAccount.connected;
+  $("gmail-disconnect").hidden = !gmailAccount.connected;
+  $("gmail-tab").setAttribute("aria-disabled", String(!gmailAccount.connected));
+}
+
+function clearImportedEmail() {
+  gmailGeneration++;
+  gmailReadController?.abort();
+  selectedGmail = null;
+  $("gmail-message-list").replaceChildren();
+  $("gmail-preview").hidden = true;
+  for (const id of [
+    "gmail-preview-from",
+    "gmail-preview-subject",
+    "gmail-preview-body",
+    "gmail-truncated",
+    "summary-text",
+    "deadline",
+    "action-list",
+  ])
+    $(id).textContent = "";
+  resetResult();
+  if (source === "gmail") setSource("sample");
+}
+
+async function gmailRequest(path, options = {}) {
+  const response = await fetch(path, options);
+  const data = await response.json();
+  if (!response.ok) {
+    if (response.status === 401) {
+      gmailAccount = { ...gmailAccount, connected: false, email: null };
+      clearImportedEmail();
+      renderGmailAccount();
+    }
+    throw new Error(
+      data.error || "Could not load Gmail. Please try reconnecting.",
+    );
+  }
+  return data;
+}
+
+async function loadInbox() {
+  const current = ++gmailGeneration;
+  $("gmail-inbox-status").textContent = "Loading your recent inbox messages…";
+  $("gmail-refresh").disabled = true;
+  try {
+    const data = await gmailRequest("/api/gmail/messages");
+    if (current !== gmailGeneration || source !== "gmail") return;
+    $("gmail-message-list").replaceChildren(
+      ...data.messages.map((message) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "sample-card";
+        const info = document.createElement("span");
+        info.className = "sample-info";
+        const title = document.createElement("strong");
+        title.textContent = message.subject;
+        const sender = document.createElement("small");
+        sender.textContent = message.from;
+        info.append(title, sender);
+        button.append(info);
+        button.addEventListener("click", () => loadGmailMessage(message.id));
+        return button;
+      }),
+    );
+    $("gmail-inbox-status").textContent = data.messages.length
+      ? "Choose a message to preview it. No read status will be changed."
+      : "Your inbox has no messages.";
+  } catch (error) {
+    if (current === gmailGeneration)
+      $("gmail-inbox-status").textContent = error.message;
+    else if (!gmailAccount.connected) toast(error.message);
+  } finally {
+    $("gmail-refresh").disabled = false;
+  }
+}
+
+async function loadGmailMessage(id) {
+  if (!confirmDiscard()) return;
+  const current = ++gmailGeneration;
+  gmailReadController?.abort();
+  gmailReadController = new AbortController();
+  selectedGmail = null;
+  resetResult();
+  $("gmail-preview").hidden = true;
+  $("gmail-inbox-status").textContent = "Loading the selected email…";
+  try {
+    const message = await gmailRequest(
+      `/api/gmail/messages/${encodeURIComponent(id)}`,
+      { signal: gmailReadController.signal },
+    );
+    if (current !== gmailGeneration || source !== "gmail") return;
+    selectedGmail = message;
+    $("gmail-preview-from").textContent = message.from;
+    $("gmail-preview-subject").textContent = message.subject;
+    $("gmail-preview-body").textContent = message.body;
+    $("gmail-truncated").hidden = !message.truncated;
+    $("gmail-truncated").textContent =
+      "Showing and analyzing only the first 12,000 characters.";
+    $("gmail-preview").hidden = false;
+    $("gmail-inbox-status").textContent = message.unsupported
+      ? "This message has no supported plain-text body. HTML-only messages and attachments are not loaded."
+      : "Email loaded. Click Analyze when you’re ready.";
+  } catch (error) {
+    if (error.name === "AbortError") return;
+    if (current === gmailGeneration)
+      $("gmail-inbox-status").textContent = error.message;
+    else if (!gmailAccount.connected) toast(error.message);
+  }
+}
+
+$("gmail-connect").addEventListener("click", () => {
+  if (!gmailAccount.configured)
+    return toast(
+      "Set up Google OAuth on the server first. See DEPLOYMENT.md in the source download.",
+    );
+  if (confirmDiscard()) window.location.assign("/auth/google/start");
+});
+$("gmail-refresh").addEventListener("click", loadInbox);
+$("gmail-disconnect").addEventListener("click", async () => {
+  if (!confirmDiscard()) return;
+  $("gmail-disconnect").disabled = true;
+  try {
+    await gmailRequest("/api/gmail/disconnect", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{}",
+    });
+    gmailAccount = { ...gmailAccount, connected: false, email: null };
+    clearImportedEmail();
+    renderGmailAccount();
+    toast(
+      "Disconnected. To remove Google permission too, use your Google Account’s third-party connections settings.",
+    );
+  } catch (error) {
+    toast(error.message);
+  } finally {
+    $("gmail-disconnect").disabled = false;
+  }
+});
+
+try {
+  gmailAccount = await gmailRequest("/api/gmail/status");
+} catch {
+  gmailAccount = { configured: false, connected: false, email: null };
+}
+renderGmailAccount();
+if (new URLSearchParams(location.search).has("gmail_error")) {
+  toast("Gmail sign-in was cancelled. You can try connecting again.");
+  history.replaceState(null, "", location.pathname);
+}
+
+try {
+  const response = await fetch("/api/status");
+  if (!response.ok) throw new Error("Unavailable");
+  const data = await response.json();
+  connected = true;
+  serverMode = data.mode;
+  const live = data.mode === "live";
+  $("mode-label").textContent = live ? "Live AI configured" : "Offline demo";
+  $("mode-pill").classList.toggle("live", live);
+  $("mode-description").textContent = live
+    ? "Live AI is configured. Clicking Analyze sends the selected email to OpenAI. Review every suggestion."
+    : "Take it for a spin. Demo mode uses simple rules and reply templates. No account or API key needed.";
+  $("privacy-note").textContent = live
+    ? "Analysis sends the email text to OpenAI. Nothing is sent to a recipient."
+    : "Demo processing stays on this machine. Nothing is sent to an AI provider.";
+} catch {
+  $("mode-label").textContent = "Server unavailable";
+  $("mode-description").textContent =
+    "Could not reach the server. Start it with npm start and reload this page.";
+}
+
+document.getElementById('mode-label').textContent = 'Standalone offline demo';
+document.getElementById('mode-description').textContent = 'You’re trying the standalone demo. Everything runs in your browser using rules and templates. No installation or account needed.';
+document.getElementById('privacy-note').textContent = 'Email text stays in this browser tab. No network requests are made.';
+const helpParagraphs = document.querySelectorAll('#help-dialog > p');
+helpParagraphs[1].textContent = 'No inbox is connected. This standalone file processes emails in your browser and never sends email. Reloading clears your email and draft.';
+helpParagraphs[2].textContent = 'For optional live AI, use the full server application and follow the repository README. This standalone demo cannot use an API key.';
+</script>
+  </head>
+  <body>
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Workspace navigation">
+        <a class="brand" href="#" aria-label="Mailroom home"
+          ><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiM1MTQ2MzciLz48cGF0aCBkPSJNMTEgMTdoMjZ2MTdIMTF6IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmY4ZWIiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Im0xMSAxNyAxMyAxMCAxMy0xMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmOGViIiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJtMzQgNyAxLjUgNC41TDQwIDEzbC00LjUgMS41TDM0IDE5bC0xLjUtNC41TDI4IDEzbDQuNS0xLjV6IiBmaWxsPSIjZTRiMzVkIi8+PC9zdmc+Cg==" alt="" width="35" height="35" />mailroom<span
+            class="brand-dot"
+            >.</span
+          ></a
+        >
+        <div class="workspace-label">YOUR WORKSPACE</div>
+        <button class="nav-item active" id="samples-nav">
+          <span aria-hidden="true">▤</span> Sample inbox
+          <span class="count">3</span>
+        </button>
+        <button class="nav-item" id="paste-nav">
+          <span aria-hidden="true">＋</span> Paste an email
+        </button>
+        <button class="nav-item" id="gmail-nav">
+          <span aria-hidden="true">@</span> My Gmail
+        </button>
+        <div class="sidebar-note">
+          <div class="note-spark" aria-hidden="true">✧</div>
+          <h2>Make room for<br />the good work.</h2>
+          <p>A little help with your inbox.<br />A little more time for you.</p>
+          <div class="note-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+        <div class="sidebar-bottom">
+          <span class="avatar small">Y</span>
+          <div>
+            <strong>Your workspace</strong><span>Personal testing</span>
+          </div>
+          <span class="small-spark" aria-hidden="true">✦</span>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="breadcrumb">
+            Workspace <span>/</span> <strong>Email assistant</strong>
+          </div>
+          <button id="how-button" class="quiet-button">
+            How it works <span aria-hidden="true">↗</span>
+          </button>
+        </header>
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow">LESS BUSYWORK. MORE HEADSPACE.</div>
+            <h1>A little less inbox.</h1>
+            <p>Find the important bits. Get a head start on your reply.</p>
+          </div>
+          <div class="mode-pill" id="mode-pill">
+            <span></span><span id="mode-label">Checking connection…</span>
+          </div>
+        </section>
+        <div class="demo-banner" id="mode-banner">
+          <span class="banner-icon" aria-hidden="true">✧</span>
+          <p id="mode-description">Checking the assistant connection…</p>
+          <span class="banner-tag">YOU’RE IN CONTROL</span>
+        </div>
+
+        <section class="gmail-connection" aria-label="Gmail connection">
+          <div>
+            <h2>Bring your own inbox</h2>
+            <p id="gmail-connection-status">Checking Gmail connection…</p>
+            <p class="gmail-privacy">
+              Read-only access. Nothing is sent or marked as read. Live AI
+              receives an email only when you click Analyze.
+            </p>
+          </div>
+          <div class="connection-buttons">
+            <button id="gmail-connect" class="secondary-button">
+              Connect Gmail</button
+            ><button id="gmail-disconnect" class="secondary-button" hidden>
+              Disconnect
+            </button>
+          </div>
+        </section>
+
+        <section class="mail-grid" aria-label="Email workspace">
+          <div class="email-panel panel">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">01 / THE EMAIL</span>
+                <h2>Start with a message</h2>
+              </div>
+              <span class="outline-icon" aria-hidden="true">↙</span>
+            </div>
+            <div class="tabs" role="tablist" aria-label="Email source">
+              <button
+                id="sample-tab"
+                role="tab"
+                aria-selected="true"
+                aria-controls="sample-view"
+              >
+                Try a sample</button
+              ><button
+                id="paste-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="paste-view"
+                tabindex="-1"
+              >
+                Paste your own
+              </button>
+              <button
+                id="gmail-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="gmail-view"
+                tabindex="-1"
+              >
+                My Gmail
+              </button>
+            </div>
+            <div id="sample-view" role="tabpanel" aria-labelledby="sample-tab">
+              <div
+                id="sample-list"
+                class="sample-list"
+                aria-label="Sample emails"
+              ></div>
+              <article class="email-preview" aria-label="Selected email">
+                <div class="email-meta">
+                  <span class="avatar" id="sender-avatar">JL</span>
+                  <div>
+                    <strong id="preview-from"></strong
+                    ><span id="preview-address"></span>
+                  </div>
+                  <span class="email-time">Sample</span>
+                </div>
+                <h3 id="preview-subject"></h3>
+                <div id="preview-body" class="email-body"></div>
+              </article>
+            </div>
+            <div
+              id="paste-view"
+              role="tabpanel"
+              aria-labelledby="paste-tab"
+              hidden
+            >
+              <div class="paste-form">
+                <p class="form-hint">Bring a message you’d like a hand with.</p>
+                <label for="email-from">From <span>(optional)</span></label
+                ><input
+                  id="email-from"
+                  maxlength="200"
+                  placeholder="Alex Morgan &lt;alex@example.com&gt;"
+                  autocomplete="off"
+                /><label for="email-subject"
+                  >Subject <span>(optional)</span></label
+                ><input
+                  id="email-subject"
+                  maxlength="200"
+                  placeholder="What’s the email about?"
+                  autocomplete="off"
+                /><label for="email-body">Email message</label
+                ><textarea
+                  id="email-body"
+                  maxlength="12000"
+                  placeholder="Paste the email here…"
+                  rows="10"
+                  aria-describedby="body-count"
+                ></textarea>
+                <div id="body-count" class="char-count">
+                  0 / 12,000 characters
+                </div>
+              </div>
+            </div>
+            <div
+              id="gmail-view"
+              role="tabpanel"
+              aria-labelledby="gmail-tab"
+              hidden
+            >
+              <div class="gmail-inbox-toolbar">
+                <span>10 recent inbox messages</span
+                ><button id="gmail-refresh" class="text-button">
+                  Refresh inbox
+                </button>
+              </div>
+              <p
+                id="gmail-inbox-status"
+                class="gmail-message-status"
+                role="status"
+              >
+                Connect Gmail to load your inbox.
+              </p>
+              <div id="gmail-message-list" class="sample-list"></div>
+              <article
+                id="gmail-preview"
+                class="email-preview"
+                aria-label="Selected Gmail email"
+                hidden
+              >
+                <p id="gmail-preview-from" class="gmail-message-status"></p>
+                <h3 id="gmail-preview-subject"></h3>
+                <p id="gmail-truncated" class="gmail-message-status" hidden></p>
+                <div id="gmail-preview-body" class="email-body"></div>
+              </article>
+            </div>
+            <div class="analyze-footer">
+              <button id="analyze-button" class="primary-button">
+                <span aria-hidden="true">✧</span
+                ><span id="analyze-label">Analyze email</span
+                ><span aria-hidden="true">→</span>
+              </button>
+              <p id="privacy-note">
+                Demo processing stays on this machine. Nothing is sent.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="assistant-panel panel"
+            aria-busy="false"
+            id="assistant-panel"
+          >
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">02 / A LITTLE ASSISTANCE</span>
+                <h2>Your next move, made easier.</h2>
+              </div>
+              <span class="assistant-emblem" aria-hidden="true">✦</span>
+            </div>
+            <div id="assistant-error" class="error-box" role="alert" hidden>
+              <p id="error-text"></p>
+              <button id="fallback-button" class="text-button" hidden>
+                Try offline demo instead →
+              </button>
+            </div>
+            <div id="empty-state" class="empty-state">
+              <div class="letter-art" aria-hidden="true">
+                <div class="letter-paper"><i></i><i></i><i></i></div>
+                <div class="letter-envelope">✧</div>
+                <span class="art-star">✦</span>
+              </div>
+              <span class="empty-kicker">A FRESH PERSPECTIVE</span>
+              <h3>From “I’ll get to it”<br />to “I’ve got this.”</h3>
+              <p>
+                Pick a sample or paste an email.<br />We’ll help you make sense
+                of it.
+              </p>
+              <div class="feature-pills">
+                <span>Quick summary</span><span>Clear next steps</span
+                ><span>A thoughtful reply</span>
+              </div>
+            </div>
+            <div id="loading-state" class="loading-state" role="status" hidden>
+              <div class="spinner"></div>
+              <h3>Finding the important bits…</h3>
+              <p>Putting together your summary and a first draft.</p>
+            </div>
+            <div id="analysis-result" class="analysis-result" hidden>
+              <section class="summary-section">
+                <div class="section-label">
+                  <h3>The short version</h3>
+                  <span id="result-mode" class="result-mode"></span>
+                </div>
+                <div class="result-tags">
+                  <span id="category-tag"></span><span id="priority-tag"></span>
+                </div>
+                <p id="summary-text"></p>
+                <p id="deadline" class="deadline" hidden></p>
+              </section>
+              <section class="actions-section">
+                <div class="section-label">
+                  <h3>Your next steps</h3>
+                  <span class="subtle" id="action-count"></span>
+                </div>
+                <ul id="action-list"></ul>
+                <p id="no-actions" class="subtle" hidden>
+                  No explicit action requested in this email.
+                </p>
+              </section>
+              <section class="reply-section">
+                <div class="section-label">
+                  <h3>A head start on your reply</h3>
+                  <span class="subtle">EDIT TO MAKE IT YOURS</span>
+                </div>
+                <div class="tone-row">
+                  <label for="reply-tone">Your tone</label
+                  ><select id="reply-tone">
+                    <option value="professional">Professional</option>
+                    <option value="friendly">Friendly</option>
+                    <option value="concise">Concise</option></select
+                  ><button
+                    id="regenerate-button"
+                    class="text-button"
+                    title="Replace your draft using the selected tone"
+                  >
+                    ↻ Regenerate
+                  </button>
+                </div>
+                <div class="draft-box">
+                  <label for="reply-subject">Subject</label
+                  ><input id="reply-subject" maxlength="240" /><label
+                    for="reply-body"
+                    class="sr-only"
+                    >Reply draft</label
+                  ><textarea
+                    id="reply-body"
+                    rows="9"
+                    maxlength="10000"
+                  ></textarea>
+                </div>
+                <div class="draft-footer">
+                  <span class="draft-label"
+                    ><span></span>Draft only · review before using</span
+                  >
+                  <div class="draft-buttons">
+                    <button
+                      id="download-button"
+                      class="secondary-button"
+                      aria-label="Download reply as a text file"
+                    >
+                      ↓ Download</button
+                    ><button id="copy-button" class="dark-button">
+                      Copy reply <span aria-hidden="true">↗</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+        <footer class="page-footer">
+          <span
+            ><span aria-hidden="true">◇</span> A quieter inbox starts with a
+            little help.</span
+          ><span>Made for thoughtful replies.</span>
+        </footer>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <dialog id="help-dialog">
+      <button id="close-help" class="dialog-close" aria-label="Close help">
+        ×</button
+      ><span class="eyebrow">WELCOME TO MAILROOM</span>
+      <h2>A little help, from start to draft.</h2>
+      <ol>
+        <li>Choose a sample or paste an email.</li>
+        <li>
+          Click <strong>Analyze email</strong> to see a summary and next steps.
+        </li>
+        <li>Pick a tone, edit your reply, then copy or download it.</li>
+      </ol>
+      <p>
+        <strong>Demo mode</strong> uses simple rules and templates, so
+        suggestions will be limited. <strong>Live AI</strong> uses OpenAI when
+        the server has an API key.
+      </p>
+      <p>
+        Gmail connection is optional and read-only. Mailroom never sends email
+        or marks messages as read. Imported emails and drafts stay in memory;
+        disconnecting clears the imported content. Live analysis sends the
+        selected email text to OpenAI only when you click Analyze. You must be
+        the configured owner to connect Gmail.
+      </p>
+      <p>
+        To enable live AI, set <code>AI_API_KEY</code> securely on the server
+        and restart it. See the repository README for instructions.
+      </p>
+    </dialog>
+  </body>
+</html>
