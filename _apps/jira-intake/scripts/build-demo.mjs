@@ -56,9 +56,9 @@ html = html.replace(
 await writeFile(new URL("index.html", destination), html);
 await cp(examples, new URL("examples/", destination), { recursive: true });
 for (const [from, to] of [
-  ["pdfjs-dist/build/pdf.min.mjs", "pdf.mjs"],
-  ["pdfjs-dist/build/pdf.worker.min.mjs", "pdf.worker.mjs"],
-  ["fflate/esm/browser.js", "fflate.mjs"],
+  ["pdfjs-dist/build/pdf.min.mjs", "pdf.js"],
+  ["pdfjs-dist/build/pdf.worker.min.mjs", "pdf.worker.js"],
+  ["fflate/esm/browser.js", "fflate.js"],
   ["pdfjs-dist/LICENSE", "PDFJS_LICENSE"],
   ["fflate/LICENSE", "FFLATE_LICENSE"],
 ])

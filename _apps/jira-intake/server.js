@@ -10,21 +10,21 @@ const assets = new Map([
   ["/planner.js", ["public/planner.js", "text/javascript; charset=utf-8"]],
   ["/documents.js", ["public/documents.js", "text/javascript; charset=utf-8"]],
   [
-    "/vendor/pdf.mjs",
+    "/vendor/pdf.js",
     [
       "node_modules/pdfjs-dist/build/pdf.min.mjs",
       "text/javascript; charset=utf-8",
     ],
   ],
   [
-    "/vendor/pdf.worker.mjs",
+    "/vendor/pdf.worker.js",
     [
       "node_modules/pdfjs-dist/build/pdf.worker.min.mjs",
       "text/javascript; charset=utf-8",
     ],
   ],
   [
-    "/vendor/fflate.mjs",
+    "/vendor/fflate.js",
     ["node_modules/fflate/esm/browser.js", "text/javascript; charset=utf-8"],
   ],
   [

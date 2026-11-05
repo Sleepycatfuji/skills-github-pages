@@ -297,9 +297,9 @@ test("HTTP app serves its readers, protects server files, and blocks unauthentic
     for (const path of [
       "/",
       "/documents.js",
-      "/vendor/pdf.mjs",
-      "/vendor/pdf.worker.mjs",
-      "/vendor/fflate.mjs",
+      "/vendor/pdf.js",
+      "/vendor/pdf.worker.js",
+      "/vendor/fflate.js",
       "/examples/meeting-notes.pdf",
     ])
       assert.equal((await fetch(base + path)).status, 200, path);

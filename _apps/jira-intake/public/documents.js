@@ -44,9 +44,9 @@ export async function readDocument(file, id) {
         .includes("%PDF-")
     )
       throw new Error("The file is not a readable PDF.");
-    const pdfjs = await import("./vendor/pdf.mjs");
+    const pdfjs = await import("./vendor/pdf.js");
     pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-      "./vendor/pdf.worker.mjs",
+      "./vendor/pdf.worker.js",
       import.meta.url,
     ).href;
     let document;
@@ -120,7 +120,7 @@ export async function readDocument(file, id) {
     }
   }
   try {
-    const { unzipSync } = await import("./vendor/fflate.mjs");
+    const { unzipSync } = await import("./vendor/fflate.js");
     let tooLarge = false;
     const entries = unzipSync(bytes, {
       filter: (entry) => {
