@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: triage-document-intake
+    runtime: node
+    rootDir: _apps/jira-intake
+    plan: free
+    buildCommand: npm ci --omit=dev --ignore-scripts && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+# Add AI_API_KEY and a long random INTAKE_ACCESS_KEY securely in the service's
+# environment settings only if you choose to enable paid AI drafting.

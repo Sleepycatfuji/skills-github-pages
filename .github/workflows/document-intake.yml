@@ -1,0 +1,37 @@
+name: Document intake checks
+on:
+  push:
+    paths:
+      - "_apps/jira-intake/**"
+      - "jira-intake/**"
+      - ".github/workflows/document-intake.yml"
+  pull_request:
+    paths:
+      - "_apps/jira-intake/**"
+      - "jira-intake/**"
+      - ".github/workflows/document-intake.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: _apps/jira-intake
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: _apps/jira-intake/package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm test
+      - run: npm run check
+      - run: npx prettier --check .
+      - run: npx playwright-core install --with-deps chromium
+      - run: npm run test:browser
+        env:
+          CHROMIUM_PATH: auto
