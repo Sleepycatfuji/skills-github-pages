@@ -1,31 +1,17 @@
-/* Personal projects extend the existing portfolio card styles. */
+/* Reuse the portfolio's card styling in a compact, single-column list. */
 .personal-projects{padding-block:70px 90px}
 .personal-projects .section-intro{max-width:790px;margin:0;color:var(--ink-soft)}
-.personal-projects .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.personal-projects .project-visual.portfolio-photo{height:clamp(200px,20vw,260px);min-height:200px;background:#eef7f0}
-.personal-projects .project-visual.portfolio-photo>img{object-position:center top}
-.personal-projects .project-content{padding:25px 26px 28px}
+.personal-projects .project-grid{grid-template-columns:minmax(0,1fr)}
+.personal-projects .project-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.7fr)}
+.personal-projects .project-visual.portfolio-photo{height:100%;min-height:220px;background:#eef7f0}
+.personal-projects .project-visual.portfolio-photo>img{object-fit:cover;object-position:center top}
+.personal-projects .project-content{padding:22px 26px}
 .personal-projects .project-type{overflow-wrap:anywhere}
-.personal-projects .project-links{gap:9px;min-height:80px}
+.personal-projects .project-content .project-links{flex-direction:row;flex-wrap:wrap;gap:8px 24px;min-height:0}
 .personal-projects-note{font-size:.76rem;color:var(--ink-soft);margin:19px 0 0;line-height:1.7}
 @media(max-width:720px){
   .personal-projects{padding-block:48px 65px}
-  .personal-projects .project-grid{grid-template-columns:1fr}
-  .personal-projects .project-content{padding:23px 23px 26px}
-  .personal-projects .project-visual.portfolio-photo{height:210px}
-}
-
-/* A real-world application, with its personal story given room to breathe. */
-.hymn-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);border-color:#a8c9ad;background:#fffdf8;box-shadow:0 12px 30px rgba(23,75,59,.09)}
-.hymn-featured .project-visual.portfolio-photo{height:100%;min-height:350px;background:#eef7f0}
-.hymn-featured .project-visual.portfolio-photo>img{object-position:center top}
-.hymn-featured .project-content{padding:32px}
-.hymn-featured .project-content h3{font-size:clamp(1.35rem,2.2vw,1.8rem)}
-.hymn-featured-badge{align-self:flex-start;border:1px solid #bad6bd;border-radius:20px;background:#e4f1e3;padding:6px 12px;font-size:.76rem!important;font-weight:800;color:#174b3b!important;margin-bottom:18px;line-height:1.6!important}
-.personal-projects .project-visual.portfolio-photo{height:auto;min-height:0;aspect-ratio:3/2}
-.personal-projects .project-visual.portfolio-photo>img{object-fit:cover;object-position:center top}
-@media(max-width:720px){
- .hymn-featured{grid-template-columns:1fr}
- .hymn-featured .project-visual.portfolio-photo{height:260px;min-height:0}
- .hymn-featured .project-content{padding:24px}
+  .personal-projects .project-card{grid-template-columns:1fr}
+  .personal-projects .project-visual.portfolio-photo{height:180px;min-height:0}
+  .personal-projects .project-content{padding:22px 23px}
 }
