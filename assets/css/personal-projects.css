@@ -14,3 +14,18 @@
   .personal-projects .project-content{padding:23px 23px 26px}
   .personal-projects .project-visual.portfolio-photo{height:210px}
 }
+
+/* A real-world application, with its personal story given room to breathe. */
+.hymn-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);border-color:#a8c9ad;background:#fffdf8;box-shadow:0 12px 30px rgba(23,75,59,.09)}
+.hymn-featured .project-visual.portfolio-photo{height:100%;min-height:350px;background:#eef7f0}
+.hymn-featured .project-visual.portfolio-photo>img{object-position:center top}
+.hymn-featured .project-content{padding:32px}
+.hymn-featured .project-content h3{font-size:clamp(1.35rem,2.2vw,1.8rem)}
+.hymn-featured-badge{align-self:flex-start;border:1px solid #bad6bd;border-radius:20px;background:#e4f1e3;padding:6px 12px;font-size:.76rem!important;font-weight:800;color:#174b3b!important;margin-bottom:18px;line-height:1.6!important}
+.personal-projects .project-visual.portfolio-photo{height:auto;min-height:0;aspect-ratio:3/2}
+.personal-projects .project-visual.portfolio-photo>img{object-fit:cover;object-position:center top}
+@media(max-width:720px){
+ .hymn-featured{grid-template-columns:1fr}
+ .hymn-featured .project-visual.portfolio-photo{height:260px;min-height:0}
+ .hymn-featured .project-content{padding:24px}
+}
