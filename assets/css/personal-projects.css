@@ -1,0 +1,16 @@
+/* Personal projects extend the existing portfolio card styles. */
+.personal-projects{padding-block:70px 90px}
+.personal-projects .section-intro{max-width:790px;margin:0;color:var(--ink-soft)}
+.personal-projects .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.personal-projects .project-visual.portfolio-photo{height:clamp(200px,20vw,260px);min-height:200px;background:#eef7f0}
+.personal-projects .project-visual.portfolio-photo>img{object-position:center top}
+.personal-projects .project-content{padding:25px 26px 28px}
+.personal-projects .project-type{overflow-wrap:anywhere}
+.personal-projects .project-links{gap:9px;min-height:80px}
+.personal-projects-note{font-size:.76rem;color:var(--ink-soft);margin:19px 0 0;line-height:1.7}
+@media(max-width:720px){
+  .personal-projects{padding-block:48px 65px}
+  .personal-projects .project-grid{grid-template-columns:1fr}
+  .personal-projects .project-content{padding:23px 23px 26px}
+  .personal-projects .project-visual.portfolio-photo{height:210px}
+}
