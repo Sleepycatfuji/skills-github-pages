@@ -1,3 +1,5 @@
+.project-visual.portfolio-photo .project-client-logo{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.96);padding:10px 13px;border-radius:9px}
+.project-visual.portfolio-photo .project-client-logo img{display:block;width:105px;height:auto}
 /* Reuse the portfolio's card styling in a compact, single-column list. */
 .personal-projects{padding-block:70px 90px}
 .personal-projects .section-intro{max-width:790px;margin:0;color:var(--ink-soft)}
