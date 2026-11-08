@@ -105,6 +105,15 @@
   padding-block: 56px 64px;
 }
 
+.contact-card {
+  background: var(--forest-deep);
+}
+
+.contact-card::before,
+.contact-card::after {
+  content: none;
+}
+
 .nav-toggle {
   display: none;
 }
