@@ -1,0 +1,101 @@
+/* Keep the personal section in the portfolio's existing visual language. */
+.beyond-work {
+  padding-block: 70px 24px;
+}
+
+.beyond-work .section-heading {
+  max-width: 790px;
+}
+
+.beyond-work .section-intro {
+  margin: 0;
+}
+
+.volunteer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.beyond-work .project-card:hover {
+  transform: translateY(-3px);
+}
+
+.volunteer-media {
+  height: 200px;
+  flex: none;
+  background: var(--mint);
+  border-bottom: 1px solid var(--line);
+}
+
+.volunteer-illustration {
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+}
+
+.volunteer-illustration svg {
+  width: 150px;
+  height: 132px;
+  color: var(--forest);
+}
+
+.volunteer-photo-wrap {
+  overflow: hidden;
+}
+
+.volunteer-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center 32%;
+}
+
+.beyond-work .project-type {
+  margin-bottom: 8px;
+}
+
+.beyond-work .project-content h3 {
+  margin-bottom: 13px;
+}
+
+.volunteer-organization {
+  display: block;
+  margin-top: 5px;
+  color: var(--forest);
+  font-size: .93rem;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 1.5;
+}
+
+.beyond-work .project-content > .volunteer-description {
+  margin-bottom: 8px;
+}
+
+.beyond-work .text-link {
+  font-size: .84rem;
+}
+
+.beyond-work .beyond-work-outlook {
+  max-width: 790px;
+  margin: 28px 0 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--orange);
+  color: var(--ink-soft);
+  font-size: .95rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 720px) {
+  .beyond-work {
+    padding-block: 48px 0;
+  }
+
+  .volunteer-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
