@@ -1,0 +1,190 @@
+/* Layout refinements share the portfolio's existing type, colors, and cards. */
+.hero {
+  padding-block: 72px;
+}
+
+.about {
+  padding-block: 6px 60px;
+}
+
+.about .experience-strip {
+  width: 100%;
+  margin: 32px 0 0;
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.experience-strip .section-heading {
+  max-width: none;
+  margin-bottom: 20px;
+}
+
+.experience-strip .eyebrow {
+  margin-bottom: 10px;
+}
+
+.experience-strip h3 {
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+}
+
+.experience-strip .logo-card {
+  min-height: 94px;
+  padding: 12px 9px;
+  gap: 8px;
+}
+
+.projects {
+  padding-block: 56px;
+}
+
+.projects .project-grid,
+.personal-projects .project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects-heading h2 {
+  max-width: 750px;
+}
+
+.project-disclosure {
+  margin-top: 24px;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.project-disclosure[hidden],
+.more-professional-projects[hidden],
+.nav-toggle[hidden] {
+  display: none;
+}
+
+.more-professional-projects {
+  margin-top: 24px;
+}
+
+.personal-projects {
+  padding-block: 56px;
+}
+
+.personal-projects .project-card {
+  display: flex;
+}
+
+.personal-projects .project-visual.portfolio-photo {
+  height: 180px;
+  min-height: 180px;
+}
+
+.education-section {
+  padding-block: 56px;
+}
+
+.education-heading {
+  margin-bottom: 24px;
+}
+
+.education-intro {
+  margin-bottom: 0;
+}
+
+.education-card {
+  padding: 24px;
+}
+
+.education-featured {
+  padding-left: 20px;
+}
+
+.beyond-work {
+  padding-block: 56px 0;
+}
+
+.contact-section {
+  padding-block: 56px 64px;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .nav-inner {
+    flex-wrap: wrap;
+  }
+
+  .portfolio-enhanced .nav-toggle {
+    display: inline-flex;
+    min-height: 40px;
+    margin-left: auto;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: inherit;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .portfolio-enhanced .nav-links {
+    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    order: 3;
+    gap: 6px 16px;
+    padding-block: 6px 14px;
+  }
+
+  .portfolio-enhanced .nav-links[data-menu-open="true"] {
+    display: grid;
+  }
+
+  .nav-links > a {
+    padding-block: 6px;
+    font-size: .87rem;
+  }
+
+  .nav-links .language-menu {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .language-options {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-block: 44px 52px;
+  }
+
+  .about {
+    padding-bottom: 44px;
+  }
+
+  .about .experience-strip {
+    padding: 22px 16px;
+  }
+
+  .projects,
+  .personal-projects,
+  .education-section {
+    padding-block: 44px;
+  }
+
+  .projects .project-grid,
+  .personal-projects .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .beyond-work {
+    padding-top: 44px;
+  }
+
+  .contact-section {
+    padding-block: 44px 52px;
+  }
+}

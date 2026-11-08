@@ -226,6 +226,8 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 @media(max-width:720px){.nav-links{gap:9px}.nav-links a{font-size:.76rem}.language-menu summary{padding:5px 8px;font-size:.76rem}}
 </style><meta content="#174b3b" name="theme-color"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://hellokim.me/index.html" hreflang="en" rel="alternate"/><link href="https://hellokim.me/da.html" hreflang="da" rel="alternate"/><link href="https://hellokim.me/th.html" hreflang="th" rel="alternate"/><link href="https://hellokim.me/ja.html" hreflang="ja" rel="alternate"/><meta content="ja_JP" property="og:locale"/><link href="assets/css/personal-projects.css?v=suntory-water-4" rel="stylesheet"/>
 <link href="assets/css/beyond-work.css?v=1" rel="stylesheet"/>
+<link href="assets/css/portfolio.css?v=1" rel="stylesheet"/>
+<script src="assets/js/portfolio.js?v=1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へスキップ</a>
@@ -235,11 +237,14 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <span class="brand-kim">KIM</span>
 <span>MINAMOTO</span>
 </a>
-<nav aria-label="メインナビゲーション" class="nav-links">
+<button class="button button-secondary nav-toggle" type="button" aria-controls="section-navigation" aria-expanded="false" data-menu-label="メニュー" data-close-label="閉じる" hidden>メニュー</button>
+<nav aria-label="メインナビゲーション" class="nav-links" id="section-navigation">
 <a href="#about">私について</a>
-<a href="#projects">プロジェクト</a><a href="#education">学歴・資格</a>
+<a href="#projects">仕事のプロジェクト</a>
+<a href="#personal-projects">作ったもの</a>
+<a href="#education">学歴・資格</a>
+<a href="#beyond-work">仕事以外のこと</a>
 <a href="#contact">お問い合わせ</a>
-
 <details class="language-menu"><summary aria-label="言語を選択">JP</summary><div class="language-options"><a href="/index.html" hreflang="en">EN · English</a><a href="/da.html" hreflang="da">DK · Dansk</a><a href="/th.html" hreflang="th">TH · ไทย</a><a aria-current="page" href="/ja.html" hreflang="ja">JP · 日本語</a></div></details></nav>
 </div>
 </header>
@@ -248,7 +253,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="hero-copy">
 <p class="eyebrow">こんにちは、</p>
 <h1>Kim Minamoto</h1>
-<p class="hero-specialisms">人 <span>•</span> プロダクト <span>•</span> テクノロジー</p>
+<p class="hero-specialisms">テクニカルプロジェクトマネジメント <span>•</span> プロダクト開発</p>
 <p class="hero-intro">人の話に耳を傾け、相手が何を必要としているかを理解し、チームで課題を解決することが好きです。日本やタイ、そして世界中の仲間と、技術を形にする仕事に携わってきました。</p>
 <div class="hero-actions">
 <a class="button button-primary" href="mailto:kim.minamoto2026@gmail.com?subject=Hello%20Kim" rel="noopener noreferrer" target="_blank">メールする</a>
@@ -265,10 +270,43 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <img alt="デンマークの自然の中にいるKim Minamoto" class="hero-photo" src="assets/css/IMG_0486.jpg"/>
 </div>
 </section>
-<section aria-labelledby="experience-heading" class="logo-section section-shell">
+<section class="about section-shell" id="about">
+<div class="section-heading">
+<p class="eyebrow">私について</p>
+<h2>テクノロジーへの好奇心<br/>人と成長を大切に</h2>
+</div>
+<div class="about-layout">
+<div class="about-copy">
+<p>AI、クラウド、自動車、ソフトウェアのプロジェクトに携わり、国や専門分野を越えたチームの橋渡しをしてきました。人のアイデアを形にし、ビジネスのニーズと技術チームをつなぐことにやりがいを感じます。</p>
+<p>Thomas Edison State University（TESU）で、2つ目の学士号となるコンピューターサイエンス（B.A.）の全科目を修了し、現在は学位の正式な授与を待っています。</p>
+</div>
+<div class="strengths-grid">
+<article class="strength-card">
+<span class="strength-icon">◎</span>
+<h3>国際的なチームでの仕事</h3>
+<p>日本、タイ、インド、北米、ドイツ、ウクライナなど、さまざまな国の関係者と協働</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">↗</span>
+<h3>部門を越えたコミュニケーション</h3>
+<p>エンジニアリング、UX、リサーチ、調達、財務、法務、ビジネス部門</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">&lt;/&gt;</span>
+<h3>技術への理解</h3>
+<p>AIプロジェクト、クラウド基盤、Kubernetes、ソフトウェアの開発・提供、ドキュメント作成</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">⌘</span>
+<h3>多言語コミュニケーション</h3>
+<p>英語・日本語・タイ語での業務が可能。現在デンマーク語を勉強中</p>
+</article>
+</div>
+</div>
+<div aria-labelledby="experience-heading" class="logo-section experience-strip" role="group">
 <div class="section-heading section-heading-centered">
 <p class="eyebrow">これまでの経験</p>
-<h2 id="experience-heading">さまざまな企業・チームとともに</h2>
+<h3 id="experience-heading">さまざまな企業・チームとともに</h3>
 <p class="section-intro">Recursive AI、Woven by Toyota、Rakuten Group、Netwiseに在籍しました。また、Suntory、Metropolitan Waterworks Authority、Fujitsu、Palantir、Hondaに関わるプロジェクトにも携わってきました。</p>
 </div>
 <div class="logo-grid">
@@ -298,46 +336,79 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <span class="company-label">Honda</span>
 </a>
 </div>
-</section>
-<section class="about section-shell" id="about">
-<div class="section-heading">
-<p class="eyebrow">私について</p>
-<h2>テクノロジーへの好奇心<br/>人と成長を大切に</h2>
-</div>
-<div class="about-layout">
-<div class="about-copy"><p>AI、クラウド、自動車、ソフトウェアのプロジェクトに携わり、国や専門分野を越えたチームの橋渡しをしてきました。人のアイデアが形になる過程にやりがいを感じます。</p>
-<p>Thomas Edison State University（TESU）で、2つ目の学士号となるコンピューターサイエンス（B.A.）の全科目を修了し、現在は学位の正式な授与を待っています。</p></div>
-<div class="strengths-grid">
-<article class="strength-card">
-<span class="strength-icon">◎</span>
-<h3>国際的なチームでの仕事</h3>
-<p>日本、タイ、インド、北米、ドイツ、ウクライナなど、さまざまな国の関係者と協働</p>
-</article>
-<article class="strength-card">
-<span class="strength-icon">↗</span>
-<h3>部門を越えたコミュニケーション</h3>
-<p>エンジニアリング、UX、リサーチ、調達、財務、法務、ビジネス部門</p>
-</article>
-<article class="strength-card">
-<span class="strength-icon">&lt;/&gt;</span>
-<h3>技術への理解</h3>
-<p>AIプロジェクト、クラウド基盤、Kubernetes、ソフトウェアの開発・提供、ドキュメント作成</p>
-</article>
-<article class="strength-card">
-<span class="strength-icon">⌘</span>
-<h3>多言語コミュニケーション</h3>
-<p>英語・日本語・タイ語での業務が可能。現在デンマーク語を勉強中</p>
-</article>
-</div>
 </div>
 </section>
-<section class="projects section-shell" id="projects">
+<section aria-labelledby="professional-work-heading" class="projects section-shell" id="projects">
 <div class="section-heading projects-heading">
 <div>
-<p class="eyebrow">主なプロジェクト</p>
-<h2>技術を、実際の価値につなげる仕事</h2>
+<p class="eyebrow">プロジェクトと担当業務</p>
+<h2 id="professional-work-heading">主な仕事のプロジェクト</h2>
 </div>
 <a class="text-link" href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">LinkedInでもっと見る <span>→</span></a>
+</div>
+<div class="project-grid">
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Toyota bZ4Xの電気自動車SUV" decoding="async" loading="lazy" src="https://scene7.toyota.eu/is/image/toyotaeurope/bZ4X_STATIC_04%3AMedium-Landscape?op_usm=1.75%2C0.3%2C2%2C0&amp;resMode=sharp2&amp;ts=0"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Toyota bZ4X</p></div></div>
+<div class="project-content">
+<p class="project-type">自動車 · プロダクト・UX · チーム連携</p>
+<h3>Toyota bZ4X — Advanced Parking</h3>
+<p>Woven by Toyotaで、UXデザイナーやリサーチャーとともに、bZ4Xの直感的な駐車体験づくりに取り組みました。ベンダーとの調整を担い、関係者が同じ方向を向いて進めるよう支えました。</p>
+<a class="text-link" href="https://www.toyota.dk/nye-biler/bz4x" rel="noopener noreferrer" target="_blank">Toyota bZ4Xについて見る <span>→</span></a>
+<p style="font-size: 0.75rem; opacity: 0.75; margin-top: 0.75rem;">車両写真：Toyota。説明はWoven by Toyotaでの私自身の担当業務に基づいています。</p>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="データセンターのサーバーのイメージ写真" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">CLOUD</span><p>Kubernetes基盤の導入・運用</p></div></div>
+<div class="project-content">
+<p class="project-type">クラウド · Kubernetes · 自動化</p>
+<h3>Rakuten — クラウド基盤・移行</h3>
+<p>Rakuten社内で、クラウド基盤の提供、キャパシティ計画、課金、移行支援、自動化施策などの調整を担当しました。</p>
+<p class="project-highlight"><strong>クラスターのデプロイ期間を約85％短縮</strong><br/> 3か月から2週間へ</p>
+<a class="text-link" href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it" rel="noopener noreferrer" target="_blank">Rakuten Cloudについて見る <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="浄水施設のイメージ写真（上空からの風景）" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1705708551758-76b153fa536e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">AI</span><p>水インフラ</p></div></div>
+<div class="project-content">
+<p class="project-type">AI · ディープラーニング · リサーチ</p>
+<h3>漏水検知 — バンコク・ノンタブリー</h3>
+<p><a href="https://www.mwa.co.th/en/home/" rel="noopener noreferrer" target="_blank">タイ首都圏水道公社（MWA）</a>の水道管保守を支援するSense Info Techと、漏水検知の概念実証に取り組みました。過去の漏水記録、RTUの測定値、水流量、配管網のデータを調べ、漏水の可能性がある箇所の特定を検討しました。</p>
+<a class="text-link" href="https://recursiveai.co.jp/news/fighting-critical-water-loss-with-deep-learning" rel="noopener noreferrer" target="_blank">ディープラーニングの事例を見る <span>→</span></a>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="日本の長野県にある阿寺川の澄んだ青緑色の水と緑の森を写したイメージ写真。" decoding="async" loading="lazy" src="assets/images/projects/water-cycle-atera-river.webp" width="1600" height="1067" style="object-position:center 42%"/><span class="project-client-logo"><img alt="Suntory" src="assets/images/projects/suntory-logo.svg" width="133" height="35" decoding="async" loading="lazy"/></span></div>
+<div class="project-content">
+<p class="project-type">AI · 気候 · リサーチ</p>
+<h3>Suntory — 地下水の予測</h3>
+<p>サントリー向けに納品した水循環予測プロジェクトで、AIエンジニアと協働しました。日本有数の飲料メーカーである同社のサステナビリティ施策の一環として、日本の過去の降雨量・地下水・気象データを活用しました。</p>
+<a class="text-link" href="https://recursiveai.co.jp/case-studies/smarter-water-planning-with-ai-powered-precipitation-modeling" rel="noopener noreferrer" target="_blank">Recursive AIの事例を見る <span>→</span></a>
+</div>
+</article>
+</div>
+<button class="button button-secondary project-disclosure" type="button" aria-controls="more-professional-projects" aria-expanded="false" data-project-disclosure data-more-label="ほかのプロジェクトを見る" data-less-label="表示を減らす" hidden>ほかのプロジェクトを見る</button>
+<div class="more-professional-projects" id="more-professional-projects">
+<div class="project-grid">
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="路上に停まっているHonda Civicのイメージ写真" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Honda_Civic_075226749.jpg/960px-Honda_Civic_075226749.jpg"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>自動車業界の業務フロー改善</p></div></div>
+<div class="project-content">
+<p class="project-type">エンタープライズAI · コンサルティング · プラットフォーム</p>
+<h3>Fujitsu × Palantir × Honda</h3>
+<p>Honda車の自動車部品見積もりプロセスを対象に、Palantirプラットフォーム上のバックエンド業務フローを最適化するコンサルティングに携わりました。</p>
+<div class="project-links">
+<a class="text-link" href="https://www.palantir.com/partnerships/fujitsu/" rel="noopener noreferrer" target="_blank">FujitsuとPalantirの提携 <span>→</span></a>
+<a class="text-link" href="https://global.fujitsu/en-global/pr/news/2025/08/19-01-en" rel="noopener noreferrer" target="_blank">Fujitsuの発表を見る <span>→</span></a>
+</div>
+<p class="project-photo-credit">Honda車の写真はイメージです。実際のプロジェクト写真ではありません。</p></div>
+</article>
+</div>
+</div>
+<p class="portfolio-image-note">Toyota bZ4Xの車両写真を除き、掲載写真はプロジェクトのイメージです。Honda車の写真： <a href="https://commons.wikimedia.org/wiki/File:Honda_Civic_075226749.jpg" rel="noopener noreferrer" target="_blank">Trop86 / Wikimedia Commons (CC0)</a> · その他のイメージ写真： <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash</a>.</p>
+</section>
+<section aria-labelledby="personal-projects-heading" class="personal-projects section-shell" id="personal-projects">
+<div class="section-heading">
+<h2 id="personal-projects-heading">作ったもの</h2>
+<p class="section-intro">コーディングやAIを活用した開発、そして好奇心から形にしたアイデアです。どのプロジェクトも、身近な課題を解決したいという思いから始まりました。</p>
 </div>
 <div class="project-grid">
 <article class="project-card">
@@ -355,75 +426,13 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <p class="project-photo-credit">オルガン写真： <a href="https://commons.wikimedia.org/wiki/File:Helligaandskirken_Copenhagen_organ.jpg" rel="noopener noreferrer" target="_blank">Ib Rasmussen / Wikimedia Commons (PD)</a>.</p>
 </div>
 </article>
-
-
-<article class="project-card">
-<div class="project-visual portfolio-photo"><img alt="Toyota bZ4Xの電気自動車SUV" decoding="async" loading="lazy" src="https://scene7.toyota.eu/is/image/toyotaeurope/bZ4X_STATIC_04%3AMedium-Landscape?op_usm=1.75%2C0.3%2C2%2C0&amp;resMode=sharp2&amp;ts=0"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Toyota bZ4X</p></div></div>
-<div class="project-content">
-<p class="project-type">自動車 · プロダクト・UX · チーム連携</p>
-<h3>Toyota bZ4X — Advanced Parking</h3>
-<p>Woven by Toyotaで、UXデザイナーやリサーチャーとともに、bZ4Xの直感的な駐車体験づくりに取り組みました。ベンダーとの調整を担い、関係者が同じ方向を向いて進めるよう支えました。</p>
-<a class="text-link" href="https://www.toyota.dk/nye-biler/bz4x" rel="noopener noreferrer" target="_blank">Toyota bZ4Xについて見る <span>→</span></a>
-<p style="font-size: 0.75rem; opacity: 0.75; margin-top: 0.75rem;">車両写真：Toyota。説明はWoven by Toyotaでの私自身の担当業務に基づいています。</p>
-</div>
-</article>
-<article class="project-card">
-<div class="project-visual portfolio-photo"><img alt="浄水施設のイメージ写真（上空からの風景）" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1705708551758-76b153fa536e?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">AI</span><p>水インフラ</p></div></div>
-<div class="project-content">
-<p class="project-type">AI · ディープラーニング · リサーチ</p>
-<h3>漏水検知 — バンコク・ノンタブリー</h3>
-<p><a href="https://www.mwa.co.th/en/home/" rel="noopener noreferrer" target="_blank">タイ首都圏水道公社（MWA）</a>の水道管保守を支援するSense Info Techと、漏水検知の概念実証に取り組みました。過去の漏水記録、RTUの測定値、水流量、配管網のデータを調べ、漏水の可能性がある箇所の特定を検討しました。</p>
-<a class="text-link" href="https://recursiveai.co.jp/news/fighting-critical-water-loss-with-deep-learning" rel="noopener noreferrer" target="_blank">ディープラーニングの事例を見る <span>→</span></a>
-</div>
-</article>
-<article class="project-card">
-<div class="project-visual portfolio-photo"><img alt="日本の長野県にある阿寺川の澄んだ青緑色の水と緑の森を写したイメージ写真。" decoding="async" loading="lazy" src="assets/images/projects/water-cycle-atera-river.webp" width="1600" height="1067" style="object-position:center 42%"/><span class="project-client-logo"><img alt="Suntory" src="assets/images/projects/suntory-logo.svg" width="133" height="35" decoding="async" loading="lazy"/></span></div>
-<div class="project-content">
-<p class="project-type">AI · 気候 · リサーチ</p>
-<h3>水循環の予測</h3>
-<p>サントリー向けに納品した水循環予測プロジェクトで、AIエンジニアと協働しました。日本有数の飲料メーカーである同社のサステナビリティ施策の一環として、日本の過去の降雨量・地下水・気象データを活用しました。</p>
-<a class="text-link" href="https://recursiveai.co.jp/case-studies/smarter-water-planning-with-ai-powered-precipitation-modeling" rel="noopener noreferrer" target="_blank">Recursive AIの事例を見る <span>→</span></a>
-</div>
-</article>
-<article class="project-card">
-<div class="project-visual portfolio-photo"><img alt="データセンターのサーバーのイメージ写真" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">CLOUD</span><p>Kubernetes基盤の導入・運用</p></div></div>
-<div class="project-content">
-<p class="project-type">クラウド · Kubernetes · 自動化</p>
-<h3>Rakuten Cloud Platform</h3>
-<p>Rakuten社内で、クラウド基盤の提供、キャパシティ計画、課金、移行支援、自動化施策などの調整を担当しました。</p>
-<p class="project-highlight"><strong>デプロイ期間を85％短縮</strong><br/> 3か月から2週間へ</p>
-<a class="text-link" href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it" rel="noopener noreferrer" target="_blank">Rakuten Cloudについて見る <span>→</span></a>
-</div>
-</article>
-<article class="project-card">
-<div class="project-visual portfolio-photo"><img alt="路上に停まっているHonda Civicのイメージ写真" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Honda_Civic_075226749.jpg/960px-Honda_Civic_075226749.jpg"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>自動車業界の業務フロー改善</p></div></div>
-<div class="project-content">
-<p class="project-type">エンタープライズAI · コンサルティング · プラットフォーム</p>
-<h3>Fujitsu × Palantir × Honda</h3>
-<p>Honda車の自動車部品見積もりプロセスを対象に、Palantirプラットフォーム上のバックエンド業務フローを最適化するコンサルティングに携わりました。</p>
-<div class="project-links">
-<a class="text-link" href="https://www.palantir.com/partnerships/fujitsu/" rel="noopener noreferrer" target="_blank">FujitsuとPalantirの提携 <span>→</span></a>
-<a class="text-link" href="https://global.fujitsu/en-global/pr/news/2025/08/19-01-en" rel="noopener noreferrer" target="_blank">Fujitsuの発表を見る <span>→</span></a>
-</div>
-<p class="project-photo-credit">Honda車の写真はイメージです。実際のプロジェクト写真ではありません。</p></div>
-</article>
-
-
-</div>
-<p class="portfolio-image-note">Toyota bZ4Xの車両写真を除き、掲載写真はプロジェクトのイメージです。Honda車の写真： <a href="https://commons.wikimedia.org/wiki/File:Honda_Civic_075226749.jpg" rel="noopener noreferrer" target="_blank">Trop86 / Wikimedia Commons (CC0)</a> · その他のイメージ写真： <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash</a>.</p></section>
-<section aria-labelledby="personal-projects-heading" class="personal-projects section-shell" id="personal-projects">
-<div class="section-heading">
-<h2 id="personal-projects-heading">個人開発プロジェクト</h2>
-<p class="section-intro">コーディングやAIを活用した開発、そして好奇心から形にしたアイデアです。どのプロジェクトも、身近な課題を解決したいという思いから始まりました。</p>
-</div>
-<div class="project-grid">
 <article class="project-card">
 <div class="project-visual portfolio-photo">
 <img alt="サンプルメールの要約と対応事項を拡大表示したMailroomの画面。" decoding="async" loading="lazy" src="assets/images/personal-projects/mailroom-detail.webp" width="1194" height="796"/>
 </div>
 <div class="project-content">
 <p class="project-type">メール · 自動化 · 業務効率化</p>
-<h3>Mailroom — メールアシスタント</h3>
+<h3>Mailroom — AI顧客メールアシスタント</h3>
 <p>長いメールの要約、対応事項の整理、返信の下書きをサポートするアプリです。公開デモはブラウザー内でルールとテンプレートを使って動作します。AI連携はプロジェクト全体のオプション機能です。</p>
 <div class="project-links">
 <a class="text-link" href="https://hellokim.me/email-assistant/" rel="noopener noreferrer" target="_blank">アプリを試す <span aria-hidden="true">→</span></a>
@@ -437,7 +446,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </div>
 <div class="project-content">
 <p class="project-type">ワークフロー自動化 · Jira · プロジェクト管理</p>
-<h3>Triage — 文書からJiraの下書きへ</h3>
+<h3>Triage — Jira起票アシスタント</h3>
 <p>議事録やプロジェクト文書、要件をJiraチケットの下書きに整理します。タスク、受け入れ基準、見積もりを確認し、チーム向けにエクスポートできます。Jiraへのチケット自動作成は行いません。</p>
 <div class="project-links">
 <a class="text-link" href="https://hellokim.me/jira-intake/" rel="noopener noreferrer" target="_blank">アプリを試す <span aria-hidden="true">→</span></a>
@@ -450,7 +459,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </div>
 <div class="project-content">
 <p class="project-type">文字認識 · 文書処理 · プライバシー</p>
-<h3>InkSift — 文書テキスト抽出</h3>
+<h3>InkSift — 文書テキスト抽出ツール</h3>
 <p>画像やPDFから編集可能なテキストを抽出。英語・デンマーク語・タイ語に対応しています。処理はブラウザー内で行われ、文書のアップロードや有料APIは不要です。</p>
 <div class="project-links">
 <a class="text-link" href="https://hellokim.me/inksift/" rel="noopener noreferrer" target="_blank">アプリを試す <span aria-hidden="true">→</span></a>
@@ -460,12 +469,12 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </article>
 
 </div>
-<p class="personal-projects-note">スクリーンショットにはサンプルデータを使用しています。</p>
+<p class="personal-projects-note">Mailroom、Triage、InkSiftのスクリーンショットにはサンプルデータを使用しています。</p>
 </section>
 <section aria-labelledby="education-heading" class="education-section section-shell" id="education">
 <div class="section-heading education-heading">
-<p class="eyebrow">学歴・資格と学び</p>
-<h2 id="education-heading">学び続けることを、楽しみたい。</h2>
+<p class="eyebrow">学び続けること</p>
+<h2 id="education-heading">学歴・資格</h2>
 <p class="education-intro">新しく学べることは、いつもあると思っています。私の経験には、テクノロジー、ビジネス、そして人と一緒に働くことへの想いが詰まっています。</p>
 </div>
 <div class="education-layout">
@@ -492,7 +501,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <section aria-labelledby="beyond-work-heading" class="beyond-work section-shell" id="beyond-work">
 <div class="section-heading">
 <h2 id="beyond-work-heading">仕事以外のこと</h2>
-<p class="section-intro">仕事以外では、子どもたちの学びを手伝ったり、動物のお世話をしたりと、小さな形で誰かの役に立つことを大切にしてきました。こうした経験は、私の人生の中でも特に心に残るものです。</p>
+<p class="section-intro">仕事以外では、子どもたちの学びを手伝ったり、動物のお世話をしたりしてきました。こうした経験は、私の人生の中でも特に心に残るものです。</p>
 </div>
 <div class="volunteer-grid">
 <article class="project-card">
@@ -508,7 +517,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="project-content">
 <p class="project-type">タイ · バンコク</p>
 <h3>幼稚園でのボランティア <span class="volunteer-organization">Duang Prateep Foundation</span></h3>
-<p class="volunteer-description">バンコクのクロントイ地区で、ドゥアン・プラティープ財団が支援する保育施設のクラスのお手伝いをしました。子どもたちと一緒に過ごし、幼い時期の学びを支える時間が好きでした。</p>
+<p class="volunteer-description">バンコクのクロントイ地区で、ドゥアン・プラティープ財団が支援する保育施設のクラスで、子どもたちや先生方のお手伝いをしました。幼い時期の学びを支える時間が好きでした。</p>
 <a class="text-link" href="https://www.dpf.or.th/en/project_detail.php?id_file=150&amp;project_status=1" rel="noopener noreferrer" target="_blank" aria-label="Duang Prateep Foundation (新しいタブで開きます)">財団のウェブサイト <span aria-hidden="true">↗</span></a>
 </div>
 </article>
@@ -520,7 +529,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="project-content">
 <p class="project-type">日本 · 東京</p>
 <h3>動物保護施設でのボランティア <span class="volunteer-organization">Minashigo Rescue Center</span></h3>
-<p class="volunteer-description">東京の動物保護施設に週に1回ほど通い、犬の散歩や施設の掃除、日々のお世話を手伝いました。犬たちと過ごし、少しでも快適に過ごせるようお手伝いすることが好きでした。</p>
+<p class="volunteer-description">東京の動物保護施設に週に1回ほど通い、犬の散歩や施設の掃除、日々のお世話を手伝いました。犬たちが少しでも快適に過ごせるようお手伝いすることが好きでした。</p>
 <a class="text-link" href="https://minashigo-joutocenter.com/tokyo" rel="noopener noreferrer" target="_blank" aria-label="Minashigo Rescue Center (新しいタブで開きます)">保護施設のウェブサイト <span aria-hidden="true">↗</span></a>
 </div>
 </article>

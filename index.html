@@ -225,6 +225,8 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 @media(max-width:720px){.nav-links{gap:9px}.nav-links a{font-size:.76rem}.language-menu summary{padding:5px 8px;font-size:.76rem}}
 </style><meta content="#174b3b" name="theme-color"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://hellokim.me/index.html" hreflang="en" rel="alternate"/><link href="https://hellokim.me/da.html" hreflang="da" rel="alternate"/><link href="https://hellokim.me/th.html" hreflang="th" rel="alternate"/><link href="https://hellokim.me/ja.html" hreflang="ja" rel="alternate"/><meta content="en_US" property="og:locale"/><link href="assets/css/personal-projects.css?v=suntory-water-4" rel="stylesheet"/>
 <link href="assets/css/beyond-work.css?v=1" rel="stylesheet"/>
+<link href="assets/css/portfolio.css?v=1" rel="stylesheet"/>
+<script src="assets/js/portfolio.js?v=1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -234,11 +236,14 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <span class="brand-kim">KIM</span>
 <span>MINAMOTO</span>
 </a>
-<nav aria-label="Main navigation" class="nav-links">
+<button class="button button-secondary nav-toggle" type="button" aria-controls="section-navigation" aria-expanded="false" data-menu-label="Menu" data-close-label="Close" hidden>Menu</button>
+<nav aria-label="Main navigation" class="nav-links" id="section-navigation">
 <a href="#about">About</a>
-<a href="#projects">Projects</a><a href="#education">Education</a>
+<a href="#projects">Professional Work</a>
+<a href="#personal-projects">Things I’ve Built</a>
+<a href="#education">Education</a>
+<a href="#beyond-work">Beyond Work</a>
 <a href="#contact">Contact</a>
-
 <details class="language-menu"><summary aria-label="Select language">EN</summary><div class="language-options"><a aria-current="page" href="/index.html" hreflang="en">EN · English</a><a href="/da.html" hreflang="da">DK · Dansk</a><a href="/th.html" hreflang="th">TH · ไทย</a><a href="/ja.html" hreflang="ja">JP · 日本語</a></div></details></nav>
 </div>
 </header>
@@ -247,7 +252,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="hero-copy">
 <p class="eyebrow">Hello, I’m</p>
 <h1>Kim Minamoto</h1>
-<p class="hero-specialisms">People <span>•</span> Products <span>•</span> Technology</p>
+<p class="hero-specialisms">Technical Project Management <span>•</span> Product Development</p>
 <p class="hero-intro">
           I enjoy listening to people, understanding what they need, and
           working with teams to solve problems. I’ve helped bring technology
@@ -273,10 +278,43 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <img alt="Kim Minamoto in the Danish countryside" class="hero-photo" src="assets/css/IMG_0486.jpg"/>
 </div>
 </section>
-<section aria-labelledby="experience-heading" class="logo-section section-shell">
+<section class="about section-shell" id="about">
+<div class="section-heading">
+<p class="eyebrow">About me</p>
+<h2>Curious about technology.<br/>Passionate about people and progress.</h2>
+</div>
+<div class="about-layout">
+<div class="about-copy">
+<p>I&#x27;ve worked on AI, cloud, automotive, and software projects, bringing international teams closer together. I enjoy helping people bring their ideas to life and connecting business needs with technical teams.</p>
+<p>I&#x27;ve completed all coursework for my second bachelor&#x27;s degree, a B.A. in Computer Science at Thomas Edison State University (TESU), and am awaiting degree conferral.</p>
+</div>
+<div class="strengths-grid">
+<article class="strength-card">
+<span class="strength-icon">◎</span>
+<h3>International delivery</h3>
+<p>Japanese, Thai, Indian, North American, German, Ukrainian, and global stakeholders.</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">↗</span>
+<h3>Cross-functional leadership</h3>
+<p>Engineering, UX, research, vendors, finance, legal, and business teams.</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">&lt;/&gt;</span>
+<h3>Technical foundation</h3>
+<p>AI projects, cloud platforms, Kubernetes, software delivery, and documentation.</p>
+</article>
+<article class="strength-card">
+<span class="strength-icon">⌘</span>
+<h3>Multilingual communication</h3>
+<p>Fluent in English, Japanese, and Thai; currently learning Danish.</p>
+</article>
+</div>
+</div>
+<div aria-labelledby="experience-heading" class="logo-section experience-strip" role="group">
 <div class="section-heading section-heading-centered">
 <p class="eyebrow">Recognisable experience</p>
-<h2 id="experience-heading">Project experience across</h2>
+<h3 id="experience-heading">Project experience across</h3>
 <p class="section-intro">Direct roles at Recursive AI, Woven by Toyota, Rakuten Group, and Netwise. Project delivery also involved initiatives for or with Suntory, Metropolitan Waterworks Authority, Fujitsu, Palantir, and Honda.</p>
 </div>
 <div class="logo-grid">
@@ -306,44 +344,13 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <span class="company-label">Honda</span>
 </a>
 </div>
-</section>
-<section class="about section-shell" id="about">
-<div class="section-heading">
-<p class="eyebrow">About me</p>
-<h2>Curious about technology.<br/>Passionate about people and progress.</h2>
-</div>
-<div class="about-layout">
-<div class="about-copy">
-<p>I've worked on AI, cloud, automotive, and software projects bringing international teams closer together. I enjoy helping people shape their ideas into life.</p><p>Completed all coursework for my second bachelor's degree, a B.A. in Computer Science at Thomas Edison State University (TESU), and am waiting for degree conferral.</p></div>
-<div class="strengths-grid">
-<article class="strength-card">
-<span class="strength-icon">◎</span>
-<h3>International delivery</h3>
-<p>Japanese, Thai, Indian, North American, German, Ukrainian, and global stakeholders.</p>
-</article>
-<article class="strength-card">
-<span class="strength-icon">↗</span>
-<h3>Cross-functional leadership</h3>
-<p>Engineering, UX, research, vendors, finance, legal, and business teams.</p>
-</article>
-<article class="strength-card">
-<span class="strength-icon">&lt;/&gt;</span>
-<h3>Technical foundation</h3>
-<p>AI projects, cloud platforms, Kubernetes, software delivery, and documentation.</p>
-</article>
-<article class="strength-card">
-<span class="strength-icon">⌘</span>
-<h3>Multilingual communication</h3>
-<p>Fluent in English, Japanese, and Thai; currently learning Danish.</p>
-</article>
-</div>
 </div>
 </section>
-<section class="projects section-shell" id="projects">
+<section aria-labelledby="professional-work-heading" class="projects section-shell" id="projects">
 <div class="section-heading projects-heading">
 <div>
-<p class="eyebrow">Selected work</p>
-<h2>Projects that connect technology to the real-world</h2>
+<p class="eyebrow">Projects &amp; contributions</p>
+<h2 id="professional-work-heading">Selected Professional Work</h2>
 </div>
 <a class="text-link" href="https://www.linkedin.com/in/kimminamoto/" rel="noopener noreferrer" target="_blank">
           More on LinkedIn <span>→</span>
@@ -351,34 +358,32 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </div>
 <div class="project-grid">
 <article class="project-card">
-<div class="project-visual portfolio-photo">
-<img alt="Pipe organ inside Helligåndskirken in Copenhagen, Denmark." decoding="async" loading="lazy" src="assets/images/personal-projects/hymns-organ.webp" width="1200" height="822" style="object-position:center 65%"/>
-<div class="photo-caption"><span class="photo-label">WEB</span><p>Church music</p></div>
-</div>
-<div class="project-content">
-<p class="project-type">Web App · Data · Danish Culture</p>
-<h3>Danish Hymn &amp; Chorale Finder</h3>
-<p>I built this app for my husband to make preparing church music a little easier. It brings Danish hymns, chorales, and alternative melodies into one searchable place. He now uses it himself.</p>
-<div class="project-links">
-<a class="text-link" href="https://hellokim.me/hymns/" rel="noopener noreferrer" target="_blank">Try the app <span aria-hidden="true">→</span></a>
-</div>
-<p class="project-photo-credit">Organ photo: <a href="https://commons.wikimedia.org/wiki/File:Helligaandskirken_Copenhagen_organ.jpg" rel="noopener noreferrer" target="_blank">Ib Rasmussen / Wikimedia Commons (PD)</a>.</p>
-</div>
-</article>
-
-
-<article class="project-card">
 <div class="project-visual portfolio-photo"><img alt="Toyota bZ4X electric SUV" decoding="async" loading="lazy" src="https://scene7.toyota.eu/is/image/toyotaeurope/bZ4X_STATIC_04%3AMedium-Landscape?op_usm=1.75%2C0.3%2C2%2C0&amp;resMode=sharp2&amp;ts=0"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Toyota bZ4X</p></div></div>
 <div class="project-content">
 <p class="project-type">Automotive · Product &amp; UX · Team Collaboration</p>
 <h3>Toyota bZ4X — Advanced Parking</h3>
-<p>At Woven by Toyota, I worked with UX designers and researchers to create an intuitive parking experience for the bZ4X, coordinating vendors and keeping everyone aligned along the way.</p>
+<p>At Woven by Toyota, I worked with UX designers and researchers to create an intuitive parking experience for the bZ4X. I coordinated vendors and kept everyone aligned along the way.</p>
 <a class="text-link" href="https://www.toyota.dk/nye-biler/bz4x" rel="noopener noreferrer" target="_blank">
               Explore the Toyota bZ4X <span>→</span>
 </a>
 <p style="font-size: 0.75rem; opacity: 0.75; margin-top: 0.75rem;">
               Vehicle photo: Toyota. Project description reflects my contribution at Woven by Toyota.
             </p>
+</div>
+</article>
+<article class="project-card">
+<div class="project-visual portfolio-photo"><img alt="Illustrative photograph of data centre servers" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">CLOUD</span><p>Kubernetes platform delivery</p></div></div>
+<div class="project-content">
+<p class="project-type">Cloud · Kubernetes · Automation</p>
+<h3>Rakuten — Cloud Infrastructure / Migration</h3>
+<p>Coordinated a cloud platform delivery, capacity planning, billing, migration support, and automation initiatives within Rakuten.</p>
+<p class="project-highlight">
+<strong>Approximately 85% less cluster deployment time</strong><br/>
+              From three months to two weeks.
+            </p>
+<a class="text-link" href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it" rel="noopener noreferrer" target="_blank">
+              Read about Rakuten Cloud <span>→</span>
+</a>
 </div>
 </article>
 <article class="project-card">
@@ -396,28 +401,17 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="project-visual portfolio-photo"><img alt="Illustrative photograph of the turquoise Atera River and green forest in Nagano, Japan." decoding="async" loading="lazy" src="assets/images/projects/water-cycle-atera-river.webp" width="1600" height="1067" style="object-position:center 42%"/><span class="project-client-logo"><img alt="Suntory" src="assets/images/projects/suntory-logo.svg" width="133" height="35" decoding="async" loading="lazy"/></span></div>
 <div class="project-content">
 <p class="project-type">AI · Climate · Research</p>
-<h3>Water Cycle Prediction</h3>
+<h3>Suntory — Groundwater Prediction</h3>
 <p>Collaborated with AI engineers on a water-cycle prediction project delivered to Suntory, one of Japan’s leading beverage companies, as part of its sustainability initiatives. The project used historical rainfall, groundwater, and weather data from Japan.</p>
 <a class="text-link" href="https://recursiveai.co.jp/case-studies/smarter-water-planning-with-ai-powered-precipitation-modeling" rel="noopener noreferrer" target="_blank">
               Read Recursive AI case study <span>→</span>
 </a>
 </div>
 </article>
-<article class="project-card">
-<div class="project-visual portfolio-photo"><img alt="Illustrative photograph of data centre servers" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&amp;fit=crop&amp;w=900&amp;q=82"/><div class="photo-caption"><span class="photo-label">CLOUD</span><p>Kubernetes platform delivery</p></div></div>
-<div class="project-content">
-<p class="project-type">Cloud · Kubernetes · Automation</p>
-<h3>Rakuten Cloud Platform</h3>
-<p>Coordinated a cloud platform delivery, capacity planning, billing, migration support, and automation initiatives within Rakuten.</p>
-<p class="project-highlight">
-<strong>85% reduction in deployment time</strong><br/>
-              From three months to two weeks.
-            </p>
-<a class="text-link" href="https://cloud.rakuten.com/blogs/rakuten-cloud-offers-a-better-cloud-native-solution-for-telco-it" rel="noopener noreferrer" target="_blank">
-              Read about Rakuten Cloud <span>→</span>
-</a>
 </div>
-</article>
+<button class="button button-secondary project-disclosure" type="button" aria-controls="more-professional-projects" aria-expanded="false" data-project-disclosure data-more-label="View More Projects" data-less-label="Show Less" hidden>View More Projects</button>
+<div class="more-professional-projects" id="more-professional-projects">
+<div class="project-grid">
 <article class="project-card">
 <div class="project-visual portfolio-photo"><img alt="Illustrative photograph of a Honda Civic parked on the street" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Honda_Civic_075226749.jpg/960px-Honda_Civic_075226749.jpg"/><div class="photo-caption"><span class="photo-label">AUTO</span><p>Automotive workflow consulting</p></div></div>
 <div class="project-content">
@@ -434,23 +428,38 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </div>
 <p class="project-photo-credit">Honda vehicle photo is illustrative; not a photograph of my project work.</p></div>
 </article>
-
-
 </div>
-<p class="portfolio-image-note">Portfolio photographs are illustrative except for the Toyota bZ4X vehicle photo. Honda image: <a href="https://commons.wikimedia.org/wiki/File:Honda_Civic_075226749.jpg" rel="noopener noreferrer" target="_blank">Trop86 / Wikimedia Commons (CC0)</a>. Other illustrative photography: <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash</a>.</p></section>
+</div>
+<p class="portfolio-image-note">Portfolio photographs are illustrative except for the Toyota bZ4X vehicle photo. Honda image: <a href="https://commons.wikimedia.org/wiki/File:Honda_Civic_075226749.jpg" rel="noopener noreferrer" target="_blank">Trop86 / Wikimedia Commons (CC0)</a>. Other illustrative photography: <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash</a>.</p>
+</section>
 <section aria-labelledby="personal-projects-heading" class="personal-projects section-shell" id="personal-projects">
 <div class="section-heading">
-<h2 id="personal-projects-heading">Personal Projects</h2>
+<h2 id="personal-projects-heading">Things I’ve Built</h2>
 <p class="section-intro">A few ideas I&#x27;ve brought to life through coding, AI-assisted development, and curiosity. Each project started with a practical problem I wanted to solve.</p>
 </div>
 <div class="project-grid">
+<article class="project-card">
+<div class="project-visual portfolio-photo">
+<img alt="Pipe organ inside Helligåndskirken in Copenhagen, Denmark." decoding="async" loading="lazy" src="assets/images/personal-projects/hymns-organ.webp" width="1200" height="822" style="object-position:center 65%"/>
+<div class="photo-caption"><span class="photo-label">WEB</span><p>Church music</p></div>
+</div>
+<div class="project-content">
+<p class="project-type">Web App · Data · Danish Culture</p>
+<h3>Danish Hymn &amp; Chorale Finder</h3>
+<p>I built this app for my husband to make preparing church music a little easier. It brings Danish hymns, chorales, and alternative melodies into one searchable place. He now uses it himself.</p>
+<div class="project-links">
+<a class="text-link" href="https://hellokim.me/hymns/" rel="noopener noreferrer" target="_blank">Try the app <span aria-hidden="true">→</span></a>
+</div>
+<p class="project-photo-credit">Organ photo: <a href="https://commons.wikimedia.org/wiki/File:Helligaandskirken_Copenhagen_organ.jpg" rel="noopener noreferrer" target="_blank">Ib Rasmussen / Wikimedia Commons (PD)</a>.</p>
+</div>
+</article>
 <article class="project-card">
 <div class="project-visual portfolio-photo">
 <img alt="Close-up of Mailroom showing a sample email summary and next steps." decoding="async" loading="lazy" src="assets/images/personal-projects/mailroom-detail.webp" width="1194" height="796"/>
 </div>
 <div class="project-content">
 <p class="project-type">Email · Automation · Productivity</p>
-<h3>Mailroom — Email Assistant</h3>
+<h3>Mailroom — AI Customer Email Assistant</h3>
 <p>An email assistant that turns long messages into clear summaries, highlights action items, and helps draft thoughtful replies. The demo uses offline rules and templates; live AI is an optional capability of the broader project.</p>
 <div class="project-links">
 <a class="text-link" href="https://hellokim.me/email-assistant/" rel="noopener noreferrer" target="_blank">Try the app <span aria-hidden="true">→</span></a>
@@ -464,7 +473,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </div>
 <div class="project-content">
 <p class="project-type">Workflow Automation · Jira · Project Management</p>
-<h3>Triage — Documents to Jira</h3>
+<h3>Triage — Jira Intake Assistant</h3>
 <p>Turn meeting notes, project documents, and requirements into structured Jira ticket drafts. Review tasks, acceptance criteria, and estimates, then export drafts for your team. Built to make project planning easier; it does not create live Jira tickets.</p>
 <div class="project-links">
 <a class="text-link" href="https://hellokim.me/jira-intake/" rel="noopener noreferrer" target="_blank">Try the app <span aria-hidden="true">→</span></a>
@@ -477,7 +486,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </div>
 <div class="project-content">
 <p class="project-type">OCR · Document Processing · Privacy</p>
-<h3>InkSift — Document Text Extractor</h3>
+<h3>InkSift — Smart Document Extractor</h3>
 <p>Extract editable text from images and PDF documents, with support for English, Danish, and Thai. Processing runs locally in your browser, without uploading documents or requiring paid APIs.</p>
 <div class="project-links">
 <a class="text-link" href="https://hellokim.me/inksift/" rel="noopener noreferrer" target="_blank">Try the app <span aria-hidden="true">→</span></a>
@@ -487,12 +496,12 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 </article>
 
 </div>
-<p class="personal-projects-note">Screenshots show the apps using sample data.</p>
+<p class="personal-projects-note">Mailroom, Triage, and InkSift screenshots use sample data.</p>
 </section>
 <section aria-labelledby="education-heading" class="education-section section-shell" id="education">
 <div class="section-heading education-heading">
-<p class="eyebrow">EDUCATION &amp; PROFESSIONAL DEVELOPMENT</p>
-<h2 id="education-heading">Always learning, always growing.</h2>
+<p class="eyebrow">Always learning</p>
+<h2 id="education-heading">Education &amp; Certifications</h2>
 <p class="education-intro">I believe there's always something new to learn. My background combines technology, business, and a love for working with people.</p>
 </div>
 <div class="education-layout">
@@ -519,7 +528,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <section aria-labelledby="beyond-work-heading" class="beyond-work section-shell" id="beyond-work">
 <div class="section-heading">
 <h2 id="beyond-work-heading">Beyond Work</h2>
-<p class="section-intro">Outside of work, I&#x27;ve always enjoyed finding small ways to give back, whether that&#x27;s helping children learn or spending time caring for animals. These experiences have been some of the most meaningful parts of my life.</p>
+<p class="section-intro">Outside of work, I&#x27;ve enjoyed helping children learn and caring for animals. These experiences have been some of the most meaningful parts of my life.</p>
 </div>
 <div class="volunteer-grid">
 <article class="project-card">
@@ -535,7 +544,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="project-content">
 <p class="project-type">Thailand · Bangkok</p>
 <h3>Kindergarten Volunteer <span class="volunteer-organization">Duang Prateep Foundation</span></h3>
-<p class="volunteer-description">Volunteered as a classroom helper at a nursery school supported by the Duang Prateep Foundation in Bangkok&#x27;s Khlong Toei community. I enjoyed spending time with the children and supporting their early learning.</p>
+<p class="volunteer-description">I helped children and teachers in a nursery classroom supported by the Duang Prateep Foundation in Bangkok&#x27;s Khlong Toei community. I enjoyed supporting the children&#x27;s early learning.</p>
 <a class="text-link" href="https://www.dpf.or.th/en/project_detail.php?id_file=150&amp;project_status=1" rel="noopener noreferrer" target="_blank" aria-label="Duang Prateep Foundation (opens in a new tab)">Visit the foundation <span aria-hidden="true">↗</span></a>
 </div>
 </article>
@@ -547,7 +556,7 @@ html[lang="th"] .hero .eyebrow,html[lang="ja"] .hero .eyebrow{text-transform:non
 <div class="project-content">
 <p class="project-type">Japan · Tokyo</p>
 <h3>Animal Shelter Volunteer <span class="volunteer-organization">Minashigo Rescue Center</span></h3>
-<p class="volunteer-description">Volunteered at an animal shelter in Tokyo, visiting approximately once a week to walk dogs, clean the shelter, and help with everyday care. I loved spending time with the dogs and helping make their days a little more comfortable.</p>
+<p class="volunteer-description">I visited an animal shelter in Tokyo about once a week to walk dogs, clean the shelter, and help with everyday care. I loved making the dogs&#x27; days a little more comfortable.</p>
 <a class="text-link" href="https://minashigo-joutocenter.com/tokyo" rel="noopener noreferrer" target="_blank" aria-label="Minashigo Rescue Center (opens in a new tab)">Visit the rescue center <span aria-hidden="true">↗</span></a>
 </div>
 </article>
