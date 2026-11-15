@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": "c245dd54b6a026f6d78a94c00dec4039372413e7",
+  "revision": "9435f74f32419b30c35e008862e40ed3174fb88c",
   "hymn_count": 791,
   "data_path": "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json",
   "files": {
@@ -9,7 +9,7 @@
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "about/index.html": "773d1a1adabd7c3cafc0825d50c6975a04a622c38100f745e0e80f33d162a465",
     "how-to-use/index.html": "879e82a146f456aee1812ad2343ae0f59f226bb512e4863c97e4415787adbd0f",
-    "changelog/index.html": "b66cbde10b4c258b69559f8b3e25d3e77a4f218cb300208064cd30d20abea45e",
+    "changelog/index.html": "17a0c3f4c0479fc27325b9cb76a33a33723095cf6e834d402954097056926ff8",
     "contact/index.html": "5a35085fb2d2f9752e93a89809214f8c5c6b3e7208583bdcf004f315fa7a3167",
     "assets/app.css": "6be13dde4e6d5263bb428189c585306952f9461fe3d456a0fac9bb0afb0f6104",
     "assets/church-hero-1200.webp": "0ae8afa35429f2c8f7dca242805885e2b7f2138eec35fd3a58791bda85c39d79",
