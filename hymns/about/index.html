@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Om appen · Salme- og Koralbogssøgning</title>
+    <link rel="stylesheet" href="../assets/info-pages.css" />
+    <script src="../assets/info-pages.js" defer></script>
+  </head>
+  <body data-info-page="about">
+    <a class="skip-link" href="#main-content">Spring til indhold</a>
+    <header class="topbar">
+      <a class="app-brand" href="../" id="appTitle">Salme- og Koralbogssøgning</a>
+      <div class="toolbar-group" role="group" aria-label="Sprog">
+        <button id="langDaButton" class="secondary-button" type="button" aria-pressed="true">Dansk</button>
+        <button id="langEnButton" class="secondary-button" type="button" aria-pressed="false">English</button>
+      </div>
+    </header>
+    <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation">
+      <a id="navSearch" href="../">Søg</a>
+      <a id="navHowToUse" href="../how-to-use/">Sådan bruger du appen</a>
+      <a id="navAbout" aria-current="page" href="../about/">Om appen</a>
+      <a id="navChangelog" href="../changelog/">Versionshistorik</a>
+    </nav>
+
+    <main id="main-content" class="card information-body">
+      <h1 id="pageTitle">Om appen</h1>
+      <div lang="da" data-info-language="da">
+          <h2>Fra kirkens hverdag</h2>
+          <p>Kim Minamoto skabte appen til sin mand, <a href="https://www.jonasfrederik.com/" target="_blank" rel="noopener noreferrer">Jonas Frederik</a>, der er dansk organist, pianist og komponist. I sit kirkelige arbejde modtager Jonas salmenumre fra præsten og skal finde de tilhørende koralnumre i <em>Koralbog til Den Danske Salmebog</em>. Før slog han henvisningerne op manuelt. Kim udviklede appen for at gøre forberedelsen til gudstjenester hurtigere og lettere.</p>
+          <h2>Kilder og sammenhænge</h2>
+          <ul>
+            <li><a href="https://www.dendanskesalmebogonline.dk/" target="_blank" rel="noopener noreferrer">Den Danske Salmebog Online</a> er kilden til salmetitler, salmenumre, melodioplysninger og normalt også antal vers.</li>
+            <li><a href="https://www.thor-callesen.com/koralbog/index.html" target="_blank" rel="noopener noreferrer">Thor Callesens koralbogsressourcer</a> rummer referencemateriale til <em>Koralbog til Den Danske Salmebog 2003</em>. De to referencefiler i projektet svarer til sidens <a href="https://www.thor-callesen.com/koralbog/pdf/reg_kds.pdf" target="_blank" rel="noopener noreferrer">alfabetiske register</a> og <a href="https://www.thor-callesen.com/koralbog/pdf/melodihenvisning.pdf" target="_blank" rel="noopener noreferrer">melodihenvisninger</a>.</li>
+            <li><a href="https://github.com/Sleepycatfuji/Hymns" target="_blank" rel="noopener noreferrer">Projektets dokumentation og gennemgåede data</a> beskriver, hvordan kilderne er brugt. Se også <a href="https://github.com/Sleepycatfuji/Hymns/blob/main/docs/dataset-audit.md" target="_blank" rel="noopener noreferrer">datagennemgangen</a> og <a href="https://github.com/Sleepycatfuji/Hymns/blob/main/data/reference_corrections.json" target="_blank" rel="noopener noreferrer">de dokumenterede kildeforskelle</a>.</li>
+          </ul>
+          <p>Salmeoplysningerne er hentet fra Den Danske Salmebog Online. Appen forbinder salmenumre med koralnumre ved hjælp af udtrykkelige melodihenvisninger og koralbogens referencemateriale. Når kilderne angiver flere melodier, bevares alternativerne.</p>
+          <p>Antal vers findes normalt ved at tælle de nummererede salmevers på hjemmesiden. Hvor de mangler, bruges det dokumenterede referencemateriale. Forskelle mellem kilderne og særlige liturgiske henvisninger er gennemgået og dokumenteret. En bogside er noget andet end et koralnummer: salme 438 henviser til side 568, mens salme 440 har koral 416 og en særskilt henvisning til side 570.</p>
+          <h2>Udvikling og tak</h2>
+          <p>Kim udviklede appen med hjælp fra ChatGPT til programmering, fejlfinding og forbedring af brugerfladen. Kim og Jonas gennemgik appens logik og data. Jonas bidrog med musikfaglig viden, afprøvning og praktiske forslag fra kirkens hverdag.</p>
+          <p class="muted">Tak til de oprindelige kilder. Dette er en uafhængig app; kilderne er ikke sponsorer og har ikke officielt godkendt appen. Gennemgangen er ikke en individuel kontrol af alle koblinger i de trykte bøger. Appen gengiver ikke noder eller fulde salmetekster.</p>
+
+      </div>
+      <div lang="en" data-info-language="en" hidden>
+          <h2>Made for everyday church work</h2>
+          <p>Kim Minamoto created this app for her husband, <a href="https://www.jonasfrederik.com/" target="_blank" rel="noopener noreferrer">Jonas Frederik</a>, a Danish organist, pianist and composer. In his church work, Jonas receives hymn numbers from the pastor and needs to find the corresponding chorale numbers in <em>Koralbog til Den Danske Salmebog</em>. He previously looked up these references manually. Kim developed the app to make church-service preparation faster and easier.</p>
+          <h2>Sources and connections</h2>
+          <ul>
+            <li><a href="https://www.dendanskesalmebogonline.dk/" target="_blank" rel="noopener noreferrer">Den Danske Salmebog Online</a> supplies hymn titles, numbers, melody information and, in most cases, verse counts.</li>
+            <li><a href="https://www.thor-callesen.com/koralbog/index.html" target="_blank" rel="noopener noreferrer">Thor Callesen's Koralbog resources</a> provide reference material relating to <em>Koralbog til Den Danske Salmebog 2003</em>. The project's two reference PDFs match the site's <a href="https://www.thor-callesen.com/koralbog/pdf/reg_kds.pdf" target="_blank" rel="noopener noreferrer">alphabetical register</a> and <a href="https://www.thor-callesen.com/koralbog/pdf/melodihenvisning.pdf" target="_blank" rel="noopener noreferrer">melody references</a>.</li>
+            <li><a href="https://github.com/Sleepycatfuji/Hymns" target="_blank" rel="noopener noreferrer">Project documentation and reviewed data</a> explain how the sources are used. See the <a href="https://github.com/Sleepycatfuji/Hymns/blob/main/docs/dataset-audit.md" target="_blank" rel="noopener noreferrer">dataset review</a> and <a href="https://github.com/Sleepycatfuji/Hymns/blob/main/data/reference_corrections.json" target="_blank" rel="noopener noreferrer">documented source differences</a>.</li>
+          </ul>
+          <p>Hymn information was collected from Den Danske Salmebog Online. The app connects hymn numbers to chorale numbers using explicit melody references and the chorale-book reference materials. Where the sources list more than one melody, the alternatives are preserved.</p>
+          <p>Verse counts generally come from the numbered hymn verses on the website. Documented reference material is used where those are unavailable. Differences between sources and special liturgical references have been reviewed and documented. Book pages remain separate from chorale numbers: hymn 438 refers to page 568; hymn 440 includes chorale 416 and a separate reference to page 570.</p>
+          <h2>Development and thanks</h2>
+          <p>Kim developed the application with assistance from ChatGPT for coding, debugging and improving the user interface. Kim and Jonas reviewed the application logic and data. Jonas contributed musical knowledge, testing and practical feedback from his church work.</p>
+          <p class="muted">Thank you to the original sources. This independent app is not officially endorsed or sponsored by them. The review does not mean every mapping has been individually verified against the printed books. The app does not reproduce sheet music or full hymn lyrics.</p>
+
+      </div>
+    </main>
+  </body>
+</html>

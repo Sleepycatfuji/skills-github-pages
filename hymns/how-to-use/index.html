@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sådan bruger du appen · Salme- og Koralbogssøgning</title>
+    <link rel="stylesheet" href="../assets/info-pages.css" />
+    <script src="../assets/info-pages.js" defer></script>
+  </head>
+  <body data-info-page="how-to-use">
+    <a class="skip-link" href="#main-content">Spring til indhold</a>
+    <header class="topbar">
+      <a class="app-brand" href="../" id="appTitle">Salme- og Koralbogssøgning</a>
+      <div class="toolbar-group" role="group" aria-label="Sprog">
+        <button id="langDaButton" class="secondary-button" type="button" aria-pressed="true">Dansk</button>
+        <button id="langEnButton" class="secondary-button" type="button" aria-pressed="false">English</button>
+      </div>
+    </header>
+    <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation">
+      <a id="navSearch" href="../">Søg</a>
+      <a id="navHowToUse" aria-current="page" href="../how-to-use/">Sådan bruger du appen</a>
+      <a id="navAbout" href="../about/">Om appen</a>
+      <a id="navChangelog" href="../changelog/">Versionshistorik</a>
+    </nav>
+
+    <main id="main-content" class="card information-body">
+      <h1 id="pageTitle">Sådan bruger du appen</h1>
+      <div lang="da" data-info-language="da">
+          <ol>
+            <li><strong>Find en salme.</strong> Skriv salmenummeret eller en del af titlen, og tryk på Søg eller Enter. Et nummer giver kun den pågældende salme.</li>
+            <li><strong>Læs resultatet.</strong> Salme er nummeret i <em>Den Danske Salmebog</em>. Koralbog nr. er nummeret i <em>Koralbog til Den Danske Salmebog</em>. Antal vers viser, hvor mange vers salmen har. Flere koralbogsvarianter er alternative melodier eller arrangementer.</li>
+            <li><strong>Vælg en koralbogsvariant.</strong> Hvis der er flere muligheder, vælger du den, du vil spille. Dit valg gemmes i denne browser. Brug Fjern valg for at nulstille det.</li>
+            <li><strong>Kopiér henvisningen.</strong> Tryk på kopiikonet øverst til højre på salmens kort. Er der kun én koral, kan du kopiere med det samme. Er der flere, skal du vælge først; et gemt valg bruges automatisk. Et lille flueben og Kopieret! bekræfter kortvarigt, at henvisningen er kopieret.</li>
+            <li><strong>Sæt henvisningen ind.</strong> Åbn dine noter, Word eller en anden teksteditor, og brug Ctrl+V eller Sæt ind. Hvis browseren ikke kan kopiere, vises en venlig fejlbesked på kortet.</li>
+          </ol>
+          <p>Du får fx <code>235 (111) Hør hvor englesangen 4v</code>: koralbogsnummer, salmebogsnummer i parentes, titlens første tre ord og antal vers. Bogsidehenvisninger er ikke koralnumre og kopieres ikke som koraler.</p>
+          <p>Skriv personlige noter under salmen, og tryk på Gem kommentar. Valg og gemte noter bliver på denne enhed i denne browser; de synkroniseres ikke. Brug Dansk / English til at skifte sprog.</p>
+          <p class="muted">Kopiikonet kan også aktiveres med tastaturet: brug Tab til at fokusere det og Enter eller mellemrum til at kopiere.</p>
+
+      </div>
+      <div lang="en" data-info-language="en" hidden>
+          <ol>
+            <li><strong>Find a hymn.</strong> Enter its hymn number or part of its title, then press Search or Enter. A number returns only that hymn.</li>
+            <li><strong>Read the result.</strong> Hymn is the number in <em>Den Danske Salmebog</em>. Chorale book no. is the number in <em>Koralbog til Den Danske Salmebog</em>. Verse count tells you how many verses the hymn has. Multiple chorale-book versions are alternative melodies or arrangements.</li>
+            <li><strong>Choose a chorale-book version.</strong> When there are several options, select the one you want to play. Your choice is saved in this browser. Use Clear selection to reset it.</li>
+            <li><strong>Copy the reference.</strong> Use the copy icon at the top right of the hymn card. A single chorale copies immediately. With several options, choose one first; a saved preference is used automatically. A small checkmark and Copied! briefly confirm that the reference was copied.</li>
+            <li><strong>Paste the reference.</strong> Open your notes, Word or another text editor, then use Ctrl+V or Paste. If the browser cannot copy, a friendly error message appears on the card.</li>
+          </ol>
+          <p>For example, <code>235 (111) Hør hvor englesangen 4v</code> gives the chorale number, hymn number in parentheses, first three title words and verse count. Book-page references are separate and are never copied as chorale numbers.</p>
+          <p>Add personal notes below a hymn and press Save comment. Preferences and saved notes stay in this browser on this device; they do not sync across devices. Use Dansk / English to switch languages.</p>
+          <p class="muted">You can also use the keyboard: press Tab to focus the copy icon, then Enter or Space to copy.</p>
+
+      </div>
+    </main>
+  </body>
+</html>

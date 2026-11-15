@@ -188,6 +188,119 @@
         color: #1f5fbf;
         margin-top: 4px;
       }
+
+      .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+        margin-bottom: 20px;
+      }
+
+      .site-nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0 12px;
+        border-radius: 8px;
+        color: #174a95;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+
+      .site-nav a:hover,
+      .site-nav a[aria-current="page"] {
+        background: #e8eef8;
+      }
+
+      .site-nav a[aria-current="page"] {
+        font-weight: 700;
+      }
+
+      .site-nav a:focus-visible {
+        outline: 3px solid #1f5fbf;
+        outline-offset: 2px;
+      }
+
+      .hymn-card {
+        position: relative;
+      }
+
+      .hymn-heading {
+        padding-right: 48px;
+        line-height: 1.5;
+      }
+
+      .copy-reference-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        margin: 0;
+        background: transparent;
+        color: #555;
+      }
+
+      .copy-reference-button:hover {
+        background: #edf3fc;
+        color: #1f5fbf;
+      }
+
+      button:focus-visible {
+        outline: 3px solid #1f5fbf;
+        outline-offset: 3px;
+      }
+
+      .copy-reference-button svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .copy-reference-button .check-icon,
+      .copy-reference-button.copied .copy-icon {
+        display: none;
+      }
+
+      .copy-reference-button.copied .check-icon {
+        display: block;
+      }
+
+      .copy-reference-button.copied {
+        color: #1f7a3b;
+      }
+
+      .copy-status {
+        color: #1f5fbf;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .copy-status:not(:empty) {
+        margin-top: 8px;
+      }
+
+      .copy-status[data-message-key="copyFailure"],
+      .copy-status[data-message-key="copyNoChorale"],
+      .copy-status[data-message-key="copyMissingInformation"] {
+        color: #9b3434;
+      }
+
+      .welcome-message {
+        border: 1px solid #c8d9f1;
+        line-height: 1.5;
+      }
+
+      .welcome-message a {
+        color: #174a95;
+      }
     </style>
   </head>
   <body>
@@ -207,6 +320,20 @@
         </button>
       </div>
     </div>
+
+    <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation">
+      <a id="navSearch" href="./" aria-current="page">Søg</a>
+      <a id="navHowToUse" href="./how-to-use/">Sådan bruger du appen</a>
+      <a id="navAbout" href="./about/">Om appen</a>
+      <a id="navChangelog" href="./changelog/">Versionshistorik</a>
+    </nav>
+
+    <aside id="welcomeMessage" class="card welcome-message" aria-labelledby="welcomeTitle" hidden>
+      <strong id="welcomeTitle">Velkommen!</strong>
+      <p id="welcomeText">Find en salme ved nummer eller titel, vælg en koralbogsvariant, og kopiér henvisningen til dine noter.</p>
+      <p><a id="welcomeGuide" href="./how-to-use/">Læs vejledningen</a></p>
+      <button id="dismissWelcome" class="secondary-button" type="button">Luk velkomstbeskeden</button>
+    </aside>
 
     <div class="card">
       <label for="searchInput"><strong id="searchLabel">Søg</strong></label>
@@ -235,6 +362,7 @@
       const LEGACY_PREFERENCES_KEY = "preferredChorales";
       const COMMENTS_KEY = "hymnComments";
       const LANGUAGE_KEY = "appLanguage";
+      const WELCOME_DISMISSED_KEY = "hymnsWelcomeDismissed";
 
       let hymnData = {};
       let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || "da";
@@ -278,6 +406,21 @@
           saveComment: "Gem kommentar",
           commentSaved: "Kommentar gemt",
           clearPreference: "Fjern valg",
+          navSearch: "Søg",
+          navHowToUse: "Sådan bruger du appen",
+          navAbout: "Om appen",
+          navChangelog: "Versionshistorik",
+          navigationLabel: "Hovedmenu",
+          welcomeTitle: "Velkommen!",
+          welcomeText: "Find hurtigt koralnumrene til gudstjenestens salmer, og kopiér henvisningerne til dine noter.",
+          welcomeGuide: "Se, hvordan du bruger appen",
+          dismissWelcome: "Luk velkomstbeskeden",
+          copyReference: "Kopiér salmehenvisning",
+          copySuccess: "Kopieret!",
+          copyFailure: "Kunne ikke kopiere. Prøv igen i en browser med adgang til udklipsholderen.",
+          copySelectChorale: "Vælg en koralbogsvariant, før du kopierer.",
+          copyNoChorale: "Denne salme har ingen koralnumre, der kan kopieres. En bogside er ikke et koralnummer.",
+          copyMissingInformation: "Salmehenvisningen mangler titel eller antal vers og kan ikke kopieres.",
         },
         en: {
           appTitle: "Danish Hymn → Chorale Finder",
@@ -317,6 +460,21 @@
           saveComment: "Save comment",
           commentSaved: "Comment saved",
           clearPreference: "Clear selection",
+          navSearch: "Search",
+          navHowToUse: "How to Use",
+          navAbout: "About",
+          navChangelog: "Version History",
+          navigationLabel: "Main navigation",
+          welcomeTitle: "Welcome!",
+          welcomeText: "Quickly find chorale numbers for your service hymns and copy the references into your notes.",
+          welcomeGuide: "Learn how to use the app",
+          dismissWelcome: "Dismiss welcome message",
+          copyReference: "Copy hymn reference",
+          copySuccess: "Copied!",
+          copyFailure: "Could not copy. Please try again in a browser with clipboard access.",
+          copySelectChorale: "Choose a chorale-book version before copying.",
+          copyNoChorale: "This hymn has no chorale number to copy. A book page is not a chorale number.",
+          copyMissingInformation: "The hymn reference is missing its title or verse count and cannot be copied.",
         },
       };
 
@@ -335,6 +493,13 @@
           t("searchPlaceholder");
         document.getElementById("searchButton").textContent = t("searchButton");
         document.getElementById("clearButton").textContent = t("clearButton");
+        for (const id of ["navSearch", "navHowToUse", "navAbout", "navChangelog",
+          "welcomeTitle", "welcomeText", "welcomeGuide", "dismissWelcome"]) {
+          document.getElementById(id).textContent = t(id);
+        }
+        document.getElementById("mainNavigation").setAttribute("aria-label", t("navigationLabel"));
+        document.getElementById("welcomeMessage").hidden =
+          localStorage.getItem(WELCOME_DISMISSED_KEY) === "true";
 
         const status = document.getElementById("status");
         if (status.dataset.state === "loading") {
@@ -488,6 +653,79 @@
         }));
       }
 
+      function getCopyReference(hymn, selectedOptionId = null) {
+        // Copy only actual chorales in the dataset, never book_page or a
+        // formatted display label. Each selectable version is one KDS code.
+        const choraleNumbers = new Set(
+          (hymn.chorales || []).map((chorale) => String(chorale.chorale_number)),
+        );
+        const options = getChoraleOptions(hymn).filter((option) => {
+          const code = option.display_kds;
+          return /^[1-9]\d{0,2}[ab]?$/.test(code) &&
+            parseInt(code, 10) <= 568 && choraleNumbers.has(code);
+        });
+        if (options.length === 0) return { error: "copyNoChorale" };
+
+        const selectedId = selectedOptionId ||
+          getPreferredChorale(hymn.hymn_number, options);
+        const option = options.length === 1 ? options[0] :
+          options.find((item) => item.option_id === selectedId);
+        if (!option) return { error: "copySelectChorale" };
+
+        const title = String(hymn.hymn_title || "")
+          .split(/\s+/)
+          .map((word) => word.replace(/[^\p{L}\p{M}\p{N}]/gu, ""))
+          .filter(Boolean)
+          .slice(0, 3)
+          .join(" ");
+        if (!title || !Number.isInteger(hymn.verse_count) || hymn.verse_count <= 0) {
+          return { error: "copyMissingInformation" };
+        }
+        return {
+          text: `${option.display_kds} (${hymn.hymn_number}) ${title} ${hymn.verse_count}v`,
+        };
+      }
+
+      async function copyHymnReference(hymn, card) {
+        const button = card.querySelector(".copy-reference-button");
+        const status = card.querySelector(".copy-status");
+        if (button.disabled) return;
+        clearTimeout(card.copyFeedbackTimer);
+        button.classList.remove("copied");
+        status.textContent = "";
+        delete status.dataset.messageKey;
+
+        const selectedId = card.querySelector('input[type="radio"]:checked')?.value;
+        const reference = getCopyReference(hymn, selectedId);
+        const showMessage = (key) => {
+          status.dataset.messageKey = key;
+          status.textContent = t(key);
+        };
+        if (reference.error) {
+          showMessage(reference.error);
+          return;
+        }
+
+        button.disabled = true;
+        try {
+          // An unavailable or denied Clipboard API gets clear inline feedback;
+          // no deprecated copy commands or permission prompts are needed.
+          if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+          await navigator.clipboard.writeText(reference.text);
+          button.classList.add("copied");
+          showMessage("copySuccess");
+          card.copyFeedbackTimer = setTimeout(() => {
+            button.classList.remove("copied");
+            status.textContent = "";
+            delete status.dataset.messageKey;
+          }, 2000);
+        } catch (error) {
+          showMessage("copyFailure");
+        } finally {
+          button.disabled = false;
+        }
+      }
+
       function hymnMatchesQuery(hymnKey, hymn, query) {
         const rawQuery = String(query || "").trim();
         const q = normalizeText(rawQuery);
@@ -628,7 +866,7 @@
 
         matches.forEach((hymn) => {
           const card = document.createElement("div");
-          card.className = "card";
+          card.className = "card hymn-card";
 
           const choraleOptions = getChoraleOptions(hymn);
           const preferredOptionId = getPreferredChorale(
@@ -649,7 +887,18 @@
           const showClearPreference = Boolean(preferredOptionId);
 
           card.innerHTML = `
-            <div>
+            <button class="copy-reference-button" type="button"
+              title="${t("copyReference")}" aria-label="${t("copyReference")}"
+              aria-describedby="copy-status-${escapeHtml(hymn.hymn_number)}">
+              <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="8" y="8" width="12" height="13" rx="2" />
+                <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3" />
+              </svg>
+              <svg class="check-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="m5 12 4 4L19 6" />
+              </svg>
+            </button>
+            <div class="hymn-heading">
               <strong>${t("hymnLabel")} ${escapeHtml(hymn.hymn_number)}: ${escapeHtml(hymn.hymn_title)}</strong>
               ${
                 showClearPreference
@@ -657,6 +906,8 @@
                   : ""
               }
             </div>
+            <div id="copy-status-${escapeHtml(hymn.hymn_number)}" class="copy-status"
+              role="status" aria-live="polite" aria-atomic="true"></div>
 
             <p class="muted">${t("verseCount")}: ${escapeHtml(verseCountText)}</p>
 
@@ -704,6 +955,10 @@
               ></div>
             </div>
           `;
+
+          card.querySelector(".copy-reference-button").addEventListener("click", () => {
+            copyHymnReference(hymn, card);
+          });
 
           card
             .querySelectorAll(`input[name="preferred-kds-${hymn.hymn_number}"]`)
@@ -789,6 +1044,12 @@
       document
         .getElementById("searchButton")
         .addEventListener("click", runSearch);
+
+      document.getElementById("dismissWelcome").addEventListener("click", () => {
+        localStorage.setItem(WELCOME_DISMISSED_KEY, "true");
+        document.getElementById("welcomeMessage").hidden = true;
+        document.getElementById("searchInput").focus();
+      });
 
       document.getElementById("clearButton").addEventListener("click", () => {
         document.getElementById("searchInput").value = "";
