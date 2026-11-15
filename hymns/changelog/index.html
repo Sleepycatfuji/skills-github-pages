@@ -3,45 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Versionshistorik · Salme- og Koralbogssøgning</title>
+    <title>Versionshistorik · SalmeNøglen</title>
+    <meta name="theme-color" content="#991B1B" />
+    <link rel="stylesheet" href="../assets/site.css" />
     <link rel="stylesheet" href="../assets/info-pages.css" />
+    <script src="../assets/site.js" defer></script>
     <script src="../assets/info-pages.js" defer></script>
   </head>
-  <body data-info-page="changelog">
+  <body class="information-page" data-info-page="changelog">
     <a class="skip-link" href="#main-content">Spring til indhold</a>
-    <header class="topbar">
-      <a class="app-brand" href="../" id="appTitle">Salme- og Koralbogssøgning</a>
+    <header class="site-header">
+      <a class="app-brand" href="../" id="appTitle">SalmeNøglen</a>
       <div class="toolbar-group" role="group" aria-label="Sprog">
-        <button id="langDaButton" class="secondary-button" type="button" aria-pressed="true">Dansk</button>
-        <button id="langEnButton" class="secondary-button" type="button" aria-pressed="false">English</button>
+        <button id="langDaButton" type="button" aria-label="Dansk" aria-pressed="true">DA</button>
+        <button id="langEnButton" type="button" aria-label="English" aria-pressed="false">EN</button>
+      </div>
+      <div class="navigation-wrap">
+        <button id="menuToggle" class="menu-toggle" type="button" aria-controls="mainNavigation" aria-expanded="false" aria-label="Åbn navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18" /></svg>
+        </button>
+        <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation" hidden>
+          <a id="navSearch" href="../"><span data-nav-label>Forside</span></a>
+          <a id="navHowToUse" href="../how-to-use/"><span data-nav-label>Sådan bruger du appen</span></a>
+          <a id="navAbout" href="../about/"><span data-nav-label>Om appen</span></a>
+          <a id="navChangelog" href="../changelog/" aria-current="page"><span data-nav-label>Versionshistorik</span></a>
+        </nav>
       </div>
     </header>
-    <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation">
-      <a id="navSearch" href="../">Søg</a>
-      <a id="navHowToUse" href="../how-to-use/">Sådan bruger du appen</a>
-      <a id="navAbout" href="../about/">Om appen</a>
-      <a id="navChangelog" aria-current="page" href="../changelog/">Versionshistorik</a>
-    </nav>
 
-    <main id="main-content" class="card information-body">
+    <main id="main-content" class="information-body">
       <h1 id="pageTitle">Versionshistorik</h1>
       <div lang="da" data-info-language="da">          <p>Her vises dokumenterede ændringer og versionsmærker fra <a href="https://github.com/Sleepycatfuji/Hymns" target="_blank" rel="noopener noreferrer">projektets repository</a>.</p>
+          <section class="changelog-entry">
           <h2>Ikke udgivet</h2>
           <p>Kopiér salmehenvisninger direkte fra resultatkortene. Nye sider med vejledning, baggrund og kilder samt en kort velkomst, der kan skjules. Eksisterende salme-til-koral-koblinger og versantal er bevaret. Denne opdatering har endnu ikke fået et versionsmærke.</p>
+          </section>
+          <section class="changelog-entry">
           <h2>Ændringer siden v1.0.0</h2>
           <p><strong>24. oktober 2026:</strong> Gennemgang af datagrundlaget, bevarelse af alternative melodier og tydelig adskillelse af koralnumre og bogsider. Samlet kontrol af app og data ved udgivelse. Se <a href="https://github.com/Sleepycatfuji/Hymns/commit/45c1d1c" target="_blank" rel="noopener noreferrer">ændringen</a> og <a href="https://github.com/Sleepycatfuji/Hymns/pull/1" target="_blank" rel="noopener noreferrer">den samlede gennemgang</a>.</p>
+          </section>
+          <section class="changelog-entry">
           <h2>v1.0.0 — 27. juni 2026</h2>
           <p>Det dokumenterede <a href="https://github.com/Sleepycatfuji/Hymns/tree/v1.0.0" target="_blank" rel="noopener noreferrer">versionsmærke v1.0.0</a> indeholder forbedrede versantal og visning af melodioplysninger samt dokumentation af koblingslogikken og brugen af AI under udviklingen.</p>
+          </section>
           <p class="muted">Der er ikke tildelt nye versionsnumre til senere ændringer her. Se <a href="https://github.com/Sleepycatfuji/Hymns/commits/main/" target="_blank" rel="noopener noreferrer">Git-historikken</a> for alle ændringer.</p>
 
       </div>
       <div lang="en" data-info-language="en" hidden>          <p>Documented changes and version tags from the <a href="https://github.com/Sleepycatfuji/Hymns" target="_blank" rel="noopener noreferrer">project repository</a>.</p>
+          <section class="changelog-entry">
           <h2>Unreleased</h2>
           <p>Copy hymn references directly from result cards. New pages provide usage guidance, background and sources, with a short dismissible welcome. Existing hymn-to-chorale mappings and verse counts are preserved. No version tag has been assigned to this update yet.</p>
+          </section>
+          <section class="changelog-entry">
           <h2>Changes since v1.0.0</h2>
           <p><strong>24 October 2026:</strong> Dataset review, preserved melody alternatives and a clear distinction between chorale numbers and book pages. App and data checked together when packaging releases. See the <a href="https://github.com/Sleepycatfuji/Hymns/commit/45c1d1c" target="_blank" rel="noopener noreferrer">change</a> and <a href="https://github.com/Sleepycatfuji/Hymns/pull/1" target="_blank" rel="noopener noreferrer">full review</a>.</p>
+          </section>
+          <section class="changelog-entry">
           <h2>v1.0.0 — 27 June 2026</h2>
           <p>The documented <a href="https://github.com/Sleepycatfuji/Hymns/tree/v1.0.0" target="_blank" rel="noopener noreferrer">v1.0.0 tag</a> includes improved verse counts and melody information display, along with documentation of the mapping logic and AI assistance during development.</p>
+          </section>
           <p class="muted">No new version numbers have been assigned to later changes here. See the <a href="https://github.com/Sleepycatfuji/Hymns/commits/main/" target="_blank" rel="noopener noreferrer">Git history</a> for all changes.</p>
 
       </div>

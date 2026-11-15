@@ -1,0 +1,153 @@
+:root {
+  --red: #991b1b;
+  --brick: #b65b46;
+  --paper: #faf9f7;
+  --ink: #292929;
+  --line: #e7e5e4;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+button, input, textarea, select { font: inherit; }
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+a { color: var(--red); text-underline-offset: 3px; }
+button { cursor: pointer; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+  outline: 3px solid var(--brick);
+  outline-offset: 4px;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 18px;
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  background: white;
+  color: var(--red);
+}
+.skip-link:focus { top: 12px; }
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  min-height: 88px;
+  padding: 13px max(24px, calc((100% - 1120px) / 2));
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 12px;
+  border-radius: 0 0 42% 13% / 0 0 19px 7px;
+  background: var(--red);
+}
+.app-brand {
+  align-self: center;
+  margin: 0 auto 13px 0;
+  color: white;
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -.04em;
+}
+.toolbar-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding-top: 2px;
+}
+.toolbar-group button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.toolbar-group button[aria-pressed="true"] {
+  border-color: #ffffff50;
+  background: #ffffff14;
+}
+.toolbar-group button:hover { background: #ffffff24; }
+.site-header button:focus-visible, .app-brand:focus-visible { outline-color: white; }
+.navigation-wrap { position: relative; }
+.menu-toggle {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+}
+.menu-toggle:hover, .menu-toggle[aria-expanded="true"] { background: #ffffff15; }
+.menu-toggle svg { display: block; width: 28px; height: 28px; }
+.site-nav {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: grid;
+  width: 290px;
+  max-width: calc(100vw - 32px);
+  padding: 10px;
+  border: 1px solid #e7e5e490;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 12px 36px #29292924, 0 2px 6px #2929290a;
+  animation: navigation-open 160ms ease-out;
+}
+.site-nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 54px;
+  padding: 12px 13px;
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.site-nav a + a { margin-top: 2px; }
+.site-nav a:hover { background: #faf4f2; }
+.site-nav a[aria-current="page"] { color: var(--red); background: #faecea; font-weight: 650; }
+.site-nav svg { width: 23px; height: 23px; flex: 0 0 23px; color: var(--red); }
+@keyframes navigation-open {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 480px) {
+  .site-header { min-height: 78px; padding: 10px 16px; gap: 9px; }
+  .site-header::before { bottom: 9px; }
+  .toolbar-group button { padding: 0 9px; font-size: 11px; }
+  .information-page .toolbar-group button { padding: 0 7px; }
+  .app-brand { font-size: 21px; }
+  .menu-toggle { width: 42px; }
+  .site-nav { width: 278px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}

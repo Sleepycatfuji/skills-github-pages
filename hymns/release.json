@@ -1,16 +1,22 @@
 {
   "schema_version": 1,
-  "revision": "0882ad352c5594c060ee5ebf896053b7d52ab22d",
+  "revision": "0dce52611113f463fd4bc20537ee2f5d43aef140",
   "hymn_count": 791,
   "data_path": "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json",
   "files": {
-    "index.html": "2e799ce0a78f76cf1bd50549c4bf052dd2bcb016846962d44ff4843650a45903",
+    "index.html": "f66b1653a74115b08e7385ad94ecd611cb4dbae2b38e798b127aa80d86384c3c",
     "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json": "0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "about/index.html": "b81df20c8508eb990fffd716b91bc548d1040adca6746548af74c2a2f635efff",
-    "how-to-use/index.html": "d15a847e2bfed2e19243462fed39cc0df224e38b991f01c9ebc97fc760d28c9e",
-    "changelog/index.html": "04b00b152c03980606c44fba595f5e57faaff60067296e0fe2292f34cf77bbb3",
-    "assets/info-pages.css": "a64353ab59bf14150df94dfadc60f13d37b7ee7b28a06f9c8e97a28d3ed101b7",
-    "assets/info-pages.js": "15b74bc9fdce2d56d3141cc0ca9893b0437f26bed11b7b9ce34d333246f1f068"
+    "about/index.html": "39d1df967b77cc56565df7ed38c7202744e3b7e9150128c749e8f877ba0a6044",
+    "how-to-use/index.html": "a1345d7f9390051e36e0ae0be33f10a802b1e27d532e6d6919d4bd0c25fe30fe",
+    "changelog/index.html": "8f9dd14549f5f877c00a7db445a29151feaaa7d77b4250a8aef5b138d0836264",
+    "assets/app.css": "55c6b70eefc34f8ce94fb82d2cf0cfbb51a987d79b5870dfa5ff7f2b19403f2c",
+    "assets/church-hero-1200.webp": "0ae8afa35429f2c8f7dca242805885e2b7f2138eec35fd3a58791bda85c39d79",
+    "assets/church-hero-600.webp": "e122aa14a3326b0ac1ffa70da55defafb2b72c18b0bca74b4812dfda64c1486f",
+    "assets/church-hero-LICENSE.md": "06e8188d2b6ffcee853fbe0fee4449302378d64059599e35105e9b1b7968d179",
+    "assets/info-pages.css": "715c8d1dd8f262b3c42ebf64662cc38d3ff9d0c5d951d17e1fae9416dcf8278f",
+    "assets/info-pages.js": "268ed7d106119d0fd0e4c8be9ebada55c540c92c251e1424cd33f6e734cbfbc5",
+    "assets/site.css": "8f73d9e3ba94c57b08ec156eaa1283d4f69ed33ea81fc70ef6741e66364a4f0d",
+    "assets/site.js": "d71f037a37d72ec246cc869dc05f17f1820c9d82e0bff38c0c0b719a93a2bf1f"
   }
 }

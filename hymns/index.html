@@ -3,353 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Danish Hymn → Chorale Finder</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 950px;
-        margin: 0 auto;
-        padding: 24px;
-        background: #f7f7f7;
-        color: #222;
-      }
-
-      h1 {
-        margin-bottom: 8px;
-      }
-
-      .topbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 16px;
-      }
-
-      .toolbar-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-      }
-
-      input[type="text"],
-      textarea {
-        width: 100%;
-        padding: 12px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        margin-top: 8px;
-        margin-bottom: 12px;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-      }
-
-      textarea {
-        min-height: 90px;
-        resize: vertical;
-      }
-
-      button {
-        padding: 10px 16px;
-        border: none;
-        border-radius: 8px;
-        background: #1f5fbf;
-        color: white;
-        cursor: pointer;
-        margin-right: 8px;
-        font-size: 14px;
-      }
-
-      button:hover {
-        background: #174a95;
-      }
-
-      .secondary-button {
-        background: #666;
-      }
-
-      .secondary-button:hover {
-        background: #4f4f4f;
-      }
-
-      .muted {
-        color: #666;
-        font-size: 14px;
-      }
-
-      .badge {
-        display: inline-block;
-        font-size: 12px;
-        background: #eaf8ef;
-        color: #1f7a3b;
-        border: 1px solid #b7dfc4;
-        padding: 4px 8px;
-        border-radius: 999px;
-        margin-left: 8px;
-        font-weight: 600;
-      }
-
-      .source-melodies,
-      .chorale-options-section,
-      .recording-information {
-        border: 1px solid #e2e2e2;
-        border-radius: 10px;
-        background: #fafafa;
-        padding: 12px;
-        margin-top: 12px;
-        margin-bottom: 12px;
-      }
-
-      .section-title {
-        font-weight: 700;
-        margin-bottom: 4px;
-      }
-
-      .section-help {
-        margin-top: 4px;
-        margin-bottom: 10px;
-        font-size: 13px;
-      }
-
-      .chorale-options {
-        display: grid;
-        gap: 10px;
-      }
-
-      .chorale-option {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 12px;
-        border: 1px solid #dedede;
-        border-radius: 9px;
-        background: white;
-        cursor: pointer;
-      }
-
-      .chorale-option:hover {
-        border-color: #a8a8a8;
-      }
-
-      .chorale-option.selected {
-        border-color: #1f5fbf;
-        background: #f2f7ff;
-      }
-
-      .chorale-option input {
-        margin-top: 3px;
-        flex: 0 0 auto;
-      }
-
-      .chorale-option-content {
-        display: grid;
-        gap: 4px;
-        min-width: 0;
-      }
-
-      .chorale-option-main {
-        line-height: 1.35;
-      }
-
-      .chorale-option-meta {
-        color: #666;
-        font-size: 13px;
-        line-height: 1.35;
-      }
-
-      .recording-list {
-        margin: 8px 0 0;
-        padding-left: 20px;
-      }
-
-      .recording-list li {
-        margin: 4px 0;
-      }
-
-      .comment-box {
-        margin-top: 16px;
-        padding-top: 12px;
-        border-top: 1px solid #e6e6e6;
-      }
-
-      .comment-status {
-        font-size: 13px;
-        color: #1f5fbf;
-        margin-top: 4px;
-      }
-
-      .site-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px 8px;
-        margin-bottom: 20px;
-      }
-
-      .site-nav a {
-        display: inline-flex;
-        align-items: center;
-        min-height: 44px;
-        padding: 0 12px;
-        border-radius: 8px;
-        color: #174a95;
-        text-decoration: none;
-        box-sizing: border-box;
-      }
-
-      .site-nav a:hover,
-      .site-nav a[aria-current="page"] {
-        background: #e8eef8;
-      }
-
-      .site-nav a[aria-current="page"] {
-        font-weight: 700;
-      }
-
-      .site-nav a:focus-visible {
-        outline: 3px solid #1f5fbf;
-        outline-offset: 2px;
-      }
-
-      .hymn-card {
-        position: relative;
-      }
-
-      .hymn-heading {
-        padding-right: 48px;
-        line-height: 1.5;
-      }
-
-      .copy-reference-button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: grid;
-        place-items: center;
-        width: 44px;
-        height: 44px;
-        padding: 10px;
-        margin: 0;
-        background: transparent;
-        color: #555;
-      }
-
-      .copy-reference-button:hover {
-        background: #edf3fc;
-        color: #1f5fbf;
-      }
-
-      button:focus-visible {
-        outline: 3px solid #1f5fbf;
-        outline-offset: 3px;
-      }
-
-      .copy-reference-button svg {
-        width: 20px;
-        height: 20px;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.8;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .copy-reference-button .check-icon,
-      .copy-reference-button.copied .copy-icon {
-        display: none;
-      }
-
-      .copy-reference-button.copied .check-icon {
-        display: block;
-      }
-
-      .copy-reference-button.copied {
-        color: #1f7a3b;
-      }
-
-      .copy-status {
-        color: #1f5fbf;
-        font-size: 13px;
-        line-height: 1.5;
-      }
-
-      .copy-status:not(:empty) {
-        margin-top: 8px;
-      }
-
-      .copy-status[data-message-key="copyFailure"],
-      .copy-status[data-message-key="copyNoChorale"],
-      .copy-status[data-message-key="copyMissingInformation"] {
-        color: #9b3434;
-      }
-
-      .welcome-message {
-        border: 1px solid #c8d9f1;
-        line-height: 1.5;
-      }
-
-      .welcome-message a {
-        color: #174a95;
-      }
-    </style>
+    <title>SalmeNøglen</title>
+    <meta name="theme-color" content="#991B1B" />
+    <meta name="description" content="SalmeNøglen – søg efter salmenummer eller titel og find de tilknyttede koralnumre." />
+    <link rel="stylesheet" href="./assets/site.css" />
+    <link rel="stylesheet" href="./assets/app.css" />
+    <script src="./assets/site.js" defer></script>
   </head>
-  <body>
-    <div class="topbar">
-      <div>
-        <h1 id="appTitle">Salme- og Koralbogssøgning</h1>
-        <p id="appSubtitle" class="muted">
-          Søg efter salmenummer eller titel, og se alle tilknyttede koraler.
-        </p>
+  <body class="home-page">
+    <a class="skip-link" href="#mainContent" id="skipLink">Spring til indhold</a>
+    <header class="site-header">
+      <div class="toolbar-group" role="group" aria-label="Sprog">
+        <button id="langDaButton" type="button" lang="da" aria-label="Dansk" aria-pressed="true">DA</button>
+        <span aria-hidden="true">/</span>
+        <button id="langEnButton" type="button" lang="en" aria-label="English" aria-pressed="false">EN</button>
       </div>
-      <div class="toolbar-group">
-        <button id="langDaButton" class="secondary-button" type="button">
-          Dansk
+      <div class="navigation-wrap">
+        <button id="menuToggle" class="menu-toggle" type="button" aria-controls="mainNavigation" aria-expanded="false" aria-label="Åbn menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
-        <button id="langEnButton" class="secondary-button" type="button">
-          English
-        </button>
+        <nav id="mainNavigation" class="site-nav" aria-label="Hovedmenu" hidden>
+          <a id="navSearch" href="./" aria-current="page"><span data-nav-label>Forside</span></a>
+          <a id="navHowToUse" href="./how-to-use/"><span data-nav-label>Sådan bruger du appen</span></a>
+          <a id="navAbout" href="./about/"><span data-nav-label>Om appen</span></a>
+          <a id="navChangelog" href="./changelog/"><span data-nav-label>Versionshistorik</span></a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation">
-      <a id="navSearch" href="./" aria-current="page">Søg</a>
-      <a id="navHowToUse" href="./how-to-use/">Sådan bruger du appen</a>
-      <a id="navAbout" href="./about/">Om appen</a>
-      <a id="navChangelog" href="./changelog/">Versionshistorik</a>
-    </nav>
+    <main id="mainContent" class="search-main">
+      <section class="hero" aria-labelledby="appTitle">
+        <picture class="hero-picture" aria-hidden="true">
+          <source srcset="./assets/church-hero-600.webp 600w, ./assets/church-hero-1200.webp 1200w" sizes="(max-width: 600px) 100vw, 1000px" type="image/webp" />
+          <img src="./assets/church-hero-1200.webp" alt="" width="1200" height="900" fetchpriority="high" />
+        </picture>
+        <div class="hero-title">
+          <div class="hero-ornament" aria-hidden="true"><span></span><svg viewBox="0 0 40 32"><path d="M20 27C8 25 5 16 6 9c9 1 15 7 14 18ZM21 27c-1-11 4-18 13-20 2 9-3 17-13 20ZM20 19C13 13 14 6 20 1c6 6 6 12 0 18Z"/></svg><span></span></div>
+          <h1 id="appTitle">SalmeNøglen</h1>
+        </div>
+      </section>
 
-    <aside id="welcomeMessage" class="card welcome-message" aria-labelledby="welcomeTitle" hidden>
-      <strong id="welcomeTitle">Velkommen!</strong>
-      <p id="welcomeText">Find en salme ved nummer eller titel, vælg en koralbogsvariant, og kopiér henvisningen til dine noter.</p>
-      <p><a id="welcomeGuide" href="./how-to-use/">Læs vejledningen</a></p>
-      <button id="dismissWelcome" class="secondary-button" type="button">Luk velkomstbeskeden</button>
-    </aside>
-
-    <div class="card">
-      <label for="searchInput"><strong id="searchLabel">Søg</strong></label>
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Fx 309 eller Bøj, o Helligånd"
-      />
-      <button id="searchButton" type="button">Søg</button>
-      <button id="clearButton" class="secondary-button" type="button">
-        Ryd
-      </button>
-    </div>
-
-    <div id="status" class="card muted">Indlæser data...</div>
-    <div id="results"></div>
+      <div class="search-content">
+        <form id="searchForm" class="search-bar" role="search">
+          <label for="searchInput" id="searchLabel" class="visually-hidden">Søg</label>
+          <svg class="search-leading-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          <input id="searchInput" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" placeholder="Søg efter salmenummer eller titel" />
+          <button id="clearButton" class="clear-search" type="button" aria-label="Ryd søgning" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 7 10 10M7 17 17 7"/></svg>
+          </button>
+          <button id="searchButton" class="search-submit" type="submit" aria-label="Søg">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          </button>
+        </form>
+        <p id="status" class="search-status muted" role="status" aria-live="polite">Indlæser data...</p>
+        <div id="results" aria-label="Søgeresultater"></div>
+      </div>
+    </main>
 
     <script>
       const DATA_PATH = "./data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json";
@@ -362,25 +71,21 @@
       const LEGACY_PREFERENCES_KEY = "preferredChorales";
       const COMMENTS_KEY = "hymnComments";
       const LANGUAGE_KEY = "appLanguage";
-      const WELCOME_DISMISSED_KEY = "hymnsWelcomeDismissed";
 
       let hymnData = {};
-      let currentLanguage = localStorage.getItem(LANGUAGE_KEY) || "da";
+      let currentLanguage = localStorage.getItem(LANGUAGE_KEY) === "en" ? "en" : "da";
+      let activeQuery = "";
 
       const translations = {
         da: {
-          appTitle: "Salme- og Koralbogssøgning",
-          appSubtitle:
-            "Søg efter salmenummer eller titel, og se alle tilknyttede koraler.",
+          appTitle: "SalmeNøglen",
           searchLabel: "Søg",
-          searchPlaceholder: "Fx 309 eller Bøj, o Helligånd",
+          searchPlaceholder: "Søg efter salmenummer eller titel",
           searchButton: "Søg",
-          clearButton: "Ryd",
           loading: "Indlæser data...",
-          loaded: "Data indlæst. Søg efter en salme.",
           couldNotLoad:
             "Kunne ikke indlæse data. Tjek at du kører siden via en lokal server eller GitHub Pages.",
-          noResults: "Ingen salmer fundet.",
+          noResults: "Ingen salmer fundet. Prøv et andet salmenummer eller en del af titlen.",
           resultsFound: (count) => `${count} salme(r) fundet.`,
           hymnLabel: "Salme",
           verseCount: "Antal vers",
@@ -406,15 +111,11 @@
           saveComment: "Gem kommentar",
           commentSaved: "Kommentar gemt",
           clearPreference: "Fjern valg",
-          navSearch: "Søg",
+          navSearch: "Forside",
           navHowToUse: "Sådan bruger du appen",
           navAbout: "Om appen",
           navChangelog: "Versionshistorik",
           navigationLabel: "Hovedmenu",
-          welcomeTitle: "Velkommen!",
-          welcomeText: "Find hurtigt koralnumrene til gudstjenestens salmer, og kopiér henvisningerne til dine noter.",
-          welcomeGuide: "Se, hvordan du bruger appen",
-          dismissWelcome: "Luk velkomstbeskeden",
           copyReference: "Kopiér salmehenvisning",
           copySuccess: "Kopieret!",
           copyFailure: "Kunne ikke kopiere. Prøv igen i en browser med adgang til udklipsholderen.",
@@ -423,18 +124,14 @@
           copyMissingInformation: "Salmehenvisningen mangler titel eller antal vers og kan ikke kopieres.",
         },
         en: {
-          appTitle: "Danish Hymn → Chorale Finder",
-          appSubtitle:
-            "Search by hymn number or title and view all linked chorales.",
+          appTitle: "SalmeNøglen",
           searchLabel: "Search",
-          searchPlaceholder: "For example 309 or Bøj, o Helligånd",
+          searchPlaceholder: "Search by hymn number or title",
           searchButton: "Search",
-          clearButton: "Clear",
           loading: "Loading data...",
-          loaded: "Data loaded. Search for a hymn.",
           couldNotLoad:
             "Could not load data. Make sure you are running the page via a local server or GitHub Pages.",
-          noResults: "No hymns found.",
+          noResults: "No hymns found. Try another hymn number or part of the title.",
           resultsFound: (count) => `${count} hymn(s) found.`,
           hymnLabel: "Hymn",
           verseCount: "Verse count",
@@ -460,15 +157,11 @@
           saveComment: "Save comment",
           commentSaved: "Comment saved",
           clearPreference: "Clear selection",
-          navSearch: "Search",
+          navSearch: "Home",
           navHowToUse: "How to Use",
-          navAbout: "About",
-          navChangelog: "Version History",
+          navAbout: "About the App",
+          navChangelog: "Version / Updates",
           navigationLabel: "Main navigation",
-          welcomeTitle: "Welcome!",
-          welcomeText: "Quickly find chorale numbers for your service hymns and copy the references into your notes.",
-          welcomeGuide: "Learn how to use the app",
-          dismissWelcome: "Dismiss welcome message",
           copyReference: "Copy hymn reference",
           copySuccess: "Copied!",
           copyFailure: "Could not copy. Please try again in a browser with clipboard access.",
@@ -487,27 +180,22 @@
         document.documentElement.lang = currentLanguage;
         document.title = t("appTitle");
         document.getElementById("appTitle").textContent = t("appTitle");
-        document.getElementById("appSubtitle").textContent = t("appSubtitle");
         document.getElementById("searchLabel").textContent = t("searchLabel");
-        document.getElementById("searchInput").placeholder =
-          t("searchPlaceholder");
-        document.getElementById("searchButton").textContent = t("searchButton");
-        document.getElementById("clearButton").textContent = t("clearButton");
-        for (const id of ["navSearch", "navHowToUse", "navAbout", "navChangelog",
-          "welcomeTitle", "welcomeText", "welcomeGuide", "dismissWelcome"]) {
-          document.getElementById(id).textContent = t(id);
+        document.getElementById("searchInput").placeholder = t("searchPlaceholder");
+        document.getElementById("searchButton").setAttribute("aria-label", t("searchButton"));
+        document.getElementById("clearButton").setAttribute("aria-label", currentLanguage === "da" ? "Ryd søgning" : "Clear search");
+        for (const id of ["navSearch", "navHowToUse", "navAbout", "navChangelog"]) {
+          document.getElementById(id).querySelector("[data-nav-label]").textContent = t(id);
         }
         document.getElementById("mainNavigation").setAttribute("aria-label", t("navigationLabel"));
-        document.getElementById("welcomeMessage").hidden =
-          localStorage.getItem(WELCOME_DISMISSED_KEY) === "true";
-
+        document.querySelector(".toolbar-group").setAttribute("aria-label", currentLanguage === "da" ? "Sprog" : "Language");
+        document.getElementById("skipLink").textContent = currentLanguage === "da" ? "Spring til indhold" : "Skip to content";
+        document.getElementById("results").setAttribute("aria-label", currentLanguage === "da" ? "Søgeresultater" : "Search results");
+        document.getElementById("langDaButton").setAttribute("aria-pressed", String(currentLanguage === "da"));
+        document.getElementById("langEnButton").setAttribute("aria-pressed", String(currentLanguage === "en"));
         const status = document.getElementById("status");
-        if (status.dataset.state === "loading") {
-          status.textContent = t("loading");
-        }
-        if (status.dataset.state === "loaded") {
-          status.textContent = t("loaded");
-        }
+        if (status.dataset.state === "loading") status.textContent = t("loading");
+        if (status.dataset.state === "error") status.textContent = t("couldNotLoad");
       }
 
       function loadStoredObject(key) {
@@ -898,14 +586,14 @@
                 <path d="m5 12 4 4L19 6" />
               </svg>
             </button>
-            <div class="hymn-heading">
-              <strong>${t("hymnLabel")} ${escapeHtml(hymn.hymn_number)}: ${escapeHtml(hymn.hymn_title)}</strong>
+            <h2 class="hymn-heading">
+              <strong><span class="hymn-number">${t("hymnLabel")} ${escapeHtml(hymn.hymn_number)}</span> <span class="hymn-title">${escapeHtml(hymn.hymn_title)}</span></strong>
               ${
                 showClearPreference
                   ? `<span class="badge">${t("preferredSaved")}</span>`
                   : ""
               }
-            </div>
+            </h2>
             <div id="copy-status-${escapeHtml(hymn.hymn_number)}" class="copy-status"
               role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -965,7 +653,7 @@
             .forEach((radio) => {
               radio.addEventListener("change", (event) => {
                 setPreferredChorale(hymn.hymn_number, event.target.value);
-                runSearch();
+                runSearch(activeQuery);
               });
             });
 
@@ -975,7 +663,7 @@
           if (clearPreferenceButton) {
             clearPreferenceButton.addEventListener("click", () => {
               clearPreferredChorale(hymn.hymn_number);
-              runSearch();
+              runSearch(activeQuery);
             });
           }
 
@@ -997,11 +685,22 @@
         });
       }
 
-      function runSearch() {
-        const query = document.getElementById("searchInput").value.trim();
+      function runSearch(query = document.getElementById("searchInput").value) {
+        activeQuery = String(query).trim();
+        const status = document.getElementById("status");
+        const results = document.getElementById("results");
+        document.getElementById("clearButton").hidden = !document.getElementById("searchInput").value;
+        if (status.dataset.state !== "loaded") return;
+        if (!activeQuery) {
+          results.innerHTML = "";
+          status.textContent = "";
+          status.hidden = true;
+          return;
+        }
+        status.hidden = false;
 
         const matches = Object.entries(hymnData)
-          .filter(([hymnKey, hymn]) => hymnMatchesQuery(hymnKey, hymn, query))
+          .filter(([hymnKey, hymn]) => hymnMatchesQuery(hymnKey, hymn, activeQuery))
           .map(([hymnKey, hymn]) => {
             if (hymn.hymn_number === undefined || hymn.hymn_number === null) {
               return { ...hymn, hymn_number: Number(hymnKey) || hymnKey };
@@ -1032,50 +731,44 @@
           hymnData = JSON.parse(payload);
 
           status.dataset.state = "loaded";
-          status.textContent = t("loaded");
-          runSearch();
+          runSearch(activeQuery);
         } catch (error) {
           console.error(error);
           status.dataset.state = "error";
+          status.hidden = false;
           status.textContent = t("couldNotLoad");
         }
       }
 
-      document
-        .getElementById("searchButton")
-        .addEventListener("click", runSearch);
-
-      document.getElementById("dismissWelcome").addEventListener("click", () => {
-        localStorage.setItem(WELCOME_DISMISSED_KEY, "true");
-        document.getElementById("welcomeMessage").hidden = true;
-        document.getElementById("searchInput").focus();
+      document.getElementById("searchForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        runSearch();
       });
 
       document.getElementById("clearButton").addEventListener("click", () => {
         document.getElementById("searchInput").value = "";
         runSearch();
+        document.getElementById("searchInput").focus();
       });
 
-      document
-        .getElementById("searchInput")
-        .addEventListener("keydown", (event) => {
-          if (event.key === "Enter") {
-            runSearch();
-          }
-        });
+      document.getElementById("searchInput").addEventListener("input", () => {
+        const input = document.getElementById("searchInput");
+        document.getElementById("clearButton").hidden = !input.value;
+        if (!input.value.trim()) runSearch("");
+      });
 
       document.getElementById("langDaButton").addEventListener("click", () => {
         currentLanguage = "da";
         localStorage.setItem(LANGUAGE_KEY, currentLanguage);
         applyLanguage();
-        runSearch();
+        runSearch(activeQuery);
       });
 
       document.getElementById("langEnButton").addEventListener("click", () => {
         currentLanguage = "en";
         localStorage.setItem(LANGUAGE_KEY, currentLanguage);
         applyLanguage();
-        runSearch();
+        runSearch(activeQuery);
       });
 
       applyLanguage();

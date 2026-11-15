@@ -3,27 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sådan bruger du appen · Salme- og Koralbogssøgning</title>
+    <title>Sådan bruger du appen · SalmeNøglen</title>
+    <meta name="theme-color" content="#991B1B" />
+    <link rel="stylesheet" href="../assets/site.css" />
     <link rel="stylesheet" href="../assets/info-pages.css" />
+    <script src="../assets/site.js" defer></script>
     <script src="../assets/info-pages.js" defer></script>
   </head>
-  <body data-info-page="how-to-use">
+  <body class="information-page" data-info-page="how-to-use">
     <a class="skip-link" href="#main-content">Spring til indhold</a>
-    <header class="topbar">
-      <a class="app-brand" href="../" id="appTitle">Salme- og Koralbogssøgning</a>
+    <header class="site-header">
+      <a class="app-brand" href="../" id="appTitle">SalmeNøglen</a>
       <div class="toolbar-group" role="group" aria-label="Sprog">
-        <button id="langDaButton" class="secondary-button" type="button" aria-pressed="true">Dansk</button>
-        <button id="langEnButton" class="secondary-button" type="button" aria-pressed="false">English</button>
+        <button id="langDaButton" type="button" aria-label="Dansk" aria-pressed="true">DA</button>
+        <button id="langEnButton" type="button" aria-label="English" aria-pressed="false">EN</button>
+      </div>
+      <div class="navigation-wrap">
+        <button id="menuToggle" class="menu-toggle" type="button" aria-controls="mainNavigation" aria-expanded="false" aria-label="Åbn navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18" /></svg>
+        </button>
+        <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation" hidden>
+          <a id="navSearch" href="../"><span data-nav-label>Forside</span></a>
+          <a id="navHowToUse" href="../how-to-use/" aria-current="page"><span data-nav-label>Sådan bruger du appen</span></a>
+          <a id="navAbout" href="../about/"><span data-nav-label>Om appen</span></a>
+          <a id="navChangelog" href="../changelog/"><span data-nav-label>Versionshistorik</span></a>
+        </nav>
       </div>
     </header>
-    <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation">
-      <a id="navSearch" href="../">Søg</a>
-      <a id="navHowToUse" aria-current="page" href="../how-to-use/">Sådan bruger du appen</a>
-      <a id="navAbout" href="../about/">Om appen</a>
-      <a id="navChangelog" href="../changelog/">Versionshistorik</a>
-    </nav>
 
-    <main id="main-content" class="card information-body">
+    <main id="main-content" class="information-body">
       <h1 id="pageTitle">Sådan bruger du appen</h1>
       <div lang="da" data-info-language="da">
           <ol>

@@ -2,8 +2,8 @@
 (() => {
   const labels = {
     da: {
-      appTitle: "Salme- og Koralbogssøgning",
-      navSearch: "Søg",
+      appTitle: "SalmeNøglen",
+      navSearch: "Forside",
       navHowToUse: "Sådan bruger du appen",
       navAbout: "Om appen",
       navChangelog: "Versionshistorik",
@@ -12,11 +12,11 @@
       skip: "Spring til indhold",
     },
     en: {
-      appTitle: "Danish Hymn → Chorale Finder",
-      navSearch: "Search",
+      appTitle: "SalmeNøglen",
+      navSearch: "Home",
       navHowToUse: "How to Use",
-      navAbout: "About",
-      navChangelog: "Version History",
+      navAbout: "About the App",
+      navChangelog: "Version / Updates",
       navigation: "Main navigation",
       language: "Language",
       skip: "Skip to content",
@@ -39,7 +39,8 @@
     const text = labels[language];
     document.documentElement.lang = language;
     for (const key of ["appTitle", "navSearch", "navHowToUse", "navAbout", "navChangelog"]) {
-      document.getElementById(key).textContent = text[key];
+      const element = document.getElementById(key);
+      (element.querySelector("[data-nav-label]") || element).textContent = text[key];
     }
     const title = text[pageTitleKeys[document.body.dataset.infoPage]];
     document.getElementById("pageTitle").textContent = title;
