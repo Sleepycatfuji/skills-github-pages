@@ -123,7 +123,7 @@
           copyFailure: "Kunne ikke kopiere. Prøv igen i en browser med adgang til udklipsholderen.",
           copySelectChorale: "Vælg en koralbogsvariant, før du kopierer.",
           copyNoChorale: "Denne salme har ingen koralnumre, der kan kopieres. En bogside er ikke et koralnummer.",
-          copyMissingInformation: "Salmehenvisningen mangler titel eller antal vers og kan ikke kopieres.",
+          copyMissingInformation: "Salmehenvisningen mangler salmens titel og kan ikke kopieres.",
         },
         en: {
           appTitle: "SalmeNøglen",
@@ -170,7 +170,7 @@
           copyFailure: "Could not copy. Please try again in a browser with clipboard access.",
           copySelectChorale: "Choose a chorale-book version before copying.",
           copyNoChorale: "This hymn has no chorale number to copy. A book page is not a chorale number.",
-          copyMissingInformation: "The hymn reference is missing its title or verse count and cannot be copied.",
+          copyMissingInformation: "The hymn title is missing, so the reference cannot be copied.",
         },
       };
 
@@ -363,20 +363,14 @@
           options.find((item) => item.option_id === selectedId);
         if (!option) return { error: "copySelectChorale" };
 
-        // The reference describes the selected tune, whose title may differ
-        // from the hymn (e.g. hymn 455, chorale 288: Jesus han er syndres ven).
-        // Older datasets without a tune title still have a usable hymn title.
-        const title = (String(option.chorale_title || "").trim() || String(hymn.hymn_title || ""))
-          .split(/\s+/)
-          .map((word) => word.replace(/[^\p{L}\p{M}\p{N}]/gu, ""))
-          .filter(Boolean)
-          .slice(0, 3)
-          .join(" ");
-        if (!title || !Number.isInteger(hymn.verse_count) || hymn.verse_count <= 0) {
+        // The selected tune supplies the chorale number; the complete title
+        // always belongs to the hymn, even when it uses another melody.
+        const title = String(hymn.hymn_title || "").trim().replace(/\s+/g, " ");
+        if (!title) {
           return { error: "copyMissingInformation" };
         }
         return {
-          text: `${option.display_kds} (${hymn.hymn_number}) ${title} ${hymn.verse_count}v`,
+          text: `${option.display_kds} (${hymn.hymn_number}) ${title}`,
         };
       }
 
