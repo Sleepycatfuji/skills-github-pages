@@ -8,6 +8,7 @@
       navAbout: "Om appen",
       navChangelog: "Versionshistorik",
       navContact: "Kontakt",
+      documentationTitle: "Dokumentation og data",
       navigation: "Hovednavigation",
       language: "Sprog",
       skip: "Spring til indhold",
@@ -19,6 +20,7 @@
       navAbout: "About the App",
       navChangelog: "Version / Updates",
       navContact: "Contact",
+      documentationTitle: "Documentation and data",
       navigation: "Main navigation",
       language: "Language",
       skip: "Skip to content",
@@ -29,6 +31,7 @@
     "how-to-use": "navHowToUse",
     changelog: "navChangelog",
     contact: "navContact",
+    documentation: "documentationTitle",
   };
   let language = "da";
   try {

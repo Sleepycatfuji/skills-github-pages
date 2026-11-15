@@ -1,16 +1,18 @@
 {
   "schema_version": 1,
-  "revision": "9435f74f32419b30c35e008862e40ed3174fb88c",
+  "revision": "68df5aa540379133526cdff88c26d07eee561538",
+  "version": "v1.0.1",
   "hymn_count": 791,
   "data_path": "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json",
   "files": {
     "index.html": "4a8ee0db7d86f6cbb6a89454c50184a9e96eeefe5e3344b47a5e03b075d62708",
     "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json": "0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "about/index.html": "773d1a1adabd7c3cafc0825d50c6975a04a622c38100f745e0e80f33d162a465",
+    "about/index.html": "32fb47931c3cf48d03705a125ed8f44b67d50f032f4e2580009019640b8a905a",
     "how-to-use/index.html": "879e82a146f456aee1812ad2343ae0f59f226bb512e4863c97e4415787adbd0f",
-    "changelog/index.html": "17a0c3f4c0479fc27325b9cb76a33a33723095cf6e834d402954097056926ff8",
+    "changelog/index.html": "bfc98966ae3686d6b6a117a30004173d1b5401505b0f3c9b297fbd2159067cd9",
     "contact/index.html": "5a35085fb2d2f9752e93a89809214f8c5c6b3e7208583bdcf004f315fa7a3167",
+    "documentation/index.html": "fa6e27adcc46101c723fa6368f98ff80c761f7df07d7cee2da63ee575d544607",
     "assets/app.css": "6be13dde4e6d5263bb428189c585306952f9461fe3d456a0fac9bb0afb0f6104",
     "assets/church-hero-1200.webp": "0ae8afa35429f2c8f7dca242805885e2b7f2138eec35fd3a58791bda85c39d79",
     "assets/church-hero-600.webp": "e122aa14a3326b0ac1ffa70da55defafb2b72c18b0bca74b4812dfda64c1486f",
@@ -18,7 +20,7 @@
     "assets/church-quiet-1200.webp": "d7d4a641cfb88903c05709779f1de86b87bfc24b253af08642437ceadb15e142",
     "assets/church-quiet-600.webp": "9bfb41f7b0a3880957d49107e202f9eaeb72956a3333ed161ba75d35277528c2",
     "assets/info-pages.css": "73248eb9a3f35cd2c6552008efb1825bf26fbef83dcbee2c18a607f7d5a34f39",
-    "assets/info-pages.js": "c2d8fa4604c1f3290e90a7bf4f1e7f7910042e5666822dc95e1861d3a3436c70",
+    "assets/info-pages.js": "6559d74363299ffc3b8f2dad9bfdb1cade66c72096bb2f59b66bdd215dd03c62",
     "assets/site.css": "8f73d9e3ba94c57b08ec156eaa1283d4f69ed33ea81fc70ef6741e66364a4f0d",
     "assets/site.js": "b089c1e7d109b8c6f98a2f5a09ea14f63fc1a53da893c699ff120f6d8290ec4f"
   }

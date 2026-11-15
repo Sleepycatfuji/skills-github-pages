@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dokumentation og data · SalmeNøglen</title>
+    <meta name="description" content="Kilder, datagennemgang og dokumenterede kildeforskelle i SalmeNøglen." />
+    <meta name="theme-color" content="#991B1B" />
+    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/info-pages.css" />
+    <script src="../assets/site.js" defer></script>
+    <script src="../assets/info-pages.js" defer></script>
+  </head>
+  <body class="information-page" data-info-page="documentation">
+    <a class="skip-link" href="#main-content">Spring til indhold</a>
+    <header class="site-header">
+      <a class="app-brand" href="../" id="appTitle">SalmeNøglen</a>
+      <div class="toolbar-group" role="group" aria-label="Sprog">
+        <button id="langDaButton" type="button" aria-label="Dansk" aria-pressed="true">DA</button>
+        <button id="langEnButton" type="button" aria-label="English" aria-pressed="false">EN</button>
+      </div>
+      <div class="navigation-wrap">
+        <button id="menuToggle" class="menu-toggle" type="button" aria-controls="mainNavigation" aria-expanded="false" aria-label="Åbn navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18" /></svg>
+        </button>
+        <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation" hidden>
+          <a id="navSearch" href="../"><span data-nav-label>Forside</span></a>
+          <a id="navHowToUse" href="../how-to-use/"><span data-nav-label>Sådan bruger du appen</span></a>
+          <a id="navAbout" href="../about/"><span data-nav-label>Om appen</span></a>
+          <a id="navChangelog" href="../changelog/"><span data-nav-label>Versionshistorik</span></a>
+          <a id="navContact" href="../contact/"><span data-nav-label>Kontakt</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="information-body">
+      <h1 id="pageTitle">Dokumentation og data</h1>
+      <div lang="da" data-info-language="da">
+        <p>Her kan du læse, hvordan SalmeNøglen forbinder salmer og melodier, hvilke kilder der er brugt, og hvordan kildeforskelle er håndteret.</p>
+      </div>
+      <div lang="en" data-info-language="en" hidden>
+        <p>Read how SalmeNøglen connects hymns and melodies, which sources it uses, and how differences between sources are handled.</p>
+      </div>
+
+      <section id="sources">
+        <div lang="da" data-info-language="da">
+          <h2>Kilder</h2>
+          <ul>
+            <li><a href="https://www.dendanskesalmebogonline.dk/" target="_blank" rel="noopener noreferrer">Den Danske Salmebog Online</a> bidrager med salmenumre, titler, melodioplysninger, indspilningshenvisninger og normalt antal vers.</li>
+            <li><a href="https://www.thor-callesen.com/koralbog/pdf/reg_kds.pdf" target="_blank" rel="noopener noreferrer">Det alfabetiske register</a> til <em>Koralbog til Den Danske Salmebog 2003</em> bruges til koralnumre og titler.</li>
+            <li><a href="https://www.thor-callesen.com/koralbog/pdf/melodihenvisning.pdf" target="_blank" rel="noopener noreferrer">Melodihenvisningerne</a> forbinder salmenumre med koralnumre og supplerer versantallet, når hjemmesiden ikke viser versene.</li>
+          </ul>
+          <p>De to referencefiler er tilgængelige via <a href="https://www.thor-callesen.com/koralbog/download.html" target="_blank" rel="noopener noreferrer">Thor Callesens koralbogsressourcer</a>. Appen gengiver ikke noder eller fulde salmetekster.</p>
+        </div>
+        <div lang="en" data-info-language="en" hidden>
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://www.dendanskesalmebogonline.dk/" target="_blank" rel="noopener noreferrer">Den Danske Salmebog Online</a> supplies hymn numbers, titles, melody information, recording references and, in most cases, verse counts.</li>
+            <li>The <a href="https://www.thor-callesen.com/koralbog/pdf/reg_kds.pdf" target="_blank" rel="noopener noreferrer">alphabetical register</a> for <em>Koralbog til Den Danske Salmebog 2003</em> supplies chorale numbers and titles.</li>
+            <li>The <a href="https://www.thor-callesen.com/koralbog/pdf/melodihenvisning.pdf" target="_blank" rel="noopener noreferrer">melody references</a> connect hymn numbers to chorale numbers and supply verse counts where the website omits the verses.</li>
+          </ul>
+          <p>Both reference files are available through <a href="https://www.thor-callesen.com/koralbog/download.html" target="_blank" rel="noopener noreferrer">Thor Callesen's Koralbog resources</a>. The app does not reproduce sheet music or full hymn lyrics.</p>
+        </div>
+      </section>
+
+      <section id="data-review">
+        <div lang="da" data-info-language="da">
+          <h2>Datagennemgang og metode</h2>
+          <p>Datagennemgangen fra 24. oktober 2026 omfattede 791 salmesider, alle 791 rækker i melodihenvisningerne og alle 568 nummererede koraler i det alfabetiske register.</p>
+          <p>Koblinger bygger på udtrykkelige henvisninger i hjemmesidens indspilningslinks og det trykte referencemateriale. En ens eller lignende titel er ikke i sig selv tilstrækkeligt grundlag. Alternative melodier fra begge kilder bevares, medmindre en dokumenteret rettelse gælder.</p>
+          <p>Versantallet kommer fra de nummererede vers på hjemmesiden for 774 salmer. For 17 salmer uden vist versindhold bruges referencefilens antal. Hver melodi beholder sin kildehenvisning; der gættes ikke på forbindelser mellem indspilninger og alternative melodier.</p>
+          <p>Bogsider holdes adskilt fra koralnumre. Salme 438 viser <strong>bogside 568 — Nadver C</strong>, mens salme 440 viser <strong>koral 416</strong> og en særskilt <strong>bogside 570 — Agnus Dei</strong>. Sidetallene er ikke valgbare koralnumre.</p>
+          <p class="muted">Gennemgangen viser sammenhæng med de anvendte kilder. Den er ikke en individuel kontrol af hver kobling i de trykte bøger og kan ikke udelukke alle fejl eller yderligere lokale melodi-varianter.</p>
+        </div>
+        <div lang="en" data-info-language="en" hidden>
+          <h2>Data review and method</h2>
+          <p>The review dated 24 October 2026 covered 791 hymn pages, all 791 rows in the melody references and all 568 numbered chorales in the alphabetical register.</p>
+          <p>Connections rely on explicit references in the website's recording links and printed reference materials. Identical or similar titles alone are not sufficient evidence. Alternative melodies from both sources are preserved unless a documented correction applies.</p>
+          <p>Verse counts come from numbered website verses for 774 hymns. For 17 hymns whose verses are not shown, the reference-file counts are used. Each melody retains its source information; associations between recordings and alternative melodies are not guessed.</p>
+          <p>Book pages stay separate from chorale numbers. Hymn 438 shows <strong>book page 568 — Nadver C</strong>; hymn 440 shows <strong>chorale 416</strong> and a separate <strong>book page 570 — Agnus Dei</strong>. Page numbers are not selectable chorale numbers.</p>
+          <p class="muted">The review establishes consistency with the sources used. It is not an individual check of every mapping in printed books, and cannot rule out all errors or additional local melody alternatives.</p>
+        </div>
+      </section>
+
+      <section id="source-differences">
+        <div lang="da" data-info-language="da">
+          <h2>Dokumenterede kildeforskelle</h2>
+          <p>Kildelisterne er forskellige for 34 salmer. Det betyder ikke, at der er 34 fejl: nogle trykte alternativer har ingen indspilning på hjemmesiden. Følgende liturgiske henvisninger er særskilt gennemgået:</p>
+          <ul>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/432" target="_blank" rel="noopener noreferrer">Salme 432 — Litaniet:</a> koral 202 bevares. Hjemmesidens udtrykkelige henvisning og registerets skelnen mellem Litani og Kyrie adskiller den fra koral 201.</li>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/433" target="_blank" rel="noopener noreferrer">Salme 433 — Kyrie:</a> koral 201 bevares. Hjemmesiden henviser til 201, og registeret skelner den fra Litani, koral 202.</li>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/438" target="_blank" rel="noopener noreferrer">Salme 438 — Nadver C:</a> 568 er en bogside, ikke koral 568. Der vises derfor ingen koral 568 som melodivalg.</li>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/440" target="_blank" rel="noopener noreferrer">Salme 440 — Agnus Dei:</a> bogside 570 og melodihenvisningens koral 416 bevares hver for sig. Hjemmesidens ikke-numeriske indspilningshenvisning tilskrives ikke koral 416.</li>
+          </ul>
+          <p>Det <a href="https://www.thor-callesen.com/koralbog/pdf/forord_brinth.pdf" target="_blank" rel="noopener noreferrer">redaktionelle forord</a> forklarer, at de liturgiske henvisninger gælder sider i bind I, 2. del.</p>
+          <p>For <a href="https://m.dendanskesalmebogonline.dk/salme/369" target="_blank" rel="noopener noreferrer">salme 369</a> bruges hjemmesidens seks vers frem for referencefilens syv. For <a href="https://m.dendanskesalmebogonline.dk/salme/380" target="_blank" rel="noopener noreferrer">salme 380</a> afklares en sammenløbet tabelcelle mod hjemmesidens seks vers og eksplicitte melodilink: koralerne er 439 og 311.</p>
+        </div>
+        <div lang="en" data-info-language="en" hidden>
+          <h2>Documented source differences</h2>
+          <p>The source lists differ for 34 hymns. That does not mean there are 34 errors: some printed alternatives have no website recording. These liturgical references received specific review:</p>
+          <ul>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/432" target="_blank" rel="noopener noreferrer">Hymn 432 — Litany:</a> chorale 202 is retained. The explicit website link and the register's distinction between Litany and Kyrie separate it from chorale 201.</li>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/433" target="_blank" rel="noopener noreferrer">Hymn 433 — Kyrie:</a> chorale 201 is retained. The website links to 201, and the register distinguishes it from Litany, chorale 202.</li>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/438" target="_blank" rel="noopener noreferrer">Hymn 438 — Nadver C:</a> 568 is a book page, not chorale 568. Chorale 568 is therefore not offered as a melody choice.</li>
+            <li><a href="https://m.dendanskesalmebogonline.dk/salme/440" target="_blank" rel="noopener noreferrer">Hymn 440 — Agnus Dei:</a> book page 570 and the melody reference's chorale 416 are retained separately. The website's nonnumeric recording reference is not attributed to chorale 416.</li>
+          </ul>
+          <p>The <a href="https://www.thor-callesen.com/koralbog/pdf/forord_brinth.pdf" target="_blank" rel="noopener noreferrer">editorial preface</a> explains that the liturgical references point to pages in volume I, part 2.</p>
+          <p>For <a href="https://m.dendanskesalmebogonline.dk/salme/369" target="_blank" rel="noopener noreferrer">hymn 369</a>, the website's six verses take precedence over the reference file's seven. For <a href="https://m.dendanskesalmebogonline.dk/salme/380" target="_blank" rel="noopener noreferrer">hymn 380</a>, a merged table cell is resolved against six website verses and an explicit melody link: the chorales are 439 and 311.</p>
+        </div>
+      </section>
+
+      <section id="reviewed-data">
+        <div lang="da" data-info-language="da">
+          <h2>De data, appen bruger</h2>
+          <p><a href="../data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json" download>Hent appens gennemgåede salmedata (JSON)</a>. Filen indeholder de 791 salmers oplysninger, koralvalg, versantal og kildehenvisninger, som følger med denne udgave af appen.</p>
+          <p>Har du fundet en fejl? <a href="../contact/">Kontakt Kim</a> med salmenummer, den viste oplysning og din kilde.</p>
+          <p class="muted">SalmeNøglen er en uafhængig app. Kildehenvisninger betyder ikke officiel godkendelse eller sponsorering.</p>
+          <p><a href="../about/">Tilbage til Om appen</a></p>
+        </div>
+        <div lang="en" data-info-language="en" hidden>
+          <h2>The data used by the app</h2>
+          <p><a href="../data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json" download>Download the app's reviewed hymn data (JSON)</a>. The file contains the 791 hymns' information, chorale options, verse counts and source references included with this edition of the app.</p>
+          <p>Found an error? <a href="../contact/">Contact Kim</a> with the hymn number, the information shown and your source.</p>
+          <p class="muted">SalmeNøglen is an independent app. Source acknowledgements do not imply official endorsement or sponsorship.</p>
+          <p><a href="../about/">Back to About the App</a></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
