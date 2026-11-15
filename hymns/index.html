@@ -360,7 +360,10 @@
           options.find((item) => item.option_id === selectedId);
         if (!option) return { error: "copySelectChorale" };
 
-        const title = String(hymn.hymn_title || "")
+        // The reference describes the selected tune, whose title may differ
+        // from the hymn (e.g. hymn 455, chorale 288: Jesus han er syndres ven).
+        // Older datasets without a tune title still have a usable hymn title.
+        const title = (String(option.chorale_title || "").trim() || String(hymn.hymn_title || ""))
           .split(/\s+/)
           .map((word) => word.replace(/[^\p{L}\p{M}\p{N}]/gu, ""))
           .filter(Boolean)
