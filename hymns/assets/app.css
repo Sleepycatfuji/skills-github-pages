@@ -29,7 +29,7 @@
     linear-gradient(90deg, var(--paper) 0%, #faf9f7d9 13%, #faf9f730 43%, transparent 65%),
     linear-gradient(270deg, #faf9f780, transparent 8%);
 }
-.hero-title { position: absolute; top: 130px; left: 32px; }
+.hero-title { position: absolute; top: 130px; left: 0; right: 0; padding: 0 24px; text-align: center; }
 .hero h1 {
   margin: 14px 0 0;
   color: var(--red);
@@ -39,7 +39,7 @@
   line-height: 1.1;
   letter-spacing: -.055em;
 }
-.hero-ornament { display: flex; align-items: center; justify-content: center; gap: 22px; width: 220px; }
+.hero-ornament { display: flex; align-items: center; justify-content: center; gap: 22px; width: 220px; margin-inline: auto; }
 .hero-ornament span { width: 58px; height: 2px; background: var(--red); }
 .hero-ornament svg { width: 30px; height: 27px; fill: var(--red); }
 .search-content { position: relative; max-width: 960px; margin: -12px auto 0; padding: 0 24px 64px; }
@@ -121,7 +121,7 @@
     background: linear-gradient(0deg, var(--paper) 0%, #faf9f7f2 15%, #faf9f78c 42%, transparent 80%),
       linear-gradient(90deg, #faf9f7c9, #faf9f750 42%, transparent 80%);
   }
-  .hero-title { left: 24px; top: 166px; }
+  .hero-title { top: 166px; }
   .hero h1 { margin-top: 9px; font-size: clamp(39px, 10.5vw, 57px); }
   .hero-ornament { width: 148px; gap: 14px; }
   .hero-ornament span { width: 39px; }
@@ -141,7 +141,7 @@
 }
 @media (max-width: 359px) {
   .hero { height: 265px; }
-  .hero-title { top: 146px; left: 19px; }
+  .hero-title { top: 146px; }
   .search-content { padding-right: 12px; padding-left: 12px; }
   .search-bar input { font-size: 16px; }
   .search-leading-icon { display: none; }
