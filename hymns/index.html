@@ -27,6 +27,7 @@
           <a id="navHowToUse" href="./how-to-use/"><span data-nav-label>Sådan bruger du appen</span></a>
           <a id="navAbout" href="./about/"><span data-nav-label>Om appen</span></a>
           <a id="navChangelog" href="./changelog/"><span data-nav-label>Versionshistorik</span></a>
+          <a id="navContact" href="./contact/"><span data-nav-label>Kontakt</span></a>
         </nav>
       </div>
     </header>
@@ -115,6 +116,7 @@
           navHowToUse: "Sådan bruger du appen",
           navAbout: "Om appen",
           navChangelog: "Versionshistorik",
+          navContact: "Kontakt",
           navigationLabel: "Hovedmenu",
           copyReference: "Kopiér salmehenvisning",
           copySuccess: "Kopieret!",
@@ -161,6 +163,7 @@
           navHowToUse: "How to Use",
           navAbout: "About the App",
           navChangelog: "Version / Updates",
+          navContact: "Contact",
           navigationLabel: "Main navigation",
           copyReference: "Copy hymn reference",
           copySuccess: "Copied!",
@@ -184,7 +187,7 @@
         document.getElementById("searchInput").placeholder = t("searchPlaceholder");
         document.getElementById("searchButton").setAttribute("aria-label", t("searchButton"));
         document.getElementById("clearButton").setAttribute("aria-label", currentLanguage === "da" ? "Ryd søgning" : "Clear search");
-        for (const id of ["navSearch", "navHowToUse", "navAbout", "navChangelog"]) {
+        for (const id of ["navSearch", "navHowToUse", "navAbout", "navChangelog", "navContact"]) {
           document.getElementById(id).querySelector("[data-nav-label]").textContent = t(id);
         }
         document.getElementById("mainNavigation").setAttribute("aria-label", t("navigationLabel"));

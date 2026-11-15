@@ -1,24 +1,25 @@
 {
   "schema_version": 1,
-  "revision": "6b4f2db00d3ab2041237d69f2ddd028d46ad8e6c",
+  "revision": "c245dd54b6a026f6d78a94c00dec4039372413e7",
   "hymn_count": 791,
   "data_path": "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json",
   "files": {
-    "index.html": "5fb97f3756b20162f30b6d42ddfbc94316cea131be6fb24c3b1ba4a8edb1b2ac",
+    "index.html": "4a8ee0db7d86f6cbb6a89454c50184a9e96eeefe5e3344b47a5e03b075d62708",
     "data/hymns.0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713.json": "0aa87108be852ccbf63bb043d2e0192ed34c07047c2c6c79ccd31e63a5d67713",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "about/index.html": "39d1df967b77cc56565df7ed38c7202744e3b7e9150128c749e8f877ba0a6044",
-    "how-to-use/index.html": "db966330a077a310049113ab0bfa84eb36ce64594e5b88338f9d41aa57045d9d",
-    "changelog/index.html": "8f9dd14549f5f877c00a7db445a29151feaaa7d77b4250a8aef5b138d0836264",
+    "about/index.html": "773d1a1adabd7c3cafc0825d50c6975a04a622c38100f745e0e80f33d162a465",
+    "how-to-use/index.html": "879e82a146f456aee1812ad2343ae0f59f226bb512e4863c97e4415787adbd0f",
+    "changelog/index.html": "b66cbde10b4c258b69559f8b3e25d3e77a4f218cb300208064cd30d20abea45e",
+    "contact/index.html": "5a35085fb2d2f9752e93a89809214f8c5c6b3e7208583bdcf004f315fa7a3167",
     "assets/app.css": "6be13dde4e6d5263bb428189c585306952f9461fe3d456a0fac9bb0afb0f6104",
     "assets/church-hero-1200.webp": "0ae8afa35429f2c8f7dca242805885e2b7f2138eec35fd3a58791bda85c39d79",
     "assets/church-hero-600.webp": "e122aa14a3326b0ac1ffa70da55defafb2b72c18b0bca74b4812dfda64c1486f",
     "assets/church-hero-LICENSE.md": "c3419f781008488a51f4d551f3800daa505bd9c6803fe4f635fcb47c72196f30",
     "assets/church-quiet-1200.webp": "d7d4a641cfb88903c05709779f1de86b87bfc24b253af08642437ceadb15e142",
     "assets/church-quiet-600.webp": "9bfb41f7b0a3880957d49107e202f9eaeb72956a3333ed161ba75d35277528c2",
-    "assets/info-pages.css": "715c8d1dd8f262b3c42ebf64662cc38d3ff9d0c5d951d17e1fae9416dcf8278f",
-    "assets/info-pages.js": "268ed7d106119d0fd0e4c8be9ebada55c540c92c251e1424cd33f6e734cbfbc5",
+    "assets/info-pages.css": "73248eb9a3f35cd2c6552008efb1825bf26fbef83dcbee2c18a607f7d5a34f39",
+    "assets/info-pages.js": "c2d8fa4604c1f3290e90a7bf4f1e7f7910042e5666822dc95e1861d3a3436c70",
     "assets/site.css": "8f73d9e3ba94c57b08ec156eaa1283d4f69ed33ea81fc70ef6741e66364a4f0d",
-    "assets/site.js": "d71f037a37d72ec246cc869dc05f17f1820c9d82e0bff38c0c0b719a93a2bf1f"
+    "assets/site.js": "b089c1e7d109b8c6f98a2f5a09ea14f63fc1a53da893c699ff120f6d8290ec4f"
   }
 }

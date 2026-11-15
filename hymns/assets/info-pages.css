@@ -73,6 +73,23 @@
   letter-spacing: .04em;
 }
 .information-body ol strong { display: block; color: var(--red); margin-bottom: 3px; }
+.contact-card {
+  margin: 28px 0 36px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brick);
+  border-radius: 12px;
+  background: white;
+}
+.contact-card h2 { margin: 0 0 8px; color: var(--red); }
+.contact-card p { margin: 8px 0 16px; }
+.contact-card .muted { margin: 16px 0 0; }
+.contact-email {
+  display: inline-block;
+  padding: 8px 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
 .changelog-entry {
   position: relative;
   margin-left: 6px;

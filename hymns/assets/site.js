@@ -7,6 +7,7 @@
     navSearch: '<path d="m3 10 9-8 9 8M5 9v12h14V9M9 21v-8h6v8"/>',
     navHowToUse: '<path d="M12 5C9 3 5 3 2 4v16c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Zm0 0v16"/>',
     navAbout: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/>',
+    navContact: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
     navChangelog: '<path d="M20 8a8 8 0 0 0-14-3L3 8m0-5v5h5M4 16a8 8 0 0 0 14 3l3-3m0 5v-5h-5"/>',
   };
   for (const [id, path] of Object.entries(paths)) {

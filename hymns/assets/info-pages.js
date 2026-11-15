@@ -7,6 +7,7 @@
       navHowToUse: "Sådan bruger du appen",
       navAbout: "Om appen",
       navChangelog: "Versionshistorik",
+      navContact: "Kontakt",
       navigation: "Hovednavigation",
       language: "Sprog",
       skip: "Spring til indhold",
@@ -17,6 +18,7 @@
       navHowToUse: "How to Use",
       navAbout: "About the App",
       navChangelog: "Version / Updates",
+      navContact: "Contact",
       navigation: "Main navigation",
       language: "Language",
       skip: "Skip to content",
@@ -26,6 +28,7 @@
     about: "navAbout",
     "how-to-use": "navHowToUse",
     changelog: "navChangelog",
+    contact: "navContact",
   };
   let language = "da";
   try {
@@ -38,7 +41,7 @@
   function applyLanguage() {
     const text = labels[language];
     document.documentElement.lang = language;
-    for (const key of ["appTitle", "navSearch", "navHowToUse", "navAbout", "navChangelog"]) {
+    for (const key of ["appTitle", "navSearch", "navHowToUse", "navAbout", "navChangelog", "navContact"]) {
       const element = document.getElementById(key);
       (element.querySelector("[data-nav-label]") || element).textContent = text[key];
     }

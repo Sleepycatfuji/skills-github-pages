@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt · SalmeNøglen</title>
+    <meta name="description" content="Kontakt Kim Minamoto med spørgsmål, feedback eller rettelser til SalmeNøglen." />
+    <meta name="theme-color" content="#991B1B" />
+    <link rel="stylesheet" href="../assets/site.css" />
+    <link rel="stylesheet" href="../assets/info-pages.css" />
+    <script src="../assets/site.js" defer></script>
+    <script src="../assets/info-pages.js" defer></script>
+  </head>
+  <body class="information-page" data-info-page="contact">
+    <a class="skip-link" href="#main-content">Spring til indhold</a>
+    <header class="site-header">
+      <a class="app-brand" href="../" id="appTitle">SalmeNøglen</a>
+      <div class="toolbar-group" role="group" aria-label="Sprog">
+        <button id="langDaButton" type="button" aria-label="Dansk" aria-pressed="true">DA</button>
+        <button id="langEnButton" type="button" aria-label="English" aria-pressed="false">EN</button>
+      </div>
+      <div class="navigation-wrap">
+        <button id="menuToggle" class="menu-toggle" type="button" aria-controls="mainNavigation" aria-expanded="false" aria-label="Åbn navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18" /></svg>
+        </button>
+        <nav id="mainNavigation" class="site-nav" aria-label="Hovednavigation" hidden>
+          <a id="navSearch" href="../"><span data-nav-label>Forside</span></a>
+          <a id="navHowToUse" href="../how-to-use/"><span data-nav-label>Sådan bruger du appen</span></a>
+          <a id="navAbout" href="../about/"><span data-nav-label>Om appen</span></a>
+          <a id="navChangelog" href="../changelog/"><span data-nav-label>Versionshistorik</span></a>
+          <a id="navContact" href="../contact/" aria-current="page"><span data-nav-label>Kontakt</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="information-body">
+      <h1 id="pageTitle">Kontakt</h1>
+      <div lang="da" data-info-language="da">
+        <p>Har du et spørgsmål, en idé eller fundet en fejl i SalmeNøglen? Jeg vil gerne høre fra dig.</p>
+        <section class="contact-card" aria-labelledby="contactHeadingDa">
+          <h2 id="contactHeadingDa">Skriv til Kim</h2>
+          <p>Kim Minamoto · Udvikler af SalmeNøglen</p>
+          <a class="contact-email" href="mailto:kim.minamoto2026@gmail.com?subject=SalmeN%C3%B8glen">kim.minamoto2026@gmail.com</a>
+          <p class="muted">Linket åbner dit e-mailprogram. Du kan også kopiere adressen og bruge din sædvanlige mailtjeneste.</p>
+        </section>
+        <h2>Har du fundet en forkert henvisning?</h2>
+        <p>Send gerne følgende oplysninger, så Kim og Jonas lettere kan undersøge det:</p>
+        <ul>
+          <li>Salmenummer og titel.</li>
+          <li>Det koralnummer eller den oplysning, appen viser, og hvad du mener er korrekt.</li>
+          <li>Den kilde, du sammenligner med — for eksempel bogens udgave og sidetal eller et link.</li>
+        </ul>
+        <p>Ved tekniske problemer må du også gerne skrive, hvilken enhed og browser du bruger, og hvad du gjorde, før fejlen opstod.</p>
+        <p class="muted">Du behøver ikke sende dine personlige noter. De er gemt lokalt i din browser og følger ikke automatisk med din e-mail.</p>
+        <p>Har du brug for hjælp til appen? Se <a href="../how-to-use/">Sådan bruger du appen</a>.</p>
+      </div>
+      <div lang="en" data-info-language="en" hidden>
+        <p>Have a question, an idea or spotted an error in SalmeNøglen? I would love to hear from you.</p>
+        <section class="contact-card" aria-labelledby="contactHeadingEn">
+          <h2 id="contactHeadingEn">Email Kim</h2>
+          <p>Kim Minamoto · Creator of SalmeNøglen</p>
+          <a class="contact-email" href="mailto:kim.minamoto2026@gmail.com?subject=SalmeN%C3%B8glen">kim.minamoto2026@gmail.com</a>
+          <p class="muted">The link opens your email app. You can also copy the address and use your usual email service.</p>
+        </section>
+        <h2>Found an incorrect reference?</h2>
+        <p>Please include the following details to help Kim and Jonas look into it:</p>
+        <ul>
+          <li>The hymn number and title.</li>
+          <li>The chorale number or information shown in the app, and what you believe is correct.</li>
+          <li>The source you are comparing it with — for example, the book edition and page number, or a link.</li>
+        </ul>
+        <p>For technical problems, please also mention your device and browser, and what you were doing before the problem occurred.</p>
+        <p class="muted">You do not need to send your personal notes. They are stored locally in your browser and are not automatically included in your email.</p>
+        <p>Need help using the app? Read <a href="../how-to-use/">How to Use</a>.</p>
+      </div>
+    </main>
+  </body>
+</html>
